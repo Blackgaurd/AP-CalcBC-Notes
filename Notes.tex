@@ -356,7 +356,7 @@
             \newline
             Examples:
             \begin{gather*}
-                \text{Derivative of $\sin{(x)}$ at $x=2$} \\
+                \text{Derivative of $\sin(x)$ at $x=2$} \\
                 \lim_{h \to 0} \frac{f(2+h) - \sin{(2)}}{h} \\
                 \text{OR} \\
                 \lim_{x \to 2} \frac{\sin{x} - \sin{(2)}}{x-2}
@@ -1078,7 +1078,7 @@
                 * * * * *
             \end{center}
             \textbf{Example of writing definite integral as Riemann sum:}
-            \[ \int_{\pi}^{2 \pi} \sin{(x)} \, dx \]
+            \[ \int_{\pi}^{2 \pi} \sin(x) \, dx \]
             First find $\Delta x$:
             \begin{align*}
                 \Delta x &= \frac{b-a}{n} \\[6pt]
@@ -1094,7 +1094,7 @@
             Putting everything together:
             \begin{align*}
                 \int_{a}^{b} f(x) \, dx &= \lim_{n \to \infty} \sum_{i=1}^{n} \Delta x \cdot f(x_i) \\[6pt]
-                \int_{\pi}^{2 \pi} \sin{(x)} \, dx &= \lim_{n \to \infty} \sum_{i=1}^{n} \frac{\pi}{n} \cdot \cos{\left( \pi + \frac{\pi i}{n} \right)}.
+                \int_{\pi}^{2 \pi} \sin(x) \, dx &= \lim_{n \to \infty} \sum_{i=1}^{n} \frac{\pi}{n} \cdot \cos{\left( \pi + \frac{\pi i}{n} \right)}.
             \end{align*}
 
         \subsection{The Fundamental Theorem of Calculus}
@@ -1106,15 +1106,110 @@
             \[ \int_{a}^{b} f(x) \, dx = F(b) - F(a) \]
 
         \subsection{Antiderivatives}
-            Antiderivatives are how to get from $f'(x)$ back to $f(x)$.
-            \subsubsection{Basic Rules}
+            Antiderivatives are how to get from $f'(x)$ back to $f(x)$. With any antiderivative rule, it can be differentiated and be back to its original function. The antiderivative symbol is just the interval symbol without the defined interval.
+            \\ It is important that we must add a constant (usually represented by $C$), to the end of all antiderivatives. This is because the derivative of \textit{any} constant is $0$. By adding a constant we can consider all possible antiderivatives. % this explanation kinda trash
+            \newline \newline
+            \textbf{Basic Rules:}
+            \subsubsection{Reverse Power Rule}
+                \[ \int x^n \, dx = \frac{x^{n+1}}{n+1} + C\]
+                \begin{align*}
+                    \int \sqrt[m]{x^n} \, dx &= \int x^{\frac{n}{m}} \, dx \\[6pt]
+                    &= \frac{x^{\frac{n}{m} + 1}}{\frac{n}{m} + 1} + C
+                \end{align*}
+                \newline
+                This would also apply to the antiderivative of a constant.
+                \begin{align*}
+                    \int A \, dx &= \int Ax^0 \, dx \\
+                    &= \frac{Ax^1}{1} + C\\[6pt]
+                    &= Ax + C
+                \end{align*}
+
+            \subsubsection{Reverse Power Rule Exception}
+                \[ \int \frac{1}{x} \, dx = \ln |x| + C\]
+
+            \subsubsection{Exponential Functions}
+                \[ \int e^x \, dx = e^x + C \]
+                \[ \int a^x \, dx = \frac{a^x}{\ln(a)} + C \]
+
+            \subsubsection{Trigonometric Functions}
+                \begin{align*}
+                    &\int \sin(x) \, dx = -\cos(x) + C \\[6pt]
+                    &\int \cos(x) \, dx = \sin(x) + C \\[6pt]
+                    &\int \sec^2(x) \, dx = \tan(x) + C \\[6pt]
+                    &\int \csc^2(x) \, dx = -\cot(x) + C \\[6pt]
+                    &\int \sec(x)\tan(x) \, dx = \sec(x) + C \\[6pt]
+                    &\int \csc(x)\cot(x) \, dx = -\csc(x) + C
+                \end{align*}
+
+            \subsubsection{Special Case Trigonometric Functions}
+                These integrals may look messy, but they actually are quite common on AP exams. It's useful to recognize these patterns to avoid unnecessary and tedious extra work.
+                \begin{gather*}
+                    \int \frac{1}{\sqrt{a^2 - x^2}} \, dx = \arcsin \left( \frac{x}{a} \right) + C \\[6pt]
+                    \int \frac{1}{a^2 + x^2} \, dx = \frac{1}{a} \arctan \left( \frac{x}{a} \right) + C
+                \end{gather*}
+
+            \subsubsection{Integration by Parts (Products)}
+                Integration by parts can be used to find the antiderivative of the product of functions. It can also be referred to as the reverse product rule, as it can be derived by rearranging the product rule.
+                \[ \int f(x) g'(x) \, dx = f(x) g(x) - \int f'(x) g(x) \, dx \]
+                For integration by parts to be the most useful, $f(x)$ should be a function that is easy to take the derivative of, and $g(x)$ should be a function that is easy to take the antiderivative of.
+                \newline \newline
+                For example, find the indefinite integral
+                \[ \int x \cos(x) \, dx. \]
+                Let $f(x) = x$ and $g'(x) = \cos(x)$. Next, plug everything in to the equation and solve:
+                \begin{align*}
+                    \int x \cos(x) \, dx &= x \sin(x) - \int 1 \cdot \sin(x) \, dx \\
+                    &= x \sin(x) - \left( -\cos(x) \right) + C \\
+                    &= x\sin(x) + \cos(x) + C.
+                \end{align*}
+                \newline
+                Another example of this method, find the indefinite integral
+                \[ \int \ln(x) \, dx. \]
+                Let $f(x) = \ln(x)$ and $g'(x) = 1$. Therefore, $f'(x) = \frac{1}{x}$ and $g(x) = x$. Plug everything into the equation and solve:
+                \begin{align*}
+                    \int \ln(x) \, dx &= \int \ln(x) \cdot 1 \, dx \\
+                    \int \ln(x) \cdot 1 \, dx &= \ln(x) \cdot x - \int \frac{1}{x} \cdot x \, dx \\[6pt]
+                    &= x \ln(x) - \int 1 \, dx \\
+                    &= x \ln(x) - x + C
+                \end{align*}
 
             \subsubsection{Substitution}
+                Integration using u-substitution is a very versatile method. In some ways, it can be referred to as the reverse chain rule. It can be used when one part of a function is the derivative of another. A good way to explain this method is through an example.
+                \newline \newline
+                Find the indefinite integral:
+                \[ \int 2x \cos(x^2) \, dx. \]
+                \newline
+                Notice that:
+                \[ \frac{d}{dx} x^2 = 2x. \]
+                We can apply u-substitution. Let $u = x^2$, then implicitly differentiate:
+                \begin{align*}
+                    u &= x^2 \\
+                    \frac{d}{dx} u &= \frac{d}{dx} x^2 \\[6pt]
+                    \frac{du}{dx} &= 2x \\[6pt]
+                    du &= 2x \, dx \quad \hyperlink{eq:usubex1}{*}
+                \end{align*}
+                \hypertarget{eq:usubex1}{*}Note that in this step, both sides were multiplied by $dx$. While this is usually unorthodox, it is allowed, and helps in this situation.
+                \newline \newline
+                Returning back to the original function, notice that:
+                \[ \int \cos(\underbrace{x^2}_{u}) \cdot \underbrace{2x \, dx}_{du}. \]
+                Now substitute and solve:
+                \begin{align*}
+                    \int \cos{u} \, du &= \sin{u} + C\\
+                    &= \sin(x^2) + C
+                \end{align*}
+                \begin{center}
+                    * * * * *
+                \end{center}
+                Sometimes, we have to multiply the integral by an extra value to make u-substitution work. For example, find the definite integral:
+                \[ \int \sin(3x+5) \, dx. \]
+                Let $u = 3x+5$, therefore $du = 3 \, dx$. To balance out the $3$ in $du$, we must divide the integral by $3$.
+                \begin{align*}
+                    \frac{1}{3} \int \sin{u} \, du &= \frac{1}{3} \left( -\cos(u) \right) + C \\[6pt]
+                    &= -\frac{\cos(3x+5)}{3} + C
+                \end{align*}
 
         \subsection{Solving Definite Integrals}
 
         \subsection{Solving Indefinite Integrals}
-
 
         \subsection{Integration Techniques}
 
