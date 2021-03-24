@@ -1105,11 +1105,9 @@
             $F$ is the antiderivative of $f$, or in other words, the derivative of $F$ is $f$. This can then tell us how to solve for the area under a curve using antidifferentiation.
             \[ \int_{a}^{b} f(x) \, dx = F(b) - F(a) \]
 
-        \subsection{Antiderivatives}
-            Antiderivatives are how to get from $f'(x)$ back to $f(x)$. With any antiderivative rule, it can be differentiated and be back to its original function. The antiderivative symbol is just the interval symbol without the defined interval.
-            \\ It is important that we must add a constant (usually represented by $C$), to the end of all antiderivatives. This is because the derivative of \textit{any} constant is $0$. By adding a constant we can consider all possible antiderivatives. % this explanation kinda trash
-            \newline \newline
-            \textbf{Basic Rules:}
+        \subsection{Antiderivatives and Integration Techniques}
+            Antiderivatives are how to get from $f'(x)$ back to $f(x)$. With any antiderivative rule, it can be differentiated and be back to its original function. The antiderivative symbol is just the interval symbol without the defined interval. (Also known as indefinite integrals.)
+            \\ It is important that we must add a constant (usually represented by $C$), to the end of all antiderivatives. This is because the derivative of \textit{any} constant is $0$. By adding a constant we can consider all possible antiderivatives. % this explanation for C kinda trash
             \subsubsection{Reverse Power Rule}
                 \[ \int x^n \, dx = \frac{x^{n+1}}{n+1} + C\]
                 \begin{align*}
@@ -1142,6 +1140,7 @@
                 \end{align*}
 
             \subsubsection{Special Case Trigonometric Functions}
+            \label{sec:arctanintegral}
                 These integrals may look messy, but they actually are quite common on AP exams. It's useful to recognize these patterns to avoid unnecessary and tedious extra work.
                 \begin{gather*}
                     \int \frac{1}{\sqrt{a^2 - x^2}} \, dx = \arcsin \left( \frac{x}{a} \right) + C \\[6pt]
@@ -1172,7 +1171,7 @@
                     &= x \ln(x) - x + C
                 \end{align*}
 
-            \subsubsection{Substitution}
+            \subsubsection{u-Substitution}
                 Integration using u-substitution is a very versatile method. In some ways, it can be referred to as the reverse chain rule. It can be used when one part of a function is the derivative of another. A good way to explain this method is through an example.
                 \newline \newline
                 Find the indefinite integral:
@@ -1207,13 +1206,99 @@
                     &= -\frac{\cos(3x+5)}{3} + C
                 \end{align*}
 
+            % are these even that necessary
+            \subsubsection{Partial Fractions}
+                Basically breaking up a fraction into parts to make it easier to antidifferentiate. It is best to explain through an example:
+                \newline \newline
+                Find the indefinite integral:
+                \[ \int \frac{2x+3}{(x+1)(x+2)} \, dx. \]
+                The fraction can be split up into two parts:
+                \begin{align*}
+                    \frac{2x+3}{(x+1)(x+2)} &= \frac{A}{x+1} + \frac{B}{x+2} \\[6pt]
+                    &= \frac{A(x+2) + B(x+1)}{(x+1)(x+2)}.
+                \end{align*}
+                Next, solve for $A$ and $B$:
+                \begin{align*}
+                    2x+3 &= A(x+2) + B(x+1) \\
+                    &= Ax + 2A + Bx + B \\
+                    &= (A+B)x + 2A + B
+                \end{align*}
+                This can be broken down into two equations:
+                \[ \begin{cases}
+                    A+B = 2 \\
+                    2A + B = 3
+                \end{cases} \]
+                \[ \therefore A = 1, \, B = 1 \]
+                Returning back to the original problem,
+                \begin{align*}
+                    \int \frac{2x+3}{(x+1)(x+2)} \, dx &= \int \frac{1}{x+1} + \frac{1}{x+2} \, dx \\[6pt]
+                    &= \int \frac{1}{x+1} \, dx + \int \frac{1}{x+2} \, dx \\
+                    &= \ln|x+1| + \ln|x+2|
+                \end{align*}
+
+            \subsubsection{Other Integration Methods}
+                Some other methods for integration include:
+                \begin{itemize}
+                    \item \textbf{Long division}, when encountering a fraction with an equal degree numerator and denominator, just divide. This is the most useful when other methods like u-substitution does not work. For example,
+                    \[ \frac{2x+7}{x+3} = 2 + \frac{1}{x+3}. \]
+                    \item \textbf{Completing the square}, when encountering a function that may seem difficult to integrate. By completing the square, we can hopefully rearrange the function to be one that follows a pattern. For example, find the definite integral:
+                    \[ \int \frac{1}{6x^2+36x+78} \, dx. \]
+                    First completing the square in the denominator:
+                    \begin{align*}
+                        \frac{1}{6x^2+36x+78} &= \frac{1}{6} \cdot \frac{1}{x^2+6x+13} \\[6pt]
+                        &= \frac{1}{6} \cdot \frac{1}{(x+3)^2 + 4}
+                    \end{align*}
+                    Notice that this function now resembles the function that integrates into an $\arctan$ (\hyperref[sec:arctanintegral]{see here}).
+                    \begin{align*}
+                        \int \frac{1}{6x^2+36x+78} \, dx &= \int \frac{1}{6} \cdot \frac{1}{(x+3)^2 + 4} \, dx \\[6pt]
+                        &= \frac{1}{6} \int \frac{1}{(x+3)^2 + 2^2} \, dx\\[6pt]
+                        &= \frac{1}{6} \cdot \frac{1}{2} \arctan \left( \frac{x+3}{2} \right) \\[6pt]
+                        &= \frac{1}{12} \arctan \left( \frac{x+3}{2} \right)
+                    \end{align*}
+                \end{itemize}
+
         \subsection{Solving Definite Integrals}
+            Solving definite integrals involves just a few steps. First, antidifferentiate, then find the difference between the upper bound evaluated at the function and the lower bound evaluated at the function.
+            \newline \newline
+            \textbf{Example:}
+            \begin{align*}
+                \int_{27}^{-1} -8 \sqrt[3]{x} \, dx &= \left[ -6 \sqrt[3]{x^4} \right]_{27}^{-1} \\
+                &= -6 \sqrt[3]{(-1)^4} - \left( -6 \sqrt[3]{(27)^4} \right) \\
+                &= -6 + 486 \\
+                &= 480
+            \end{align*}
 
-        \subsection{Solving Indefinite Integrals}
-
-        \subsection{Integration Techniques}
-
-        \subsection{Improper Integrals}
+        \subsection{Determining Improper Integrals}
+            Improper integrals are definite integrals that do not cover a finite area.
+            \newline \newline
+            One type of improper integral occurs when at least one of the endpoints is infinity. For example:
+            \[ \int_{1}^{\infty} \sqrt{x} \, dx \quad OR \quad \lim_{a \to \infty} \int_{1}^{a} \sqrt{x} \, dx. \]
+            \newline
+            The other type of improper integral occurs when the function is undefined at at least one of the endpoints (asymptote). For example:
+            \[ \int_{0}^{1} \frac{1}{x} \, dx \quad OR \quad \lim_{a \to 0} \int_{a}^{1} \frac{1}{x} \, dx. \]
+            \newline
+            When limits evaluate to a finite value, they \textbf{converge}. If they evaluate to infinity, they \textbf{diverge}.
+            \newline \newline
+            Solving improper integrals is very similar to solving definite integrals, just this time we have to use limits. Examples:
+            \begin{itemize}
+                \item Endpoint at infinity.
+                \begin{align*}
+                    \int_{-1}^{\infty} \frac{1}{x^2} \, dx &= \lim_{a \to \infty} \int_{-1}^{a} \frac{1}{x^2} \, dx \\[6pt]
+                    &= \lim_{a \to \infty} \left[ -\frac{1}{x} \right]_{-1}^{a} \\[6pt]
+                    &= \lim_{a \to \infty} \left( -\frac{1}{-1} - \left( -\frac{1}{a} \right) \right) \\[6pt]
+                    &= \lim_{a \to \infty} \left( 1 + \frac{1}{a} \right) \\[6pt]
+                    &= 1+0 \\
+                    &= 1
+                \end{align*}
+                \item Undefined endpoint.
+                \begin{align*}
+                    \int_{0}^{5} \frac{1}{\sqrt{x}} \, dx &= \lim_{a \to 0} \int_{a}^{5} \frac{1}{\sqrt{x}} \, dx \\[6pt]
+                    &= \lim_{a \to 0} \left[ 2\sqrt{x} \right]_{a}^{5} \\
+                    &= \lim_{a \to 0} \left( 2\sqrt{5} - 2\sqrt{a} \right) \\
+                    &= 2\sqrt{5} - 0 \\
+                    &= 2\sqrt{5}
+                \end{align*}
+            \end{itemize}
 
     \section{Differential Equations (6\% - 9\%)}
 
