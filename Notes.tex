@@ -1267,6 +1267,9 @@
                 &= -6 + 486 \\
                 &= 480
             \end{align*}
+            \newline
+            If the two endpoints of the interval are the same, then the value of the definite integral would be $0$:
+            \[ \int_{a}^{a} f(x) \, dx = 0. \]
 
         \subsection{Determining Improper Integrals}
             Improper integrals are definite integrals that do not cover a finite area.
@@ -1301,6 +1304,54 @@
             \end{itemize}
 
     \section{Differential Equations (6\% - 9\%)}
+        Differential equations involve functions and their derivatives. Unlike algebraic equations who evaluate to numbers or values, differential equations evaluate to a function or class (several) functions.
+
+        \subsection{Modelling Differential Equations}
+            When interpreting words to turn into a differential equations, there are a few keywords that should be looked out for. Listed below are some of the more common ones (examples from Khan Academy):
+            \begin{itemize}
+                \item \textbf{Proportional}: means that the rate of change is equal to some constant $k$ multiplied by what the rate of change is proportional to.
+                \newline \newline
+                A habitat of prairie dogs can support $m$ dogs at most. The habitat's population, $p$, grows proportionally to the product of the current population and the difference between $m$ and $p$.
+                \[ \frac{dp}{dt} = kp(m-p) \]
+
+                \item \textbf{Shrinks, decays, melts, decreases, etc}: any word that suggests something is getting smaller, the rate of change would be equal to some constant $k$ multiplied by what the rate of change is proportional to, but negative.
+                \newline \newline
+                A radioactive material decays at a rate of change proportional to the current amount, $Q$, of the material.
+                \[ \frac{dQ}{dt} = -kQ \]
+
+                \item \textbf{Inversely proportional}: means that the rate of change is equal to the inverse of some constant $k$ multiplied by what the rate of change is proportional to.
+                \newline \newline
+                A chemical is diluted out of a tank by pumping pure water into the tank and pumping the existing solution out of it, so the volume at any time $t$ is $20+2t$. The amount $z$ of chemical in the tank decreases at a rate proportional to $z$ and inversely proportional to the volume of solution in the tank.
+                \[ \frac{dz}{dt} = -\frac{kz}{20-2t} \]
+
+                \item \textbf{Fraction of ... }: usually means that the rate of change is equal to some constant $k$ multiplied by one minus what the rate of change is proportional to.
+                \newline \newline
+                In one kind of chemical reaction, unconverted reactants change into converted reactants. The fraction $a$ of reactants that have been converted increases at a rate proportional to the product of the fraction of converted reactants and the fraction of unconverted reactants.
+                \[ \frac{da}{dt} = ka(1-a) \]
+            \end{itemize}
+
+        \subsection{Slope Fields}
+            Slope fields area away to verify a class of answers to differential equations that are solved explicitly. When the equation is not solvable explicitly, slope fields provide a way to solve them graphically. Slope fields can show all the different slopes of an equation at all different points on a plane.
+            \\ For example, the slope field for the differential equation $\frac{dy}{dx} = \frac{x-2}{y}$ would look like \hyperref[fig:slopefield1]{this}:
+            \begin{figure}[H]
+                \begin{center}
+                    \includegraphics{fig13.JPG}
+                    \caption{\href{https://www.khanacademy.org/math/ap-calculus-bc/bc-differential-equations-new}{source}}
+                    \label{fig:slopefield1}
+                \end{center}
+            \end{figure}
+            We can confirm that this slope field belongs to the above equation by testing a few points. For example:
+            \begin{itemize}
+                \item At $(0, 0)$, $\frac{dy}{dx} = \frac{-2}{0}$, or undefined. This is seen in the slope field by a vertical line, matching the undefined slope.
+                \item At $(2, 2)$, $\frac{dy}{dx} = \frac{0}{2}$. This is seen in the slope field by a horizontal line, matching the slope of $0$.
+                \item At $(-6, 5)$, $\frac{dy}{dx} = \frac{-8}{5}$. This is seen in the slope field by a line with a negative slope. (It isn't necessary to confirm the slope 100\%, it is sufficient to use an approximation.)
+            \end{itemize}
+
+        \subsection{Approximation Using Euler's Method}
+
+        \subsection{Solving Separable Differential Equations}
+
+        \subsection{Exponential and Logistic Models}
 
     \section{Applications of Integration (6\% - 9\%)}
 
