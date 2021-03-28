@@ -1,4 +1,5 @@
 % Learn Latex: https://www.overleaf.com/learn/latex/Learn_LaTeX_in_30_minutes
+% using empty line for new paragraph instead of \par
 
 \documentclass[12pt]{article}
 \usepackage[utf8]{inputenc}
@@ -26,23 +27,23 @@
 \begin{document}
     \maketitle
     \vfill
-    \centering \textit{Sections based off of
-        \href{https://www.khanacademy.org/math/ap-calculus-bc}{Khan Academy} units.
-        \\ Formatting may not be the best, this is just a study tool. (Still a work in progress.)}
-        \\ \textcopyright 2021 Bryan Deng
+    \begin{center}
+        \textit{Sections based off of College Board units.
+        \newline
+        Formatting may not be the best, this is just a study tool. (Still a work in progress.)}
+    \end{center}
     \newpage
 
     % table of contents followed by horizontal line
-    \raggedright
     \tableofcontents
     \par\noindent\rule{\textwidth}{0.4pt} % horizontal line
     \newpage
 
     \addcontentsline{toc}{section}{Introduction}
     \section*{Introduction}
-        The percentages beside the section titles are how much of the AP Calculus BC exam score will be of that topic. (Percentages based off of College Board website.)
-        \newline \newline
-        \textbf{Resources:}
+        \indent The percentages beside the section titles are how much of the AP Calculus BC exam score will be of that topic. (Based off of College Board website.)
+
+        \noindent \textbf{Resources:}
         \begin{itemize}
             \item \href{https://apstudents.collegeboard.org/courses/ap-calculus-bc}{College Board Website}
             \item \href{https://www.khanacademy.org/math/ap-calculus-bc}{Khan Academy}
@@ -50,46 +51,39 @@
             \item \href{https://www.math.ucdavis.edu/~kouba/CalcOneDIRECTORY/}{Practice Questions + Solutions}
             \item \href{https://www.chelmsford.k12.ma.us/site/handlers/filedownload.ashx?moduleinstanceid=2496&dataid=7289&FileName=AP%20Calculus%20BC%20Syllabus.pdf}{BC Exam Syllabus (Not the most organized but good enough)}
         \end{itemize}
-        I have tried my best to provide links to all sources.
 
-    \raggedright
     \section{Limits and Continuity (4\% - 7\%)}
     \par\noindent\rule{\textwidth}{0.1pt}
-        The limit is when a given value approaches, or gets \textit{really close} (infinitely) to another value. The standard notation for a limit:
+        \indent The limit is when a given value approaches, or gets \textit{really close} (infinitely) to another value. The standard notation for a limit:
         \[ \lim_{x \to c} f(x) \]
-        when $x$ can approach $c$ from either the left ($-$) or the right ($+$). By adding a sign superscript to the $c$, it means the $x$ can only approach from that direction:
+        represents when $x$ can approach $c$ from either the left ($-$) or the right ($+$). By adding a sign superscript to the $c$, it means the $x$ can only approach from that direction:
         \[ \lim_{x \to c^+} f(x) \]
-        \centering{
-        \textit{Right hand limit}, $x$ approaches $c$
-        from values greater than $c$.
+        \begin{center}
+            \textit{Right hand limit}, $x$ approaches $c$ from values greater than $c$.
+        \end{center}
         \[ \lim_{x \to c^-} f(x) \]
-        \textit{Left hand limit}, $x$ approaches $c$
-        from values greater than $c$.
-        }
+        \begin{center}
+            \textit{Left hand limit}, $x$ approaches $c$ from values greater than $c$.
+        \end{center}
 
-        \raggedright
         \subsection{Limits to Infinity}
-            If a degree (biggest exponent) of a polynomial is greater than or equal to $1$, its limit as $x$ approaches $\pm\infty$ will also be $\pm\infty$. This depends on the sign of the leading coefficient and the degree of the polynomial.
-            \\ Example:
+            \par If a degree (biggest exponent) of a polynomial is greater than or equal to $1$, its limit as $x$ approaches $\pm\infty$ will also be $\pm\infty$. This depends on the sign of the leading coefficient and the degree of the polynomial.
+
+            \noindent Example:
             \begin{align*}
                 &f(x) = 3x^3 - 7x^2 + 2 \\
                 \lim_{x \to \infty} &f(x) = \infty \\
                 \lim_{x \to -\infty} &f(x) = -\infty
             \end{align*}
+
             The degree of $f(x)$ is $3$, and the leading coefficient it positive. The graph goes down to up from left to right.
-            \newline \newline
+
             With Fractions, just find whether the highest degree is in the numerator or the denominator. Numerator means $\infty$, denominator means $0$.
 
-            \subsection{Asymptotes}
-            \begin{wrapfigure}[11]{r}{0.5\textwidth}
-                \begin{center}
-                    \frame{\includegraphics[scale=0.4]{fig1.JPG}}
-                \end{center}
-                \caption{$f(x) = \frac{2x-4}{x-3}$}
-            \end{wrapfigure}
-
+        \subsection{Asymptotes}
             Sometimes functions can have asymptotes, either vertical or horizontal. In the case of vertical asymptotes, the limit would be \textit{unbounded} as it approaches that $x$ value.
-            \\ Example (Figure 1):
+
+            \noindent Example (\hyperref[fig:limasymptote]{Figure 1}):
             \begin{align*}
                 &f(x) = \frac{2x-4}{x-3} \\
                 \lim_{x \to 3} &f(x) = \text{undef} \\
@@ -98,43 +92,44 @@
             \end{align*}
 
             As with horizontal asymptotes, as $x$ approaches $\pm \infty$, the limit would actually approach the horizontal asymptote. Although the $y$-value never actually touches the asymptote, the limit gets really close to the value, from both below and above.
-            \\ Example: (also Figure 1):
+
+            \noindent Example: (also Figure 1):
             \begin{align*}
                 &f(x) = \frac{2x-4}{x-3} \\
                 \lim_{x \to \infty} &f(x) = 2 \\
                 \lim_{x \to -\infty} &f(x) = 2
             \end{align*}
 
-        \subsection{Limit Properties}
-            The limits of combined functions can be found by finding the limit of each of the individual functions, then applying the operations. All the following examples will be based on Figure 2.
             \begin{figure}[H]
                 \begin{center}
-                    \frame{\includegraphics[scale=0.5]{fig2.JPG}}
-                    \caption[Figure 2]{}
+                    \frame{\includegraphics[scale=0.4]{fig1.JPG}}
+                    \caption{$f(x) = \frac{2x-4}{x-3}$}
+                    \label{fig:limasymptote}
                 \end{center}
             \end{figure}
+
+        \subsection{Limit Properties}
+            The limits of combined functions can be found by finding the limit of each of the individual functions, then applying the operations. All the following examples will be based on \hyperref[fig:limasymptote]{Figure 2}.
+
             \begin{itemize}
                 \item \textbf{Addition/Subtraction:}
-                    \newline
+
                     When taking the limit of the sum or difference of multiple functions, it's the same thing as taking the sum or difference of each of the separate limits or each function.
-                    \newline
-                    \noindent\begin{minipage}{0.5\linewidth}
-                        \begin{align*}
-                            &\lim_{x \to 2} \left[ f(x) + g(x) \right] \\
-                            &= \lim_{x \to 2} f(x) + \lim_{x \to 2} g(x) \\
-                            &= 0 + 1 \\
-                            &= 1
-                        \end{align*}
-                    \end{minipage}%
-                    \begin{minipage}{0.5\linewidth}
-                        \begin{align*}
-                            &\lim_{x \to 2} \left[ g(x) - f(x) \right] \\
-                            &= \lim_{x \to 2} g(x) - \lim_{x \to 2} f(x) \\
-                            &= 1 - 0 \\
-                            &= 1
-                        \end{align*}
-                    \end{minipage}
-                    \newline
+
+                    \begin{align*}
+                        &\lim_{x \to 2} \left[ f(x) + g(x) \right] \\
+                        &= \lim_{x \to 2} f(x) + \lim_{x \to 2} g(x) \\
+                        &= 0 + 1 \\
+                        &= 1
+                    \end{align*}
+
+                    \begin{align*}
+                        &\lim_{x \to 2} \left[ g(x) - f(x) \right] \\
+                        &= \lim_{x \to 2} g(x) - \lim_{x \to 2} f(x) \\
+                        &= 1 - 0 \\
+                        &= 1
+                    \end{align*}
+
                     \begin{align*}
                         &\lim_{x \to 4} \left[ f(x) + g(x) \right] \\
                         &= \lim_{x \to 4} f(x) + \lim_{x \to 4} g(x) \\
@@ -142,52 +137,53 @@
                         &= \text{undef}
                     \end{align*}
 
-                    Note that in the above equation, because the right and left side limits of $f(x)$ are not the same, its limit is \textit{undefined}. If just one of the functions has an undefined limit, the combined limit would also be undefined.
-                    \\ \textbf{The extended Sum Rule:}
+                    \indent Note that in the above equation, because the right and left side limits of $f(x)$ are not the same, its limit is \textit{undefined}. If just one of the functions has an undefined limit, the combined limit would also be undefined.
+
+                    \noindent\textbf{The extended Sum Rule:}
                     \begin{equation*}
                         \lim_{x \to c} \left[ f_1(x) + \cdots + f_n(x) \right]
                         = \lim_{x \to c} f_1(x) + \cdots + \lim_{x \to c} f_n(x).
                     \end{equation*}
-                    \newline
+                    \smallskip
 
                 \item \textbf{Multiplication:}
-                    \newline
+
                     Multiplication of the limits of functions is quite straightforward.
+
                     \begin{align*}
                         &\lim_{x \to 2} \left[ f(x) \cdot g(x) \right] \\
                         &= \lim_{x \to 2} f(x) \cdot \lim_{x \to 2} g(x) \\
                         &= 0 \cdot 2 \\
                         &= 0
                     \end{align*}
-                    \newline
-                    The same exception applies when one of the limits is \textit{undefined}. This just makes the entire combined limit undefined.
-                    \\ \textbf{The extended Product Rule:}
+
+                    \indent The same exception applies when one of the limits is \textit{undefined}. This just makes the entire combined limit undefined.
+
+                    \noindent\textbf{The extended Product Rule:}
                     \begin{equation*}
                         \lim_{x \to c} \left[ f_1(x) f_2(x) \cdots f_n(x) \right]
                         = \lim_{x \to c} f_1(x) \cdot \lim_{x \to c} f_2(x)
                         \cdots f_n(x).
                     \end{equation*}
-                    \newline
+                    \smallskip
 
                 \item \textbf{Division:}
-                    \newline
+
                     Division is once again basically the same as the other basic operations. There's only one exception, when the denominator is $0$.
-                        \begin{align*}
-                            &\lim_{x \to 2} \frac{g(x)}{f(x)} \\
-                            &= \frac{\lim_{x \to 2} g(x)}{\lim_{x \to 2} f(x)} \\
-                            &= \frac{1}{0} \\
-                            &= \text{undef}
-                        \end{align*}
-                    \\ \textbf{General quotient rule:}
-                    \begin{equation*}
-                        \lim_{x \to c} \frac{f(x)}{g(x)}
-                        = \frac{\lim_{x \to c} f(x)}{\lim_{x \to c} g(x)},
-                        \quad \textrm{iff} \quad \lim_{x \to c} g(x) \ne 0
-                    \end{equation*}
-                    \newline
+
+                    \begin{align*}
+                        &\lim_{x \to 2} \frac{g(x)}{f(x)} \\
+                        &= \frac{\lim_{x \to 2} g(x)}{\lim_{x \to 2} f(x)} \\
+                        &= \frac{1}{0} \\
+                        &= \text{undef}
+                    \end{align*}
+
+                    \noindent\textbf{General quotient rule:}
+                    \[ \lim_{x \to c} \frac{f(x)}{g(x)} = \frac{\lim_{x \to c} f(x)}{\lim_{x \to c} g(x)}, \quad \textrm{iff} \quad \lim_{x \to c} g(x) \ne 0 \]
+                    \smallskip
 
                 \item \textbf{Composite Functions:}
-                    \newline
+
                     When working with limits of composite functions, it's the same thing as taking the limit of the inner function, then just evaluating the outer function normally.
                     \begin{align*}
                         &\lim_{x \to 1} f\left(g(x)\right) \\
@@ -195,41 +191,44 @@
                         &= f(2) \\
                         &= 0
                     \end{align*}
-                    \newline
+
                     If the limit of the inner function is undefined, the entire equation would also be undefined.
-                    \newline
                     \begin{align*}
                         &\lim_{x \to 4} g\left( f(x) \right) \\
                         &= g\left( \lim_{x \to 4} f(x) \right) \\
                         &= g(\text{undef}) \\
                         &= \text{undef}
                     \end{align*}
+                    \smallskip
+
                 \item \textbf{Other Theorems:}
-                    \newline
-                    Given that $\lim f(x)$ and $\lim g(x)$ are both finite
-                    for all numbers, and $C$ is a constant:
-                    \newline
-                    \noindent \begin{minipage}{0.5\linewidth}
-                        \[ \lim k f(x) = k \lim f(x) \]
-                    \end{minipage}%
-                    \begin{minipage}{0.5\linewidth}
-                        \[ \lim_{x \to a} C = C \]
-                    \end{minipage}
+
+                    Given that $\lim f(x)$ and $\lim g(x)$ are both finite for all numbers, and $C$ is a constant:
+                    \[ \lim k f(x) = k \lim f(x) \]
+                    \[ \lim_{x \to a} C = C \]
+                    \smallskip
             \end{itemize}
 
+            \begin{figure}[H]
+                \begin{center}
+                    \frame{\includegraphics[scale=0.5]{fig2.JPG}}
+                    \caption[Figure 2]{}
+                    \label{fig:limproperties}
+                \end{center}
+            \end{figure}
+
         \subsection{Solving Limits}
-            The first thing to always try when solving limits is \textbf{direct substitution}.
-            If this does not work (undefined limit, 0 as denominator, etc.), then algebraic manipulation (factoring) is the next step.
-            \newline
+            The first thing to always try when solving limits is \textbf{direct substitution}. If this does not work (undefined limit, 0 as denominator, etc.), then algebraic manipulation (factoring) is the next step.
+
             \begin{align*}
                 &\lim_{x \to 2} \frac{x^4 + 3x^3 - 10x^2}{x^2 - 2x} \\[6pt]
                 &= \lim_{x \to 2} \frac{x^2\left[ (x+5)(x-2) \right]}{x(x-2)} \\
                 &= \lim_{x \to 2} x(x+5) \\
                 &= 14
             \end{align*}
-            \newline
-            When encountering radicals, conjugates can be used.
-            \newline
+
+            \noindent When encountering radicals, conjugates can be used.
+
             \begin{align*}
                 &\lim_{x \to -4} \frac{x+4}{\sqrt{3x+13}-1} \\[6pt]
                 &= \lim_{x \to -4} \frac{x+4}{\sqrt{3x+13}-1} \cdot \frac{\sqrt{3x+13}+1}{\sqrt{3x+13}+1} \\[6pt]
@@ -238,9 +237,9 @@
                 &= \lim_{x \to -4} \frac{\sqrt{3x+13}+1}{3} \\[6pt]
                 &= \frac{2}{3}
             \end{align*}
-            \newline
-            When dealing with trigonometric equations, use trig identities (if direct substitution does not work).
-            \newline
+
+            \noindent When dealing with trigonometric equations, use trig identities (if direct substitution does not work).
+
             \begin{align*}
                 &\lim_{x \to \frac{\pi}{2}} \frac{\cot^2(x)}{1-\sin(x)} \\[6pt]
                 &= \lim_{x \to \frac{\pi}{2}} \frac{\cos^2(x)}{\left( \sin^2(x) \right)\left(1-\sin(x)\right)} \\[6pt]
@@ -249,31 +248,34 @@
                 &= \lim_{x \to \frac{\pi}{2}} \frac{1+\sin(x)}{\sin^2(x)} \text{, for } x \ne (2k+1)\frac{\pi}{2}\\[6pt]
                 &= 2
             \end{align*}
-            \newline
-            However, functions can not always be factored, so in that case they will just be undefined.
-            \newline
+
+            \noindent However, functions can not always be factored, so in that case they will just be undefined.
+
             \begin{align*}
                 &\lim_{x \to 1} \frac{2x}{x^2 - 7x + 6} \\[6pt]
                 &= \lim_{x \to 1} \frac{2x}{(x-6)(x-1)} \\
                 &= \frac{2}{0} \\
                 &= \text{undef}
             \end{align*}
-            \newline
+
             The different results achievable from direct substitution can mean different things. $\frac{k}{0}$ means that the limit does not exist, probably an asymptote. $\frac{0}{0}$ means that the limit is indeterminate, use manipulation and try again.
 
         \subsection{Continuity}
             A function is continuous at a point if its right and left hand side limits at that point are the same. In other words, it ``can be drawn without lifting the pencil.''
             \[ \lim_{x \to c^-} f(x) = \lim_{x \to c^+} f(x).\]
-            For a function to be \textit{continuous for all real numbers}, it has to give a real number result for all real number $x$. Basically it's continuous
-            over its \textbf{domain} (horizontal).
+
+            For a function to be \textit{continuous for all real numbers}, it has to give a real number result for all real number $x$. Basically it's continuous over its \textbf{domain} (horizontal).
+
             \begin{itemize}
                 \item $\sqrt{x+4}$ is continuous for all $x \ge -4$.
                 \item $\sqrt[5]{x}$ is continuous for all $x \in \mathbb{R}$ (odd roots can handle negatives).
                 \item $\ln{x}$ is continuous for all $x \ge 0$.
                 \item $\frac{1}{x-3}$ is continuous for $x \ne 3$.
             \end{itemize}
+
             \textbf{Removable discontinuity} is a function, where the point of discontinuity can be ``removed,'' and the graph of the new function would be almost identical to the original function.
-            \\ Given:
+
+            \noindent Given:
             \[ \lim_{x \to c} f(x) = k < \infty, \]
             where:
             \[ F(x) = \begin{cases}
@@ -281,22 +283,23 @@
                 k &\text{for } x = c,
             \end{cases} \]
             then $F(x)$ has removable discontinuity at $k$.
-            \newline
-            \textbf{Jump discontinuity} is when a part of a graph jumps from one $y$ to another on the same $x$ value. % too lazy to insert example
-            \newline
-            \textbf{Infinite discontinuity} is basically where there is a vertical asymptote.
+
+            \textbf{Jump discontinuity} is when a part of a graph jumps from one $y$ to another on the same $x$ value. (See $f(x)$ in \hyperref[fig:limproperties]{Figure 2}.)
+
+            \textbf{Infinite discontinuity} usually occurs when there is a vertical asymptote, and the discontinuity occurs over the asymptote. Both sides of the asymptote approach that value, but never actually touch, so the function is not continuous.
 
         \subsection{Squeeze Theorem}
             When it is hard to find the limit for a function, the squeeze theorem (AKA sandwich theorem) can be used. Basically find two other functions, one on top, and one below, and use the limits of the two functions to ``squeeze'' the limit of the given function.
-            \\ Given
+
+            \noindent Given
             \[ f(x) \le g(x) \le h(x) \]
             for all $x$ in an open interval that includes $c$, and
             \[ \lim_{x \to c} f(x) = \lim_{x \to c} h(x) = L, \]
             then,
             \[ \lim_{x \to c} g(x) = L. \]
             Note that $x$ and $L$ can both be $\pm \infty$.
-            \newline
-            \\ Example:
+
+            \noindent \textbf{Example:}
             \begin{align*}
                 &\text{Problem:} &&\lim_{x \to \infty} \frac{\sin{x}}{x} \\[6pt]
                 &\text{keep in mind that} &-1 &\le \sin{x} \le 1 \\
@@ -304,8 +307,10 @@
                 &\text{take limits of smaller functions } &\lim_{x \to \infty} \frac{-1}{x} &= 0 = \lim_{x \to \infty} \frac{1}{x} \\[6pt]
                 &\text{Squeeze Theorem:} &\lim_{x \to \infty} &\frac{\sin{x}}{x} = 0.
             \end{align*}
+
             The best way to solve the above problem is to first recognize the easier part of the problem, $\sin{x}$. Then manipulate the entire inequality so the middle function becomes the original problem. Solve limits of the two other functions to solve original limit.
-            \\ Another example:
+
+            \noindent \textbf{Another example:}
             \begin{gather*}
                 \lim_{x \to -\infty} \frac{x^2(\sin{x} + \cos^{3}{x})}{(x^2+1)(x-3)} \\[8pt]
                 \text{Note that:} \\
@@ -321,10 +326,9 @@
                 \therefore \quad \lim_{x \to -\infty} \frac{x^2(\sin{x} + \cos^{3}{x})}{(x^2+1)(x-3)} = 0
             \end{gather*}
 
-        \subsection{Intermediate Value Theorem} % whats this?
-            Given a \textbf{continuous} segment of a function $f(x)$, let $c \in [a, b]$ and $w$ be in between $f(a)$ and $f(b)$. Then there must be \textbf{at least} on value $c$ such that $f(c) = w$. In short, a continuous line from $a \to b$ must pass through every $x$ and $y$ value in between them. (Refer to \hyperref[fig:intvaltheorem]{Figure 3}.)
-            \newline
-            \\ This goes both ways. If there is a $c$, then there is  $w$. If there is a $w$, then there is $c$.
+        \subsection{Intermediate Value Theorem}
+            Given a \textbf{continuous} segment of a function $f(x)$, let $c \in [a, b]$ and $w$ be in between $f(a)$ and $f(b)$. Then there must be \textbf{at least} on value $c$ such that $f(c) = w$. In short, a continuous line from $a \to b$ must pass through every $x$ and $y$ value in between them. (Refer to \hyperref[fig:intvaltheorem]{Figure 3}.) This goes both ways. If there is a $c$, then there is  $w$. If there is a $w$, then there is $c$.
+
             \begin{figure}[H]
                 \begin{center}
                     \frame{\includegraphics[scale=0.8]{fig3.JPG}}
@@ -333,7 +337,7 @@
                 \end{center}
             \end{figure}
 
-    \section{Differentiation: Definition and Fundamental Properties (4\% - 7\%)}
+    \section[Differentiation: Definition and Fundamental Properties (4\% - 7\%)]{Differentiation: Definition and Fundamental \\Properties (4\% - 7\%)}
     \par\noindent\rule{\textwidth}{0.1pt}
         A derivative is the \textbf{instantaneous} rate of change of a function at a point. It's the average rate of change over an infinitely small interval. It has two main notations (names are not important here).
         \begin{itemize} % too lazy to keep notation usage uniform across document
@@ -344,17 +348,18 @@
         \end{itemize}
 
         \subsection{Continuity and Differentiability}
-            \textbf{Differentiability}: the function must be differentiable for every value in its domain.
-            \\ \textbf{Continuity}: the function has no breaks over its domain, ``can be drawn without lifting the pencil.''
-            \newline
-            Differentiability \textit{implies} continuity, but continuity does not mean differentiability.
+            \noindent \textbf{Differentiability}: the function must be differentiable for every value in its domain.
+
+            \noindent \textbf{Continuity}: the function has no breaks over its domain, ``can be drawn without lifting the pencil.''
+
+            \noindent Differentiability \textit{implies} continuity, but continuity does not mean differentiability.
 
         \subsection{Derivative as a Limit}
             Not the most useful, but might be on exam. College Board says: ``You'll apply limits to define the derivative.''
             \[ \frac{d}{dx} f(x) = \lim_{h \to 0} \frac{f(x+h) - f(x)}{h} \]
             \[ \frac{d}{dx} f(a) = \lim_{x \to a} \frac{f(x) - f(a)}{x-a} \]
-            \newline
-            Examples:
+
+            \noindent \textbf{Example:}
             \begin{gather*}
                 \text{Derivative of $\sin(x)$ at $x=2$} \\
                 \lim_{h \to 0} \frac{f(2+h) - \sin{(2)}}{h} \\
@@ -364,14 +369,14 @@
 
         \subsection{Differentiation Rules}
             \subsubsection{Derivative of a constant}
-                The derivative of a constant is always $0$.
+                \noindent The derivative of a constant is always $0$.
                 \begin{gather*}
                     f(x) = C \\
                     f'(x) = C' = 0
                 \end{gather*}
 
             \subsubsection{Constants in a function}
-                The constant can be moved outside of the derivative.
+                \noindent The constant can be moved outside of the derivative.
                 \[ \left( k f(x) \right)' = k f'(x) \]
 
             \subsubsection{Sum rule}
@@ -389,14 +394,14 @@
                 \[ \left[ f(x) \cdot g(x) \right]' = f(x)g'(x) + f'(x)g(x) \]
 
             \subsubsection{Quotient Rule}
-                Ho d-hi minus hi d-ho over hoho. (Hi is numerator and ho is denominator.)
+                \noindent Ho d-hi minus hi d-ho over hoho. (Hi is numerator and ho is denominator.)
                 \[ \left( \frac{f(x)}{g(x)} \right)' = \frac{f'(x)g(x) - f(x)g'(x)}{g(x)^2} \]
 
             \subsubsection{Chain Rule}
                 The chain rule allows for the differentiation of a \textit{composition} of two or more function. Take the derivative of the inner function, the multiply that by the derivative of the outer function.
                 \[ \frac{d}{dx} \left[ f \left( g(x) \right) \right] = f' \left( g(x) \right) g'(x). \]
-                \newline
-                Example, derivative of $\sin{x^2}$:
+
+                \noindent Example, derivative of $\sin{x^2}$:
                 \begin{gather*}
                     f(x) = \sin{x} \\
                     g(x) = x^2 \\
@@ -407,13 +412,14 @@
         \subsection{Exponential Functions}
             Can be solved like the \textbf{chain rule}, with the base and exponent as the outer and inner functions, respectively. The generalized formula is:
             \[ \frac{d}{dx} \left( a^x \right) = a^x \ln{a}. \]
-            \\ The only exception is in $e^x$.
+            The only exception is in $e^x$.
             \[ \frac{d}{dx} \left( e^x \right) = e^x.\]
 
         \subsection{Logarithmic Functions}
-            The derivative of $\ln{x}$ is:
+            \noindent The derivative of $\ln{x}$ is:
             \[ \frac{d}{dx} \left( \ln{x} \right) = \frac{1}{x}. \]
-            This can be used to derive the derivative of other base log functions:
+
+            \noindent This can be used to derive the derivative of other base log functions:
             \begin{align*}
                 \frac{d}{dx} \left( \log_a{x} \right) &= \frac{d}{dx} \left( \frac{\ln{x}}{\ln{a}} \right) \\[6pt]
                 &= \frac{a}{\ln{a}} \cdot \frac{d}{dx} \left( \ln{x} \right) \\[6pt]
@@ -423,7 +429,8 @@
 
         \subsection{Trigonometric Functions}
             There really isn't an easy way to memorize these, just try finding patterns. If you do enough problems you'll get to know them better.
-            \\ Do note that all of the functions other than $\sin$ nas $\cos$ can be derived using the quotient or chain rules.
+
+            Do note that all of the functions other than $\sin$ nas $\cos$ can be derived using the quotient or chain rules.
             \begin{center}
                 \begin{tabular}{|c|c|}
                     \hline
@@ -448,7 +455,8 @@
     \par\noindent\rule{\textwidth}{0.1pt}
         \subsection{Implicit Differentiation}
             Implicit differentiation is taking the derivative of both sides of an equation with respect to two variables, usually $x$ and $y$, by treating one variable as a function of the other. (Usually $y$ is a function of $x$.)
-            \\ Example:
+
+            \noindent Example:
             \begin{align*}
                 x^2 + y^2 &= 1 \\
                 \frac{d}{dx} \left( x^2 + y^2 \right) &= \frac{d}{dx} \\[6pt]
@@ -457,17 +465,17 @@
                 x + y \cdot \frac{dy}{dx} &= 0 \\[6pt]
                 \frac{dy}{dx} &= -\frac{x}{y}
             \end{align*}
-            \newline
+
             When taking the derivative of $y^2$, multiply by $\frac{dy}{dx}$ because the equation is being taken \textbf{as a function of} $x$.
 
         \subsection{Inverse Functions}
-            The following equation can be derived using the chain rule:
+            \noindent The following formula can be derived using the chain rule:
             \begin{gather*}
                 g(x) = f^{-1}(x) \\
                 g'(x) = \frac{1}{f'\left( g(x) \right)}.
             \end{gather*}
-            \newline
-            Example, find $(f^{-1})'(1)$:
+
+            \noindent Example, find $(f^{-1})'(1)$:
             \begin{align*}
                 f(x) = e^x &\Rightarrow f^{-1}(x) = \ln{x} \\
                 f'(x) &= e^x \\
@@ -494,7 +502,8 @@
                     \hline
                 \end{tabular}
             \end{center}
-            For the following explanations, keep in mind the \hypertarget{invdertrig}{Pythagorean Identity} $\sin^2{x} + \cos^2{x} = 1$:
+
+            For the following explanations, keep in mind the \hypertarget{invdertrig}{Pythagorean Identity}, $\sin^2{x} + \cos^2{x} = 1$.
             \begin{itemize}
                 \item $\arcsin{x}$
                 \begin{align*}
@@ -505,6 +514,7 @@
                     &= \frac{1}{\sqrt{1 - \sin^2{y}}} \quad \text{\hyperlink{invdertrig}{*}}\\[6pt]
                     \frac{dy}{dx} &= \frac{1}{\sqrt{1 - x^2}}
                 \end{align*}
+
                 \item $\arccos{x}$
                 \begin{align*}
                     y = \arccos{x} \; &\Rightarrow \; x = \cos{y} \\
@@ -514,6 +524,7 @@
                     &= -\frac{1}{\sqrt{1 - \cos^2{y}}} \quad \text{\hyperlink{invdertrig}{*}} \\[6pt]
                     \frac{dy}{dx} &= -\frac{1}{\sqrt{1 - x^2}}
                 \end{align*}
+
                 \item $\arctan{x}$
                 \begin{align*}
                     y = \arctan{x} \; &\Rightarrow \; x = \tan{y} \\
@@ -531,31 +542,32 @@
         \subsection{Higher Order Derivatives}
             To find higher order derivatives, simply take the derivative of the previous order derivative (also applies to implicit differentiation):
             \[ \frac{d^n y}{dx^n} f(x) = \frac{dy}{dx} \left( \frac{d^{n-1}y}{dx^{n-1}} f(x) \right). \]
-            \newline
-            Example, find second derivative of $2\cos \left( \frac{x}{2} \right)$:
+
+            \noindent Example, find second derivative of $2\cos \left( \frac{x}{2} \right)$:
             \begin{align*}
                 f(x) &= 2\cos \left( \frac{x}{2} \right) \\[6pt]
                 f'(x) &= -\sin \left( \frac{x}{2} \right) \\[6pt]
                 f''(x) &= -\frac{\cos \left( \frac{x}{2} \right)}{2}
             \end{align*}
 
-    \section{Contextual Applications of Differentiation (6\% - 9\%)}
+    \section[Contextual Applications of Differentiation (6\% - 9\%)]{Contextual Applications of Differentiation \\(6\% - 9\%)}
     \par\noindent\rule{\textwidth}{0.1pt}
         %* put an intro here ig? whats supposed to be in the intro idk
         % \subsection{Rates of Change (Identifying Relevant Information)}
 
         \subsection{Straight-line motion: position, velocity, and acceleration}
-            \textbf{Position} is where something is at a specific time ($x(t)$).
-            \newline
-            \textbf{Velocity} is how fast something is moving at a specific time ($v(t)$). It determines which direction the object is headed.
+            \noindent \textbf{Position} is where something is at a specific time ($x(t)$).
+
+            \noindent \textbf{Velocity} is how fast something is moving at a specific time ($v(t)$). It determines which direction the object is headed.
             \[ v(t) \begin{cases}
                 <0 \; \Rightarrow \; \text{Left} \\
                 =0 \; \Rightarrow \; \text{Neither} \\
                 >0 \; \Rightarrow \; \text{Right}
             \end{cases} \]
-            \newline
-            \textbf{Acceleration} determines whether the velocity is increasing or decreasing at a specific time. If its sign is the same as the sign of velocity, the object is speeding up. If the two signs are different, the object is slowing down. If acceleration is $0$, the object maintains the same velocity.
+
+            \noindent \textbf{Acceleration} determines whether the velocity is increasing or decreasing at a specific time. If its sign is the same as the sign of velocity, the object is speeding up. If the two signs are different, the object is slowing down. If acceleration is $0$, the object maintains the same velocity.
             \\ The \hyperref[fig:posveloaccel]{cartoon} down below explains this relationship quite well.
+
             \begin{figure}[H]
                 \begin{center}
                     \frame{\includegraphics[scale=0.5]{fig4.JPG}}
@@ -563,11 +575,12 @@
                     \label{fig:posveloaccel}
                 \end{center}
             \end{figure}
+
             \begin{center}
                 * * * * *
             \end{center}
 
-            Position, velocity, and acceleration are related in the following way:
+            \noindent Position, velocity, and acceleration are related in the following way:
             \begin{gather*}
                 x'(t) = v(t) \\
                 v'(t) = a(t).
@@ -575,12 +588,14 @@
 
         \subsection{Related Rates}
             In simple terms, related rates is using implicit differentiation and given variables to solve for unknown variables. % i feel like more examples should be given in this section. i'm only going to do 2 for now
-            \\ Examples:
+
+            \noindent Examples:
             \begin{enumerate}
                 \item Given the equation: $\frac{x}{y} = 9$ and, $\frac{dy}{dt} = -\frac{2}{3}$, \textbf{find} $\frac{dx}{dt}$ \textbf{when} $x=3$.
-                \newline \newline
-                \textbf{Solution}:
-                \\ First differentiate $\frac{x}{y} = 9$ with respect to $t$.
+
+                \noindent \textbf{Solution}:
+
+                \noindent First differentiate $\frac{x}{y} = 9$ with respect to $t$.
                 \begin{align*}
                     \frac{x}{y} &= 9 \\[6pt]
                     \frac{y \cdot \frac{dx}{dt} - x \cdot \frac{dy}{dt}}{y^2} &= 0
@@ -599,41 +614,46 @@
                     \frac{\frac{dx}{dt}}{3} &= -2 \\[6pt]
                     \frac{dx}{dt} &= -6
                 \end{align*}
+                \smallskip
 
-                \item The surface area of a sphere is increasing at a rate of $14 \pi$ square meters per hour. At a certain instant, the surface area is $26 \pi$ square meters.
-                \\ \textbf{What is the rate of change of the volume of the sphere at that instant (in cubic meters per hour)?}
-                \\ (Question from Khan Academy)
-                \newline \newline
-                \textbf{Solution:}
-                \\ The surface area ($SA$) of a sphere with radius $r$ is $4 \pi r^2$.
+                \item The surface area of a sphere is increasing at a rate of $14 \pi$ square meters per hour. At a certain instant, the surface area is $26 \pi$ square meters. \textbf{What is the rate of change of the volume of the sphere at that instant (in cubic meters per hour)?} (Question from Khan Academy.)
+
+                \noindent \textbf{Solution:}
+
+                \noindent The surface area ($SA$) of a sphere with radius $r$ is $4 \pi r^2$.
                 \\ The volume ($V$) of a sphere with radius $r$ is $\frac{4}{3} \pi r^3$.
-                \\ First identify what is given:
+
+                \noindent First identify what is given:
                 \begin{itemize}
                     \item $SA = 36 \pi$
                     \item $\frac{dSA}{dt} = 14 \pi$
                 \end{itemize}
-                Next, what is unknown:
+
+                \noindent Next, what is unknown:
                 \begin{itemize}
                     \item $r$, the radius of the sphere.
                     \item $\frac{dr}{dt}$, the rate of change of the radius at the instant specified.
                     \item $V$, the volume of the sphere (it will be seen later that this is actually not needed, $36 \pi$ if you're curious).
                     \item $\frac{dV}{dt}$, the rate of change of the volume at the instant specified (what the question is asking for).
                 \end{itemize}
-                Solving for $r$:
+
+                \noindent Solving for $r$:
                 \begin{align*}
                     SA &= 4 \pi r^2 \\
                     36 \pi &= 4 \pi r^2 \\
                     9 &= r^2 \\
                     r &= 3
                 \end{align*}
-                Next, take the derivative of $SA = 4 \pi r^2$ with respect to time, $t$, to solve for the rate of change of $r$ at the instant.
+
+                \noindent Next, take the derivative of $SA = 4 \pi r^2$ with respect to time, $t$, to solve for the rate of change of $r$ at the instant.
                 \begin{align*}
                     SA &= 4 \pi r^2 \\
                     \frac{dSA}{dt} &= 8 \pi r \frac{dr}{dt} \\[6pt]
                     14 \pi &= 24 \pi \frac{dr}{dt} \\[6pt]
                     \frac{dr}{dt} &= \frac{7}{12}
                 \end{align*}
-                Finally, take the derivative of $V = \frac{4}{3} \pi r^3$ with respect to time, $t$, to solve for the rate of change of volume.
+
+                \noindent Finally, take the derivative of $V = \frac{4}{3} \pi r^3$ with respect to time, $t$, to solve for the rate of change of volume.
                 \begin{align*}
                     V &= \frac{4}{3} \pi r^3 \\[6pt]
                     \frac{dV}{dt} &= \frac{4}{3} \pi 3r^2 \frac{dr}{dt} \\[6pt]
@@ -646,29 +666,36 @@
 
         \subsection{Local Linearity and Approximation}
             \textbf{Local linearity} is the understanding that if we zoom in really, really close to a point on a graph that is differentiable on all points in its domain, it would eventually be a straight line, \textit{the tangent line}.
-            \\ The general formula for the equation of the tangent line of function $u$ at $x=a$ is:
+
+            \noindent The general formula for the equation of the tangent line of function $u$ at $x=a$ is:
             \[ y=u'(a)(x-a) + u(a). \]
-            \\ This can be useful in approximating values on a graph that are close to another, known value. For example, in \hyperref[fig:locallinapprox]{Figure 5}, point A is at $\sqrt{0.25} = 0.5$. Point B is at $\sqrt{0.3}$, which is a bit harder to calculate. But it can be observed that the tangent line at $x=0.25$ comes really close in $y$ value to point B. If the equation of the tangent line was calculated, we could approximate point B.
-            \newline \newline
-            \textbf{Approximating point B in \hyperref[fig:locallinapprox]{Figure 5}}:
-            \\ Point A is at $(0.25, 0.5)$. The slope of the tangent line can be found using differentiation.
+
+            This can be useful in approximating values on a graph that are close to another, known value. For example, in \hyperref[fig:locallinapprox]{Figure 5}, point A is at $\sqrt{0.25} = 0.5$. Point B is at $\sqrt{0.3}$, which is a bit harder to calculate. But it can be observed that the tangent line at $x=0.25$ comes really close in $y$ value to point B. If the equation of the tangent line was calculated, we could approximate point B.
+
+            \noindent \textbf{Approximating point B in \hyperref[fig:locallinapprox]{Figure 5}}:
+
+            \noindent Point A is at $(0.25, 0.5)$. The slope of the tangent line can be found using differentiation.
             \begin{align*}
                 f(x) &= \sqrt{x} \\
                 &= x^{\frac{1}{2}} \\
                 f'(x) &= \frac{1}{2\sqrt{x}}
             \end{align*}
-            Plugging in all of this into the line equation:
+
+            \noindent Plugging in all of this into the line equation:
             \begin{align*}
                 y &= f'(0.25)(x-0.25) + f(0.25) \\
                 &= 1(x-0.25) + 0.5 \\
                 y &= x+0.25
             \end{align*}
-            Now plugging in the $x$ value of point B, which is $0.3$:
+
+            \noindent Now plugging in the $x$ value of point B, which is $0.3$:
             \begin{align*}
                 y &= 0.3 + 0.25 \\
                 y &= 0.55
             \end{align*}
+
             The approximation for point B is $(0.3, 0.55)$. Using a calculator, the real value of B is $(0.3, 0.5477)$, which is really close.
+
             \begin{figure}[h]
                 \begin{center}
                     \frame{\includegraphics[scale=0.5]{fig5.JPG}}
@@ -676,33 +703,38 @@
                     \label{fig:locallinapprox}
                 \end{center}
             \end{figure}
-            \\ Another example of this, in a more similar formatting to what would be on an AP exam:
-            \\ Let $g$ be a differentiable function with $g(4) = 6$ and $g'(4) = -2$.
-            \\ \textbf{What is the value of the approximation of $g(4.2)$ using the function's local linear approximation at $x=4$?}
-            \newline \newline
-            \centerline{Plug all of the given information into the line equation formula.}
-            \begin{align*}
-                y &= g'(4)(x-4) + g(4) \\
-                &= -2(x-4) + 6 \\
-                &= -2x + 8 + 6 \\
-                y &= -2x + 14
-            \end{align*}
-            \centerline{Now solve with $x=4.2$:}
-            \begin{align*}
-                y &= -2 \cdot 4.2 + 14 \\
-                &= -8.4 + 14 \\
-                y &= 5.6
-            \end{align*}
+
+            Another example of this, in a more similar formatting to what would be on an AP exam:
+
+            \noindent Let $g$ be a differentiable function with $g(4) = 6$ and $g'(4) = -2$. \textbf{What is the value of the approximation of $g(4.2)$ using the function's local linear approximation at $x=4$?}
+
+            \begin{center}
+                Plug all of the given information into the line equation formula.
+                \begin{align*}
+                    y &= g'(4)(x-4) + g(4) \\
+                    &= -2(x-4) + 6 \\
+                    &= -2x + 8 + 6 \\
+                    y &= -2x + 14
+                \end{align*}
+
+                Now solve with $x=4.2$:
+                \begin{align*}
+                    y &= -2 \cdot 4.2 + 14 \\
+                    &= -8.4 + 14 \\
+                    y &= 5.6
+                \end{align*}
+            \end{center}
 
         \subsection{L'Hôpital's Rule} % some spellings say l'hospital
-            L'Hôpital's Rule states the following:
+            \noindent L'Hôpital's Rule states the following:
             \begin{gather*}
                 \text{IF} \\
                 \lim_{x \to c} \frac{f(x)}{g(x)} = \frac{0}{0} \quad \text{OR} \quad \lim_{x \to c} \frac{f(x)}{g(x)} = \frac{\pm \infty}{\pm \infty} \\[6pt]
                 \text{THEN} \\
                 \lim_{x \to c} \frac{f(x)}{g(x)} = \lim_{x \to c} \frac{f'(x)}{g'(x)}
             \end{gather*}
-            Examples:
+
+            \noindent Examples:
             \begin{enumerate}
                 \item Indeterminate form $\frac{0}{0}$:
                 \begin{gather*}
@@ -713,6 +745,7 @@
                     = \frac{1}{1} \\[6pt]
                     = 1
                 \end{gather*}
+
                 \item Indeterminate form $\frac{\infty}{\infty}$: $\lim_{x \to \infty} \frac{e^x}{x^2}$
                 \begin{gather*}
                     \lim_{x \to \infty} \frac{e^x}{x^2} = \frac{\infty}{\infty} \\[6pt]
@@ -738,33 +771,36 @@
                 \caption{\href{https://www.khanacademy.org/math/ap-calculus-bc/bc-diff-analytical-applications-new/bc-5-1/a/mean-value-theorem-review?modal=1}{source}}
                 \label{fig:meanvaluetheorem}
             \end{wrapfigure}
+
             The mean value theorem states that for any arc between two endpoints on a graph, there will be a point whose tangent line will be parallel to the secant line between the two endpoints.
-            \\ More precisely, given a \textbf{continuous and differentiable} function $f$, in the interval $[a, b]$, there exists a number $c$ such that $f'(c)$ is equal to the average rate of change over $[a, b]$.
-            \newline
+
+            More precisely, given a \textbf{continuous and differentiable} function $f$, in the interval $[a, b]$, there exists a number $c$ such that $f'(c)$ is equal to the average rate of change over $[a, b]$.
+
             \begin{equation*}
                 \hspace*{-85mm}
                 f'(c) = \frac{f(b)-f(a)}{b-a}
             \end{equation*}
-            \newline
-            \textit{See \hyperref[fig:meanvaluetheorem]{Figure 6}.}
+
+            \noindent \textit{See \hyperref[fig:meanvaluetheorem]{Figure 6}.}
 
         \subsection{Extreme Value Theorem}
-            If $f(x)$ is a continuous function over the closed interval $[a, b]$, then there exists a maximum and minimum value of $f(x)$.
-            \\ More formally, there must exist numbers $c$ and $d$ in $[a, b]$ such that:
+            If $f(x)$ is a continuous function over the closed interval $[a, b]$, then there exists a maximum and minimum value of $f(x)$. More formally, there must exist numbers $c$ and $d$ in $[a, b]$ such that:
             \[ f(c) \le f(x) \le f(d) \quad \forall x \in [a, b] \]
             ($\forall$ means for all.)
 
-        \subsection{First Derivative Test, Second Derivative Test, and Candidates Test}
+        \subsection[First Derivative Test, Second Derivative Test, and Candidates Test]{First Derivative Test, Second Derivative Test, \\and Candidates Test}
             The first derivative test, second derivative test, and candidates test are used together to find relative (local) and absolute (global) extremum in a function.
+
             \subsubsection{Relative (Local) Extrema}
                 A \textbf{relative maximum} is a point where the value of the function is largest. The direction changes from increasing to decreasing (highest point).
-                \newline \newline
+
                 Similarly, a \textbf{relative minimum} is a point where the value of the function is smallest. The direction changes from decreasing to increasing (lowest point).
-                \newline \newline
-                \textbf{Using the first derivative test:}
-                \newline
+
+                \noindent \textbf{Using the first derivative test:}
+
                 Critical points are points where the derivative of the function is $0$ or undefined. At critical points, there is either an extrema or a point of inflection. For now, we are only concerned with extrema.
-                \\ \textbf{Example:} finding the relative extremum of $f(x) = \frac{x^2}{x-1}$.
+
+                \noindent \textbf{Example:} finding the relative extremum of $f(x) = \frac{x^2}{x-1}$.
                 \begin{align*}
                     f(x) &= \frac{x^2}{x-1} \\[6pt]
                     f'(x) &= \frac{x^2-2x}{(x-1)^2}
@@ -781,6 +817,7 @@
                         \hline
                     \end{tabular}
                 \end{center}
+
                 Next, test the intervals between the critical points to see whether the function is increasing or decreasing. Simply pick a random number in the interval and see if the derivative is positive or negative at that number.
                 \begin{center}
                     \begin{tabular}{|c|c|c|}
@@ -797,12 +834,14 @@
                         \hline
                     \end{tabular}
                 \end{center}
+
                 At $x=0$, $f'(x)$ switches from positive to negative, so $f(x)$ has a relative maximum. Similarly, at $x=2$, $f'(x)$ switches from negative to positive, so $f(x)$ has a relative minimum.
 
-                \textbf{Using the second derivative test:}
-                \newline
+                \noindent \textbf{Using the second derivative test:}
+
                 The second derivative test can make it a lot easier to determine if a critical point is a maximum or minimum.
-                \\ Given
+
+                \noindent Given
                 \[ f'(x) = 0, \]
                 then:
                 \[ f''(x) \begin{cases}
@@ -810,14 +849,17 @@
                     <0 \; \Rightarrow \; \text{Maximum point at $x$} \\
                     =0 \; \Rightarrow \; \text{Test is inconclusive}
                 \end{cases} \]
-                \newline
+
                 One way to remember this is that when $f$ reaches a maximum point, its slope gradually decreases, before reaching $0$ then becoming negative. The slope of the first derivative is the second derivative, so if $f'(x)$ is decreasing, $f''(x)$ is negative. Vice versa for a minimum point.
 
             \subsubsection{Absolute (Global) Extrema}
                 An absolute extrema is a point on a function where it achieves its greatest or least possible value. Finding the absolute extrema is very similar to finding the relative extrema. The only extra thing to consider are the endpoints of the given interval. (Interval can be entire domain.)
-                \newline \newline
-                \textbf{Example (closed domain):} find the global extrema of $f(x) = x^3+2x^2$ over the interval $-2 \le x \le 1$ (\hyperref[fig:absextremaclosed]{Figure 7}).
-                \\ Using the first derivative test to find critical points:
+
+                \noindent \textbf{Example (closed domain):}
+
+                \noindent Find the global extrema of $f(x) = x^3+2x^2$ over the interval $-2 \le x \le 1$ (\hyperref[fig:absextremaclosed]{Figure 7}).
+
+                \noindent Using the first derivative test to find critical points:
                 \begin{gather*}
                     f(x) = x^3 + 2x^2 \\
                     f'(x) = 3x^2 + 4x
@@ -847,39 +889,42 @@
                     \end{tabular}
                 \end{center}
                 Over the closed interval, $(-2, 0)$ and $(0, 0)$ are the relative minimums and $(-\frac{4}{3}, 1.185)$ and $(1, 3)$ are the relative maximums.
-                \newline \newline
-                \textbf{Both $(-2, 0)$ and $(0, 0)$ have the same $y$ value, so they are both absolute minimums. $(1, 3)$ has the greatest $y$ value so it's the absolute maximum.}
-                \begin{figure}[h]
+
+                \noindent \textbf{Both $(-2, 0)$ and $(0, 0)$ have the same $y$ value, so they are both absolute minimums. $(1, 3)$ has the greatest $y$ value so it's the absolute maximum.}
+                \begin{figure}[H]
                     \begin{center}
-                        \frame{\includegraphics[scale=0.5]{fig7.JPG}}
+                        \frame{\includegraphics[scale=0.4]{fig7.JPG}}
                         \caption{$f(x) = x^3 + 2x^2 \; \{-2 \le x \le 1 \}$}
                         \label{fig:absextremaclosed}
                     \end{center}
                 \end{figure}
 
             \subsubsection{Concavity and Points of Inflection}
-                \begin{wrapfigure}{r}{0.5\textwidth}
+                Concavity is the sign of curvature of a function. Parts of a graph can either be \textit{concave up} or \textit{concave down}. When the concavity is concave up, the first derivative is increasing, thus the second derivative is positive. When the concavity is concave down, the first derivative is decreasing, thus the second derivative is negative.
+
+                Inflection points are where the concavity flips. At inflection points both the first and second derivatives are $0$.
+
+                \noindent \textbf{Note: when checking if a candidate is an inflection point, the second derivative must change signs!}
+
+                \begin{figure}[H]
                     \begin{center}
                         \frame{\includegraphics[scale=0.8]{fig8.JPG}}
+                        \caption{\href{https://www.khanacademy.org/math/ap-calculus-ab/ab-diff-analytical-applications-new/ab-5-6b/a/review-analyzing-the-second-derivative-to-find-inflection-points}{source}}
+                        \label{fig:concavityinflection}
                     \end{center}
-                    \caption{\href{https://www.khanacademy.org/math/ap-calculus-ab/ab-diff-analytical-applications-new/ab-5-6b/a/review-analyzing-the-second-derivative-to-find-inflection-points}{source}}
-                    \label{fig:concavityinflection}
-                \end{wrapfigure}
-
-                Concavity is the sign of curvature of a function. Parts of a graph can either be \textit{concave up} or \textit{concave down}. When the concavity is concave up, the first derivative is increasing, thus the second derivative is positive. When the concavity is concave down, the first derivative is decreasing, thus the second derivative is negative.
-                \\ Inflection points are where the concavity flips. At inflection points both the first and second derivatives are $0$.
-                \\ \textbf{Note: when checking if a candidate is an inflection point, the second derivative must change signs!}
+                \end{figure}
 
         \subsection{Sketching Graphs and Derivatives of Functions} %this is on the college board website, don't know how relevant this is, needs more work
             Find maximums, minimums, and points of inflection using first and second derivative tests. It may also be useful to find the zeroes of the function. Then just connect the dots to make the graph.
 
         \subsection{Solving Optimization Problems}
             Optimization problems involve finding the largest or smallest something can be. This can be done by first finding a $f(x)$ to represent the relationship, then using $f'(x)$ to find the maximum or minimum.
-            \\ \textbf{Examples:}
+
+            \noindent \textbf{Examples:}
             \begin{enumerate}
                 \item Find the $x$ value for which $y=2x+3$ is the closest to the origin.
-                \newline \newline
-                \textbf{Solution:}
+
+                \noindent \textbf{Solution:}
                     \\ Distance from $(x, y)$ to the origin is:
                     \[ D = \sqrt{x^2 + y^2}. \]
                     Plug in the given equation:
@@ -905,13 +950,16 @@
                         L''(x) &= 10
                     \end{align*}
                     Because $L''(x)$ is always positive for all $x$, it can be concluded that $x=-\frac{6}{5}$ is indeed a minimum point, and the final answer.
+
                     \begin{center}
                         * * * * *
                     \end{center}
+
                 \item Find the maximum product of two positive numbers whose sum is $300$.
-                \newline \newline
-                    \textbf{Solution:}
-                    \\ The question asks to maximize $xy$ given $x+y=300$. The first step is to represent this in a function in terms of $x$, $f(x)$.
+
+                    \noindent \textbf{Solution:}
+
+                    \noindent The question asks to maximize $xy$ given $x+y=300$. The first step is to represent this in a function in terms of $x$, $f(x)$.
                     \begin{align*}
                         x+y &= 300 \\
                         y &= 300 - x \\
@@ -943,13 +991,14 @@
                         y &= 150
                     \end{align*}
                     \[ \therefore x=150, \; y=150. \]
+
                     \begin{center}
                         * * * * *
                     \end{center}
 
                 \item We want to construct a cylindrical can with a bottom but no top that will have a volume of $30$ cm\textsuperscript{3}. Determine the dimensions of the can that will minimize the amount of material needed to construct the can.
-                \newline \newline
-                    \textbf{Solution:}
+
+                    \noindent \textbf{Solution:}
                     \begin{gather*}
                         V = \pi r^2 h \\
                         SA = \pi r^2 + 2\pi rh
@@ -978,7 +1027,8 @@
                         \therefore \sqrt[3]{\frac{30}{\pi}} \; \text{is the minimum} \; r.
                     \end{gather*}
                     Plug $r$ into $h=\frac{30}{\pi r^2}$.
-                    \\ Final answer:
+
+                    \noindent Final answer:
                     \begin{gather*}
                         r = \sqrt[3]{\frac{30}{\pi}} \\[6pt]
                         h \approx 2.1215.
@@ -987,38 +1037,42 @@
 
         \subsection{Behaviors of Implicit Relations} % x and y values in original equation and derivative go back and forth? what's a good way to explain this...
             Implicit relations can be useful in solving for unknown values or line equations. The key takeaway is that the variables used in the original function can be substituted back and forth with its higher order derivatives.
-            \newline \newline
-            \textbf{Examples:}
+
+            \noindent \textbf{Examples:}
             \begin{enumerate}
                 \item Consider the curve given by $x^3 + xy = -2$. It can be shown that $\frac{dy}{dx} = \frac{-3x^2 - y}{x}$.
-                    \\ Find the point where the tangent line of the curve is horizontal.
-                    \newline \newline
-                    \textbf{Solution:}
-                    \\ For the tangent line to be horizontal, the slope has to be $0$. This means that the numerator of $\frac{dy}{dx}$ must be $0$, but the denominator can not be $0$. Simply solve the system of equations:
-                    \[ \begin{cases}
-                        x^3 + xy = -2 \\
-                        -3x^2 - y = 0 \\
-                        x \ne 0.
-                    \end{cases} \]
-                    \begin{align*}
-                        -3x^2 - y &= 0 \\
-                        y &= -3x^2 \\[6pt]
-                        x^3 + x(-3x^2) &= -2 \\
-                        x^3 - 3x^3 &= -2 \\
-                        -2x^3 &= -2 \\
-                        x &= 1 \\[6pt]
-                        y &= -3(1)^2 \\
-                        &= -3
-                    \end{align*}
-                    Therefore, at $(1, -3)$, the slope of the tangent line is $0$, and thus it is horizontal.
+
+                Find the point where the tangent line of the curve is horizontal.
+                \bigskip
+
+                \textbf{Solution:}
+
+                For the tangent line to be horizontal, the slope has to be $0$. This means that the numerator of $\frac{dy}{dx}$ must be $0$, but the denominator can not be $0$. Simply solve the system of equations:
+                \[ \begin{cases}
+                    x^3 + xy = -2 \\
+                    -3x^2 - y = 0 \\
+                    x \ne 0.
+                \end{cases} \]
+                \begin{align*}
+                    -3x^2 - y &= 0 \\
+                    y &= -3x^2 \\[6pt]
+                    x^3 + x(-3x^2) &= -2 \\
+                    x^3 - 3x^3 &= -2 \\
+                    -2x^3 &= -2 \\
+                    x &= 1 \\[6pt]
+                    y &= -3(1)^2 \\
+                    &= -3
+                \end{align*}
+                Therefore, at $(1, -3)$, the slope of the tangent line is $0$, and thus it is horizontal.
             \end{enumerate}
 
     \section{Integration and Accumulation of Change (17\% - 20\%)}
     \par\noindent\rule{\textwidth}{0.1pt}
+
         The accumulation of change is the net change of a quantity. This is not the same thing as simply the quantity. The accumulation of change takes into consideration time, and it is the quantity over a specified time period. There may be some quantity before or after this time period, but we would not count that.
 
         \subsection{Riemann Sums}
-            A Riemann Sum approximates the area under a curve by splitting it up into rectangles.
+            A Riemann Sum can be used to approximate the area under a curve. It splits up the area into several rectangles, where the height matches up with the function. The sum of the areas of the rectangles provides a somewhat decent approximation of the actual area.
 
             \subsubsection{Types of Riemann Sums}
                 \begin{itemize}
@@ -1029,6 +1083,7 @@
                             \caption{left Riemann sums, \href{https://www.khanacademy.org/math/ap-calculus-bc/bc-integration-new/bc-6-2/a/riemann-sums-review?modal=1}{source}}
                         \end{center}
                     \end{figure}
+
                     \item \textbf{Right Riemann Sums} line up the right side of the rectangle with the curve of the function.
                     \begin{figure}[H]
                         \begin{center}
@@ -1036,6 +1091,7 @@
                             \caption{right Riemann sums, \href{https://www.khanacademy.org/math/ap-calculus-bc/bc-integration-new/bc-6-2/a/riemann-sums-review?modal=1}{source}}
                         \end{center}
                     \end{figure}
+
                     \item \textbf{Midpoint Riemann Sums} line up the middle of the rectangle with the curve of the function.
                     \begin{figure}[H]
                         \begin{center}
@@ -1043,6 +1099,7 @@
                             \caption{midpoint Riemann sums, \href{https://www.khanacademy.org/math/ap-calculus-bc/bc-integration-new/bc-6-2/a/riemann-sums-review?modal=1}{source}}
                         \end{center}
                     \end{figure}
+
                     \item There is another way to approximate areas under a curve, called a \textbf{trapezoidal sum}. Trapezoids are used, and its two bases touch the curve of the function.
                     \begin{figure}[H]
                         \begin{center}
@@ -1051,6 +1108,7 @@
                         \end{center}
                     \end{figure}
                 \end{itemize}
+
                 With each type of sum, the more shapes that we have, the closer the approximation would be to the actual area. This can be achieved by making $\Delta x$, the base of the rectangle, smaller and smaller.
 
             \subsubsection{Riemann Sums in Summation Notation}
@@ -1066,17 +1124,18 @@
                 \end{center}
 
         \subsection{Definite Integrals} %* where to include solving definite integrals?
-            As $\Delta x$ gets smaller and smaller in Riemann Sums, we are able to get better and better approximations of the area under a curve. However, it is impossible to calculate the exact area under the curve using a finite number of rectangles. In order to do so, we need an infinitely small $\Delta x$, or a limit that approaches $0$.
-            \\ Indefinite integrals can find the \textit{exact} area of an interval under a curve.
-            \newline \newline
-            The definite integral notation over the interval $[a, b]$ of $f(x)$ is:
+            As $\Delta x$ gets smaller and smaller in Riemann Sums, we are able to get better and better approximations of the area under a curve. However, it is impossible to calculate the exact area under the curve using a finite number of rectangles. In order to do so, we need an infinitely small $\Delta x$, or a limit that approaches $0$. Definite integrals can find the \textit{exact} area of an interval under a curve.
+
+            \noindent The definite integral notation over the interval $[a, b]$ of $f(x)$ is:
             \[ \int_{a}^{b} f(x) \, dx. \]
-            The connection between a definite integral and Riemann sum is as follows:
+
+            \noindent The connection between a definite integral and Riemann sum is as follows:
             \[ \int_{a}^{b} f(x) \, dx = \lim_{n \to \infty} \sum_{i=1}^{n} \Delta x \cdot f(x_i) \]
             where $\Delta x = \frac{b-a}{n}$ and $x_i = a + \Delta x \cdot i$.
             \begin{center}
                 * * * * *
             \end{center}
+
             \textbf{Example of writing definite integral as Riemann sum:}
             \[ \int_{\pi}^{2 \pi} \sin(x) \, dx \]
             First find $\Delta x$:
@@ -1098,16 +1157,18 @@
             \end{align*}
 
         \subsection{The Fundamental Theorem of Calculus}
-            The fundamental theorem of calculus goes as follows:
-            \newline \newline
-            Let $f$ be a function that is continuous over the interval $[a, b]$, and let:
+            \noindent The fundamental theorem of calculus goes as follows:
+
+            \noindent Let $f$ be a function that is continuous over the interval $[a, b]$, and let:
             \[ F(x) = \int_{a}^{x} f(t) \, dt. \]
             $F$ is the antiderivative of $f$, or in other words, the derivative of $F$ is $f$. This can then tell us how to solve for the area under a curve using antidifferentiation.
             \[ \int_{a}^{b} f(x) \, dx = F(b) - F(a) \]
 
         \subsection{Antiderivatives and Integration Techniques}
             Antiderivatives are how to get from $f'(x)$ back to $f(x)$. With any antiderivative rule, it can be differentiated and be back to its original function. The antiderivative symbol is just the interval symbol without the defined interval. (Also known as indefinite integrals.)
-            \\ It is important that we must add a constant (usually represented by $C$), to the end of all antiderivatives. This is because the derivative of \textit{any} constant is $0$. By adding a constant we can consider all possible antiderivatives. % this explanation for C kinda trash
+
+            It is important that we must add a constant (usually represented by $C$), to the end of all antiderivatives. This is because the derivative of \textit{any} constant is $0$. By adding a constant we can consider all possible antiderivatives. % this explanation for C kinda trash
+
             \subsubsection{Reverse Power Rule}
                 \[ \int x^n \, dx = \frac{x^{n+1}}{n+1} + C\]
                 \begin{align*}
@@ -1150,9 +1211,10 @@
             \subsubsection{Integration by Parts (Products)}
                 Integration by parts can be used to find the antiderivative of the product of functions. It can also be referred to as the reverse product rule, as it can be derived by rearranging the product rule.
                 \[ \int f(x) g'(x) \, dx = f(x) g(x) - \int f'(x) g(x) \, dx \]
+
                 For integration by parts to be the most useful, $f(x)$ should be a function that is easy to take the derivative of, and $g(x)$ should be a function that is easy to take the antiderivative of.
-                \newline \newline
-                For example, find the indefinite integral
+
+                \noindent For example, find the indefinite integral
                 \[ \int x \cos(x) \, dx. \]
                 Let $f(x) = x$ and $g'(x) = \cos(x)$. Next, plug everything in to the equation and solve:
                 \begin{align*}
@@ -1160,8 +1222,8 @@
                     &= x \sin(x) - \left( -\cos(x) \right) + C \\
                     &= x\sin(x) + \cos(x) + C.
                 \end{align*}
-                \newline
-                Another example of this method, find the indefinite integral
+
+                \noindent Another example of this method, find the indefinite integral
                 \[ \int \ln(x) \, dx. \]
                 Let $f(x) = \ln(x)$ and $g'(x) = 1$. Therefore, $f'(x) = \frac{1}{x}$ and $g(x) = x$. Plug everything into the equation and solve:
                 \begin{align*}
@@ -1173,8 +1235,8 @@
 
             \subsubsection{u-Substitution}
                 Integration using u-substitution is a very versatile method. In some ways, it can be referred to as the reverse chain rule. It can be used when one part of a function is the derivative of another. A good way to explain this method is through an example.
-                \newline \newline
-                Find the indefinite integral:
+
+                \noindent Find the indefinite integral:
                 \[ \int 2x \cos(x^2) \, dx. \]
                 \newline
                 Notice that:
@@ -1187,8 +1249,9 @@
                     du &= 2x \, dx \quad \hyperlink{eq:usubex1}{*}
                 \end{align*}
                 \hypertarget{eq:usubex1}{*}Note that in this step, both sides were multiplied by $dx$. While this is usually unorthodox, it is allowed, and helps in this situation.
-                \newline \newline
-                Returning back to the original function, notice that:
+                \bigskip
+
+                \noindent Returning back to the original function, notice that:
                 \[ \int \cos(\underbrace{x^2}_{u}) \cdot \underbrace{2x \, dx}_{du}. \]
                 Now substitute and solve:
                 \begin{align*}
@@ -1198,6 +1261,7 @@
                 \begin{center}
                     * * * * *
                 \end{center}
+
                 Sometimes, we have to multiply the integral by an extra value to make u-substitution work. For example, find the definite integral:
                 \[ \int \sin(3x+5) \, dx. \]
                 Let $u = 3x+5$, therefore $du = 3 \, dx$. To balance out the $3$ in $du$, we must divide the integral by $3$.
@@ -1206,11 +1270,10 @@
                     &= -\frac{\cos(3x+5)}{3} + C
                 \end{align*}
 
-            % are these even that necessary
-            \subsubsection{Partial Fractions}
+            \subsubsection{Partial Fractions} % are these even that necessary
                 Basically breaking up a fraction into parts to make it easier to antidifferentiate. It is best to explain through an example:
-                \newline \newline
-                Find the indefinite integral:
+
+                \noindent Find the indefinite integral:
                 \[ \int \frac{2x+3}{(x+1)(x+2)} \, dx. \]
                 The fraction can be split up into two parts:
                 \begin{align*}
@@ -1237,10 +1300,12 @@
                 \end{align*}
 
             \subsubsection{Other Integration Methods}
-                Some other methods for integration include:
+                \noindent Some other methods for integration include:
+
                 \begin{itemize}
                     \item \textbf{Long division}, when encountering a fraction with an equal degree numerator and denominator, just divide. This is the most useful when other methods like u-substitution does not work. For example,
                     \[ \frac{2x+7}{x+3} = 2 + \frac{1}{x+3}. \]
+
                     \item \textbf{Completing the square}, when encountering a function that may seem difficult to integrate. By completing the square, we can hopefully rearrange the function to be one that follows a pattern. For example, find the definite integral:
                     \[ \int \frac{1}{6x^2+36x+78} \, dx. \]
                     First completing the square in the denominator:
@@ -1259,29 +1324,29 @@
 
         \subsection{Solving Definite Integrals}
             Solving definite integrals involves just a few steps. First, antidifferentiate, then find the difference between the upper bound evaluated at the function and the lower bound evaluated at the function.
-            \newline \newline
-            \textbf{Example:}
+
+            \noindent \textbf{Example:}
             \begin{align*}
                 \int_{27}^{-1} -8 \sqrt[3]{x} \, dx &= \left[ -6 \sqrt[3]{x^4} \right]_{27}^{-1} \\
                 &= -6 \sqrt[3]{(-1)^4} - \left( -6 \sqrt[3]{(27)^4} \right) \\
                 &= -6 + 486 \\
                 &= 480
             \end{align*}
-            \newline
+
             If the two endpoints of the interval are the same, then the value of the definite integral would be $0$:
             \[ \int_{a}^{a} f(x) \, dx = 0. \]
 
         \subsection{Determining Improper Integrals}
-            Improper integrals are definite integrals that do not cover a finite area.
-            \newline \newline
+            \noindent Improper integrals are definite integrals that do not cover a finite area.
+
             One type of improper integral occurs when at least one of the endpoints is infinity. For example:
             \[ \int_{1}^{\infty} \sqrt{x} \, dx \quad OR \quad \lim_{a \to \infty} \int_{1}^{a} \sqrt{x} \, dx. \]
-            \newline
+
             The other type of improper integral occurs when the function is undefined at at least one of the endpoints (asymptote). For example:
             \[ \int_{0}^{1} \frac{1}{x} \, dx \quad OR \quad \lim_{a \to 0} \int_{a}^{1} \frac{1}{x} \, dx. \]
-            \newline
+
             When limits evaluate to a finite value, they \textbf{converge}. If they evaluate to infinity, they \textbf{diverge}.
-            \newline \newline
+
             Solving improper integrals is very similar to solving definite integrals, just this time we have to use limits. Examples:
             \begin{itemize}
                 \item Endpoint at infinity.
@@ -1293,6 +1358,7 @@
                     &= 1+0 \\
                     &= 1
                 \end{align*}
+
                 \item Undefined endpoint.
                 \begin{align*}
                     \int_{0}^{5} \frac{1}{\sqrt{x}} \, dx &= \lim_{a \to 0} \int_{a}^{5} \frac{1}{\sqrt{x}} \, dx \\[6pt]
@@ -1308,31 +1374,36 @@
 
         \subsection{Modelling Differential Equations}
             When interpreting words to turn into a differential equations, there are a few keywords that should be looked out for. Listed below are some of the more common ones (examples from Khan Academy):
+
             \begin{itemize}
                 \item \textbf{Proportional}: means that the rate of change is equal to some constant $k$ multiplied by what the rate of change is proportional to.
-                \newline \newline
-                A habitat of prairie dogs can support $m$ dogs at most. The habitat's population, $p$, grows proportionally to the product of the current population and the difference between $m$ and $p$.
+                \bigskip
+
+                \noindent A habitat of prairie dogs can support $m$ dogs at most. The habitat's population, $p$, grows proportionally to the product of the current population and the difference between $m$ and $p$.
                 \[ \frac{dp}{dt} = kp(m-p) \]
 
                 \item \textbf{Shrinks, decays, melts, decreases, etc}: any word that suggests something is getting smaller, the rate of change would be equal to some constant $k$ multiplied by what the rate of change is proportional to, but negative.
-                \newline \newline
-                A radioactive material decays at a rate of change proportional to the current amount, $Q$, of the material.
+                \bigskip
+
+                \noindent A radioactive material decays at a rate of change proportional to the current amount, $Q$, of the material.
                 \[ \frac{dQ}{dt} = -kQ \]
 
                 \item \textbf{Inversely proportional}: means that the rate of change is equal to the inverse of some constant $k$ multiplied by what the rate of change is proportional to.
-                \newline \newline
-                A chemical is diluted out of a tank by pumping pure water into the tank and pumping the existing solution out of it, so the volume at any time $t$ is $20+2t$. The amount $z$ of chemical in the tank decreases at a rate proportional to $z$ and inversely proportional to the volume of solution in the tank.
+                \bigskip
+
+                \noindent A chemical is diluted out of a tank by pumping pure water into the tank and pumping the existing solution out of it, so the volume at any time $t$ is $20+2t$. The amount $z$ of chemical in the tank decreases at a rate proportional to $z$ and inversely proportional to the volume of solution in the tank.
                 \[ \frac{dz}{dt} = -\frac{kz}{20-2t} \]
 
                 \item \textbf{Fraction of ... }: usually means that the rate of change is equal to some constant $k$ multiplied by one minus what the rate of change is proportional to.
-                \newline \newline
-                In one kind of chemical reaction, unconverted reactants change into converted reactants. The fraction $a$ of reactants that have been converted increases at a rate proportional to the product of the fraction of converted reactants and the fraction of unconverted reactants.
+                \bigskip
+
+                \noindent In one kind of chemical reaction, unconverted reactants change into converted reactants. The fraction $a$ of reactants that have been converted increases at a rate proportional to the product of the fraction of converted reactants and the fraction of unconverted reactants.
                 \[ \frac{da}{dt} = ka(1-a) \]
             \end{itemize}
 
         \subsection{Slope Fields}
-            Slope fields area away to verify a class of answers to differential equations that are solved explicitly. When the equation is not solvable explicitly, slope fields provide a way to solve them graphically. Slope fields can show all the different slopes of an equation at all different points on a plane.
-            \\ For example, the slope field for the differential equation $\frac{dy}{dx} = \frac{x-2}{y}$ would look like \hyperref[fig:slopefield1]{this}:
+            Slope fields area away to verify a class of answers to differential equations that are solved explicitly. When the equation is not solvable explicitly, slope fields provide a way to solve them graphically. Slope fields can show all the different slopes of an equation at all different points on a plane. For example, the slope field for the differential equation $\frac{dy}{dx} = \frac{x-2}{y}$ would look like \hyperref[fig:slopefield1]{this}:
+
             \begin{figure}[H]
                 \begin{center}
                     \includegraphics{fig13.JPG}
@@ -1340,14 +1411,73 @@
                     \label{fig:slopefield1}
                 \end{center}
             \end{figure}
+
             We can confirm that this slope field belongs to the above equation by testing a few points. For example:
             \begin{itemize}
                 \item At $(0, 0)$, $\frac{dy}{dx} = \frac{-2}{0}$, or undefined. This is seen in the slope field by a vertical line, matching the undefined slope.
                 \item At $(2, 2)$, $\frac{dy}{dx} = \frac{0}{2}$. This is seen in the slope field by a horizontal line, matching the slope of $0$.
                 \item At $(-6, 5)$, $\frac{dy}{dx} = \frac{-8}{5}$. This is seen in the slope field by a line with a negative slope. (It isn't necessary to confirm the slope 100\%, it is sufficient to use an approximation.)
             \end{itemize}
+            % TODO: add more for slope fields maybe
 
         \subsection{Approximation Using Euler's Method}
+            Euler's method can be used to approximate solutions to otherwise unsolvable differential equations. It's general idea involves solving for $\frac{dy}{dx}$ at one point, then extending the slope over a $\Delta x$, to find the next point to approximate at. At this next point we repeat the steps until we reach the point we hope to achieve.
+
+            The steps for approximating the next point given a differential equation and a change in $x$ ($\Delta x$) goes as follows:
+            \[ f(x_{n+1}) = f(x_n) + \left. \frac{dy}{dx} \right \vert_n \cdot \Delta x. \]
+
+            \noindent \textbf{Example:} Given $\frac{dy}{dx} = 2x-3y$ and $f(-1) = 1$, approximate $f(3)$ using $4$ equal steps.
+
+            \noindent First, find $\Delta x$.
+            \begin{align*}
+                \Delta x &= \frac{x_n - x_0}{\text{steps}} \\[6pt]
+                &= \frac{3-(-1)}{4} \\[6pt]
+                &= 1
+            \end{align*}
+            Next, set up a table with what we know so far, using steps of $\Delta x$:
+            \begin{center}
+                \begin{tabular}{|c|c|c|c|}
+                    \hline
+                    $n$ & $x$ & $f(x)$ & $\frac{dy}{dx}$ \\
+                    \hline \hline
+                    $0$ & $-1$ & $1$ & $-5$ \\
+                    \hline
+                    $1$ & $0$ & ? & \\
+                    \hline
+                    $2$ & $1$ & & \\
+                    \hline
+                    $3$ & $2$ & & \\
+                    \hline
+                    $4$ & $3$ & & \\
+                    \hline
+                \end{tabular}
+            \end{center}
+            To solve for the value of the box marked by a `?', apply the formula.
+            \begin{align*}
+                f(x_{n+1}) &= f(x_n) + \left. \frac{dy}{dx} \right \vert_n \cdot \Delta x \\[6pt]
+                f(x_1) &= f(x_0) + \left. \frac{dy}{dx} \right \vert_0 \cdot \Delta x \\[6pt]
+                &= 1 + (-5) \cdot 1 \\
+                &= -4
+            \end{align*}
+            Rinse and repeat these steps for the remaining of the boxes to fill in the table.
+            \begin{center}
+                \begin{tabular}{|c|c|c|c|}
+                    \hline
+                    $n$ & $x$ & $f(x)$ & $\frac{dy}{dx}$ \\
+                    \hline \hline
+                    $0$ & $-1$ & $1$ & $-5$ \\
+                    \hline
+                    $1$ & $0$ & $-4$ & $12$ \\
+                    \hline
+                    $2$ & $1$ & $8$ & $-22$ \\
+                    \hline
+                    $3$ & $2$ & $-14$ & $46$ \\
+                    \hline
+                    $4$ & $3$ & $32$ & \\
+                    \hline
+                \end{tabular}
+            \end{center}
+            Using Euler's Method, we have approximated $f(3) = 32$.
 
         \subsection{Solving Separable Differential Equations}
 
