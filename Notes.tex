@@ -1262,7 +1262,7 @@
                     * * * * *
                 \end{center}
 
-                Sometimes, we have to multiply the integral by an extra value to make u-substitution work. For example, find the definite integral:
+                Sometimes, we have to multiply the integral by an extra value to make \\u-substitution work. For example, find the definite integral: % \\ to prevent overfull \hbox
                 \[ \int \sin(3x+5) \, dx. \]
                 Let $u = 3x+5$, therefore $du = 3 \, dx$. To balance out the $3$ in $du$, we must divide the integral by $3$.
                 \begin{align*}
@@ -1479,9 +1479,212 @@
             \end{center}
             Using Euler's Method, we have approximated $f(3) = 32$.
 
-        \subsection{Solving Separable Differential Equations}
+        \subsection{Separable Differential Equations}
+            A separable differential means that the variables can be separated. In other words, the $x$'s can be rearranged to be with the other $x$'s, and the $y$'s can be rearranged to be with the other $y$'s. Doing so makes it possible to separately integrate the two sides of the equation.
 
-        \subsection{Exponential and Logistic Models}
+            Note that not all differentiable equations are separable. For an equation to be separable, it must be the product or quotient of $f(x)$ and $g(y)$. For example,
+            \[ \frac{dy}{dx} = f(x) g(y) \quad \text{or} \quad \frac{dy}{dx} = \frac{g(y)}{f(x)} \]
+            are separable.
+
+            Listed below are a few examples of separable and non-separable differential equations.
+            \begin{enumerate}
+                \item $\frac{dy}{dx} = 3x + 4y$
+
+                This equation is not separable, as it is the sum of two functions.
+                \bigskip
+
+                \item $\frac{dy}{dx} = 2^{x-y}$
+
+                This equation is separable. It can be rearranged to be the quotient of a $f(x)$ and a $g(y)$.
+                \begin{align*}
+                    2^{x-y} &= 2^x \cdot 2^{-y} \\
+                    &= \frac{2^x}{2^y}.
+                \end{align*}
+
+                \item $\frac{dy}{dx} = 5y - x^2 y$
+
+                This equation is separable. It can be factored to be the product of a $f(y)$ and a $g(x)$.
+                \[ 5y - x^2 y = y(5-x^2). \]
+            \end{enumerate}
+
+            \subsubsection{General Solutions}
+                A general solution to a differential equation would take into consideration the entire class of possible solutions. This means that we have to add a constant, $C$, to the end of the function.
+
+                \noindent Here is an example:
+                \[ \frac{dy}{dx} = e^x y^2. \]
+
+                The first step would be to separate the equation. This is the same as rearranging the equation into the form of $f(y) \, dy = g(x) \, dx$. Normally, it is not orthodox to separate $dy$ and $dx$ to rearrange them. However, in separable differential equations this is allowed.
+                \begin{align*}
+                    \frac{dy}{dx} &= e^x y^2 \\[6pt]
+                    y^2 \frac{dy}{dx} &= e^x \\[6pt]
+                    y^2 \, dy &= e^x \, dx
+                \end{align*}
+                Next, take the integral of both sides. If the left and right hand sides are equal, their indefinite integrals would also be equal.
+                \begin{align*}
+                    \int y^2 \, dy &= \int e^x \, dx \\
+                    \frac{y^3}{3} &= e^x + C
+                \end{align*}
+                Notice that we only need to add a constant to one side, as adding a constant to both sides would be redundant.
+
+                \noindent The final step is to rearrange the equation and solve for $y$.
+                \begin{align*}
+                    \frac{y^3}{3} &= e^x + C \\[6pt]
+                    y^3 &= 3 \left( e^x + C \right) \\
+                    y &= \sqrt[3]{3 \left( e^x + C \right)}
+                \end{align*}
+
+            \subsubsection{Particular Solutions}
+                Particular solutions to differential equations would be solving for the constant, $C$, as well. \textit{Particular} means we are solving for a specific equation, not an entire class of them.
+
+                \noindent Here is an example:
+                \[ f'(x) = \frac{16}{x^2}, \, f(-2) = 0. \]
+                Find $f(4)$.
+
+                The first step is to solve for the class of functions that work for the differential equation.
+                \begin{align*}
+                    \frac{dy}{dx} &= \frac{16}{x^2} \\[6pt]
+                    dy &= \frac{16}{x^2} \, dx \\[6pt]
+                    \int 1 \, dy &= \int \frac{16}{x^2} \, dx \\[6pt]
+                    y &= -\frac{16}{x} + C
+                \end{align*}
+                Next, we can plug in the given value to solve for $C$.
+                \begin{align*}
+                    f(-2) &= 0 \\
+                    -\frac{16}{-2} + C &= 0 \\[6pt]
+                    8 + C &= 0 \\
+                    C &= -8
+                \end{align*}
+                This leaves us with the specific function:
+                \[ f(x) = -\frac{16}{x} - 8. \]
+                Finally, solve for the unknown $y$ by plugging in its given $x$.
+                \begin{align*}
+                    f(4) &= -\frac{16}{4} - 8 \\[6pt]
+                    &= -4 - 8 \\
+                    &= -12
+                \end{align*}
+
+        \subsection{Exponential Model Equations}
+            Exponential model equations means that the differential equation will have to deal with exponents in one way or another. If the equation is separable, it can still be solved in the same way.
+
+            \noindent Examples:
+            \begin{enumerate}
+                \item Solve for $g(x)$, given:
+                \[ g'(x) = -4 g(x) \, \text{, and} \, g(-2) = 12. \]
+
+                The first step is to find the general solution for $g(x)$.
+                \begin{align*}
+                    g'(x) &= -4 g(x) \\
+                    \frac{dy}{dx} &= -4y \\[6pt]
+                    \frac{1}{y} \, dy &= -4 \, dx \\[6pt]
+                    \int \frac{1}{y} \, dy &= \int -4 \, dx \\[6pt]
+                    \ln|y| &= -4x + C \\
+                    y &= e^{-4x + C}
+                \end{align*}
+                The next step would be to solve for $C$, in order to find the particular solution for $g(x)$. It may be easier to do so if we first rearrange the equation a bit.
+                \begin{align*}
+                    y &= e^{-4x + C} \\
+                    &= e^{-4x} \cdot e^C \\
+                    &= C \cdot e^{-4x} \quad \text{\hyperlink{eq:expmodeeq1}{*}}
+                \end{align*}
+                \hypertarget{eq:expmodeq1}{*}Note that $e$ to the power of an arbitrary constant will still be a constant.
+                \begin{align*}
+                    g(-2) &= 12 \\
+                    &= C \cdot e^{-4 \cdot -2} \\
+                    C \cdot e^8 &= 12 \\
+                    C &= 12 e^{-8}
+                \end{align*}
+                Putting everything together,
+                \begin{align*}
+                    \therefore g(x) &= e^{-4x} \cdot 12 e^{-8} \\
+                    &= 12 e^{-4x-8}
+                \end{align*}
+                \smallskip
+
+                \item The number of barrels of oil a certain company exports annually increases at a rate that is proportional at any time to the number of barrels they export at that time. The company exported $5.4$ million barrels annually initially, and it exported $10.8$ million barrels annually after $6$ years.
+
+                \noindent \textbf{How many million barrels of oil did the company export after $10$ years?} Round your answer to the nearest whole number.
+
+                \vspace{6mm}
+
+                We first have model the differential equation. Let $B$ be the number of millions of barrels of oil, let $t$ be the number of years, and let $k$ be an arbitrary number. The differential equation can be modelled as:
+                \[ \frac{dB}{dt} = kB. \]
+
+                We recognize that this is a separable differential equation, so we can solve for $B(t)$.
+                \begin{align*}
+                    \frac{dB}{dt} &= kB \\[6pt]
+                    \frac{1}{B} \, dB &= k \, dt \\[6pt]
+                    \int \frac{1}{B} \, dB &= \int k \, dt \\[6pt]
+                    \ln|B| &= kt + C \\
+                    B(t) &= e^{kt + C} \\
+                    &= C \cdot e^{kt}
+                \end{align*}
+
+                We can use the two given values, $B(0) = 5.4$ and $B(6) = 10.8$, to solve for $C$ and $k$.
+                \begin{align*}
+                    B(0) &= 5.4 \\
+                    C \cdot e^{0k} &= 5.4 \\
+                    C &= 5.4 \\[10pt]
+                    B(6) &= 10.8 \\
+                    5.4 \cdot e^{6k} &= 10.8 \\
+                    e^{6k} &= 2 \\
+                    6k &= \ln 2 \\
+                    k &= \frac{\ln 2}{6}
+                \end{align*}
+
+                Putting everything together and solving for $B(10)$:
+                \begin{align*}
+                    B(t) &= 5.4 \cdot e^{\frac{\ln 2}{6} t} \\
+                    B(10) &= 5.4 \cdot e^{10 \cdot \frac{\ln 2}{6}} \\
+                    &\approx 17
+                \end{align*}
+
+                The company will be making approximately $17$ million barrels of oil in $10$ years.
+            \end{enumerate}
+
+        \subsection{Logistic Growth Model Equations}
+            A logistic model is an s-shaped curve that starts by growing rapidly before slowing down as it approaches its \textit{carrying capacity}. It can be used to represent population.
+
+            The change in population is proportional to the product of the population at the time, $P$, and the difference between $1$ and the current population, $P$, over the carrying capacity, $C$. (\hyperref[fig:logisticeq]{Figure 14})
+            \[ \frac{dP}{dt} = kP \left( 1 - \frac{P}{C} \right) \]
+
+            \begin{figure}[H]
+                \begin{center}
+                    \frame{\includegraphics[scale=0.4]{fig14.JPG}}
+                    \caption{Logistic Equation, $P(t)$}
+                    \label{fig:logisticeq}
+                \end{center}
+            \end{figure}
+
+            \noindent \textbf{Examples:}
+            \begin{enumerate}
+                \item Find the carrying capacity of the following logistic growth:
+                \[ \frac{dP}{dt} = \frac{1}{50} P (35000 - P). \]
+
+                For any logistic model $P$, $\frac{dP}{dt}$ will approach $0$ at the carrying capacity.
+                \begin{align*}
+                    \frac{dP}{dt} &= 0 \\[6pt]
+                    \frac{1}{50} P (35000 - P) &= 0 \\[6pt]
+                    P &= 0, \, 35000
+                \end{align*}
+                $P=0$ is the lower limit for $P$, so $P=35000$ is the carrying capacity.
+                \bigskip
+
+                \item At what value $N$ does the following logistic model grow the quickest?
+                \[ \frac{dN}{dt} = N \left( 0.1 - \frac{N}{1800000} \right) \]
+
+                The point at which the logistic equation grows the quickest would be at its point of inflection. This is when the derivative changes from increasing to decreasing. (When second derivative is $0$.) It can be noticed that the graph of the first derivative is parabolic. In order to find the $N$ value of the maximum of the first derivative, we can find its zeroes then take their average.
+                \begin{gather*}
+                    N \left( 0.1 - \frac{N}{1800000} \right) = 0 \\[6pt]
+                    N = 0, \, 180000
+                \end{gather*}
+                Taking the average of the zeroes,
+                \begin{align*}
+                    N &= \frac{0 + 180000}{2} \\[6pt]
+                    &= 90000
+                \end{align*}
+
+                Therefore, the model is growing the quickest at $N=90000$.
+            \end{enumerate}
 
     \section{Applications of Integration (6\% - 9\%)}
 
