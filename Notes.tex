@@ -20,6 +20,9 @@
 \renewcommand{\baselinestretch}{1.5} % line spacing
 \addto\captionsenglish{\renewcommand{\contentsname}{Units}} % Change TOC title
 
+% custom commands
+\newcommand{\fline}{\par\noindent\rule{\textwidth}{0.1pt}} % horizontal line (wide)
+
 \title{\textbf{AP Calculus BC:\\Notes, Formulas,  Equations,\\and Examples}}
 \author{Bryan Deng}
 \date{Start date: March 2, 2021\\Last updated: \today}
@@ -34,9 +37,8 @@
     \end{center}
     \newpage
 
-    % table of contents followed by horizontal line
     \tableofcontents
-    \par\noindent\rule{\textwidth}{0.4pt} % horizontal line
+    \fline
     \newpage
 
     \addcontentsline{toc}{section}{Introduction}
@@ -53,8 +55,9 @@
         \end{itemize}
 
     \section{Limits and Continuity (4\% - 7\%)}
-    \par\noindent\rule{\textwidth}{0.1pt}
-        \indent The limit is when a given value approaches, or gets \textit{really close} (infinitely) to another value. The standard notation for a limit:
+    \fline
+
+        The limit is when a given value approaches, or gets \textit{really close} (infinitely) to another value. The standard notation for a limit:
         \[ \lim_{x \to c} f(x) \]
         represents when $x$ can approach $c$ from either the left ($-$) or the right ($+$). By adding a sign superscript to the $c$, it means the $x$ can only approach from that direction:
         \[ \lim_{x \to c^+} f(x) \]
@@ -67,7 +70,8 @@
         \end{center}
 
         \subsection{Limits to Infinity}
-            \par If a degree (biggest exponent) of a polynomial is greater than or equal to $1$, its limit as $x$ approaches $\pm\infty$ will also be $\pm\infty$. This depends on the sign of the leading coefficient and the degree of the polynomial.
+
+            If a degree (biggest exponent) of a polynomial is greater than or equal to $1$, its limit as $x$ approaches $\pm\infty$ will also be $\pm\infty$. This depends on the sign of the leading coefficient and the degree of the polynomial.
 
             \noindent Example:
             \begin{align*}
@@ -337,8 +341,9 @@
                 \end{center}
             \end{figure}
 
-    \section[Differentiation: Definition and Fundamental Properties (4\% - 7\%)]{Differentiation: Definition and Fundamental \\Properties (4\% - 7\%)}
-    \par\noindent\rule{\textwidth}{0.1pt}
+    \section[Differentiation: Definition and Fundamental Properties (4\% - 7\%)]{Differentiation: Definition and Fundamental \\ (4\% - 7\%)}
+    \fline
+
         A derivative is the \textbf{instantaneous} rate of change of a function at a point. It's the average rate of change over an infinitely small interval. It has two main notations (names are not important here).
         \begin{itemize} % too lazy to keep notation usage uniform across document
             \item \textbf{Lagrange's notation}:
@@ -452,7 +457,7 @@
             \end{center}
 
     \section{Differentiation: Composite, Implicit, and Inverse Functions (4\% - 7\%)}
-    \par\noindent\rule{\textwidth}{0.1pt}
+    \fline
         \subsection{Implicit Differentiation}
             Implicit differentiation is taking the derivative of both sides of an equation with respect to two variables, usually $x$ and $y$, by treating one variable as a function of the other. (Usually $y$ is a function of $x$.)
 
@@ -551,7 +556,7 @@
             \end{align*}
 
     \section[Contextual Applications of Differentiation (6\% - 9\%)]{Contextual Applications of Differentiation \\(6\% - 9\%)}
-    \par\noindent\rule{\textwidth}{0.1pt}
+    \fline
         %* put an intro here ig? whats supposed to be in the intro idk
         % \subsection{Rates of Change (Identifying Relevant Information)}
 
@@ -761,7 +766,7 @@
             \end{enumerate}
 
     \section{Analytical Applications of Differentiation}
-    \par\noindent\rule{\textwidth}{0.1pt}
+    \fline
         %* intro here?
         \subsection{Mean Value Theorem}
             \begin{wrapfigure}[11]{r}{0.5\textwidth}
@@ -1067,7 +1072,7 @@
             \end{enumerate}
 
     \section{Integration and Accumulation of Change (17\% - 20\%)}
-    \par\noindent\rule{\textwidth}{0.1pt}
+    \fline
 
         The accumulation of change is the net change of a quantity. This is not the same thing as simply the quantity. The accumulation of change takes into consideration time, and it is the quantity over a specified time period. There may be some quantity before or after this time period, but we would not count that.
 
@@ -1370,6 +1375,8 @@
             \end{itemize}
 
     \section{Differential Equations (6\% - 9\%)}
+    \fline
+
         Differential equations involve functions and their derivatives. Unlike algebraic equations who evaluate to numbers or values, differential equations evaluate to a function or class (several) functions.
 
         \subsection{Modelling Differential Equations}
@@ -1687,8 +1694,110 @@
             \end{enumerate}
 
     \section{Applications of Integration (6\% - 9\%)}
+    \fline
+
+        \subsection{Average of a Function Over an Interval} % are examples needed for this?
+            The average of a function over an interval is equal to the sum of all its $y$ values divided by the length of the interval. This sum is the same thing as the area under the curve, or the definite integral over the interval.
+            \[ f_{avg} = \frac{1}{b-a} \int_{a}^{b} f(x) \, dx \]
+
+        \subsection{Particle Motion (Position, Velocity and Acceleration)}
+            Similar to how derivatives can be used to derive velocity from position or acceleration from velocity, integrals can be used to go the other way around.
+            \begin{gather*}
+                \int a(t) = v(t) \\
+                \int v(t) = p(t)
+            \end{gather*}
+
+            There are three possible types of problems that involve velocity and position and require integrals.
+            \begin{itemize}
+                \item \textbf{Displacement}
+
+                Displacement is essentially the distance from a particle's starting point to its current position. If it moves forward then back again, it would not count the distance it travelled back.
+                \[ \int_{a}^{b} v(x) \, dx \]
+
+                \item \textbf{Total distance}
+
+                Total distance a particle has taken to get from one point to another. If a particle moves forward then back again, it would count both distances.
+                \[ \int_{a}^{b} |v(x)| \, dx \]
+
+                \item \textbf{Actual position}
+
+                The actual position is where the particle is at given a specific time, $b$.
+                \[ p(b) = v(a) + \int_{a}^{b} v(x) \, dx \]
+            \end{itemize}
+
+            \noindent Example problems:
+            \begin{enumerate}
+                \item A particle with velocity $v(t) = 3\sqrt{t}$, where $t$ is seconds, moves in a straight line. How far does the particle move from $t=1$ to $t=4$?
+
+                This problem is asking for the particle's total distance travelled, as hinted by ``how far does the particle move'' rather than ``how far is the particle from its starting position.''
+                \begin{align*}
+                    \int_{1}^{4} |3\sqrt{t}| \, dx &= \left[ 2 t^{\frac{3}{2}} \right]_{1}^{4} \\
+                    &= 16 - 2 \\
+                    &= 14
+                \end{align*}
+                The particle moves $14$ units from $t=1$ to $t=3$.
+
+                \item As a particle moves along the number line, its position at time $t$ is $s(t)$ its velocity is $v(t)$ and its acceleration is $a(t)= 12t-4$. If $v(2)=4$ and $s(0)=1$, what is $s(1)$.
+
+                The first step in this problem is solving for the particular $v(t)$.
+                \begin{align*}
+                    v(t) &= \int a(t) \, dt \\[6pt]
+                    &= \int 12t-4 \, dt \\
+                    &= 6t^2 -4t + C
+                \end{align*}
+                Solving for $C$:
+                \begin{align*}
+                    v(2) &= 4 \\
+                    24 - 8 + C &= 4 \\
+                    C &= -12 \\
+                    v(t) &= 6t^2 -4t -12
+                \end{align*}
+
+                The problem is asking for the actual position of the particle at $t=1$.
+                \begin{align*}
+                    s(1) &= s(0) + \int_{0}^{1} v(t) \, dt \\[6pt]
+                    &= 1 + \int_{0}^{1} 6t^2 -4t -12 \, dt \\
+                    &= 1 + \left[ 2t^3 - 2t^2 - 12t \right]_{0}^{1} \\
+                    &= 1 -12 +0 \\
+                    &= -11
+                \end{align*}
+                The position of the particle at $t=1$ is $-11$ units.
+            \end{enumerate} % maybe add more problems later
+
+        \subsection{Accumulation Problems}
+            Accumulation is something's net change, usually a quantity. Given a rate of change, we can find the value using integrals. The net change of a quantity $f(t)$ from time $a$ to $b$ is:
+            \[ \int_{a}^{b} f'(t) \, dt. \]
+
+            This can also be used to find the quantity of something after an interval, giving a starting point.
+            \[ f(b) = f(a) + \int_{a}^{b} f'(t) \, dt \]
+
+            \noindent \textbf{Examples:}
+            \begin{enumerate}
+                \item The water level of a strait is changing at a rate of $\frac{3}{2} \sin \left(2- \frac{t}{2}) \right)$ centimeters per hour (where $t$ is hours since midnight). Approximate how much the water level changes from $t=1$ to $t=3$ (round to nearest whole number).
+
+                Let $r(t) = \frac{3}{2} \sin \left(2- \frac{t}{2}) \right)$. A key point to realize is that this function is the \textit{rate of change} of the water level, not the water level itself. So to find the change in water level we can use:
+                \[ \int_{1}^{4} r(t) \, dt. \]
+
+                \begin{align*}
+                    \int_{1}^{4} \frac{3}{2} \sin \left(2- \frac{t}{2}) \right) \, dt &= \left[ 3 \cos \left(2 - \frac{t}{2} \right) \right]_1^4 \\[6pt]
+                    &= 3 \cos(0) - 3\cos \left( \frac{3}{2} \right) \\[6pt]
+                    &\approx 2.8
+                \end{align*}
+
+                The water level rises by approximately $2.8$ centimetres from $t=1$ to $t=4$.
+
+            \end{enumerate}
+
+        \subsection{Area Between Curves}
+
+        \subsection{Volumes with Cross Sections}
+            % different methods: washer method, disk method, etc.
+
+        \subsection{Determining the Length of a Planar Curve}
 
     \section{Parametric Equations, Polar Coordinates, and Vector-Valued Functions (11\% - 12\%)}
+    \fline
 
     \section{Infinite Sequences and Series (17\% - 18\%)}
+    \fline
 \end{document}
