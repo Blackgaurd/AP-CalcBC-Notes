@@ -31,8 +31,7 @@
     \maketitle
     \vfill
     \begin{center}
-        \textit{Sections based off of College Board units.
-        \newline
+        \textit{Sections based off of College Board units.\\
         Formatting may not be the best, this is just a study tool. (Still a work in progress.)}
     \end{center}
     \newpage
@@ -1779,21 +1778,273 @@
                 \[ \int_{1}^{4} r(t) \, dt. \]
 
                 \begin{align*}
-                    \int_{1}^{4} \frac{3}{2} \sin \left(2- \frac{t}{2}) \right) \, dt &= \left[ 3 \cos \left(2 - \frac{t}{2} \right) \right]_1^4 \\[6pt]
+                    \int_{1}^{4} \frac{3}{2} \sin \left(2- \frac{t}{2} \right) \, dt &= \left[ 3 \cos \left(2 - \frac{t}{2} \right) \right]_1^4 \\[6pt]
                     &= 3 \cos(0) - 3\cos \left( \frac{3}{2} \right) \\[6pt]
                     &\approx 2.8
                 \end{align*}
 
                 The water level rises by approximately $2.8$ centimetres from $t=1$ to $t=4$.
-
-            \end{enumerate}
+            \end{enumerate} % add more examples later
 
         \subsection{Area Between Curves}
+            \subsubsection{Curves as Functions of x}
+                The most basic type of area between a curve is the area under a single curve. The area under the curve $f(x)$ over the interval $[a, b]$ is the same as:
+                \[ \int_a^b f(x) \, dx. \]
+                For example, what is the area under the curve of $\cos(x)$ from $0$ to $\frac{\pi}{2}$?
+                \begin{align*}
+                    \int_0^{\frac{\pi}{2}} \cos(x) \, dx &= \left[ \sin(x) \right]_0^{\frac{\pi}{2}} \\[6pt]
+                    &= 1 - 0 \\
+                    &= 1
+                \end{align*}
+                This area is the same as the shaded area in \hyperref[fig:auccosx1]{Figure 15}:
+
+                \begin{figure}[H]
+                    \begin{center}
+                        \frame{\includegraphics[scale=0.3]{fig15.JPG}}
+                        \caption{Area under the curve of $\cos(x)$ over $x \in [0, \frac{\pi}{2}]$}
+                        \label{fig:auccosx1}
+                    \end{center}
+                \end{figure}
+
+                The area under the curve can also be negative if it is under the $x$ axis. An example of this is the area under the curve of $\cos(x)$ from $\frac{\pi}{2}$ to $\pi$. (See \hyperref[fig:auccosx2]{Figure 16}.)
+                \begin{align*}
+                    \int_{\frac{\pi}{2}}^\pi \cos(x) \, dx &= \left[ \sin(x) \right]_{\frac{\pi}{2}}^\pi \\[6pt]
+                    &= 0 - 1 \\
+                    &= -1
+                \end{align*}
+
+                \begin{figure}[H]
+                    \begin{center}
+                        \frame{\includegraphics[scale=0.3]{fig16.JPG}}
+                        \caption{Area under the curve of $\cos(x)$ over $x \in [\frac{\pi}{2}, \pi]$}
+                        \label{fig:auccosx2}
+                    \end{center}
+                \end{figure}
+
+                \begin{center}
+                    * * * * *
+                \end{center}
+
+                When finding the area between two curves, the first step is to draw out the graphs and see which one of the two is ``on top.'' If $f(x)$ is the curve on top and $g(x)$ is the curve under, the area between the curves would be:
+                \[ \int_a^b f(x) - g(x) \, dx. \]
+                Sometimes the question may require finding the endpoints of the interval by solving for the points of intersection between the two functions.
+
+                \noindent \textbf{Examples:}
+                \begin{enumerate}
+                    \item What is area of the region between the two graphs $f(x) = x^2 + 2x + 2$ and $g(x) = 2x^2 + 3x - 4$?
+
+                    The first step is to find the endpoints of the region, which would be the points of intersection of the two functions.
+                    \begin{align*}
+                        x^2 + 2x + 2 &= 2x^2 + 3x - 4 \\
+                        x^2 + x - 6 &= 0 \\
+                        (x+3)(x-2) &= 0 \\
+                        x &= -3, \, 2
+                    \end{align*}
+
+                    Next, plot the two graphs to see which one is on top. (\hyperref[fig:abcx1]{Figure 17}.)
+
+                    \begin{figure}[H]
+                        \begin{center}
+                            \frame{\includegraphics[scale=0.3]{fig17.JPG}}
+                            \caption{$f(x)$ (top), and $g(x)$ (bottom)}
+                            \label{fig:abcx1}
+                        \end{center}
+                    \end{figure}
+
+                    From the graph, we see that $f(x) \ge g(x) \, \forall \, x \in [-3, 2]$. This means we have to solve for:
+                    \[ \int_{-3}^2 \left( f(x) - g(x) \right) \, dx. \]
+                    \begin{align*}
+                        \int_{-3}^2 \left( f(x) - g(x) \right) \, dx &= \int_{-3}^2 \left( x^2 + 2x + 2 - 2x^2 - 3x + 4 \right) \, dx \\[6pt]
+                        &= \int_{-3}^2 -x^2 - x + 6 \\[6pt]
+                        &= \left[ -\frac{x^3}{3} -\frac{x^2}{2} + 6x \right]_{-3}^2 \\[6pt]
+                        &= -\frac{8}{3} - 2 + 12 - 9 +\frac{9}{2} + 18 \\[6pt]
+                        &= \frac{125}{6}
+                    \end{align*}
+                    Therefore the area enclosed by the curves of the graphs is $\frac{125}{6}$.
+                    \smallskip
+
+                    \item What is the area of the region between the two graphs $f(x) = \sqrt{x+7}$ and $g(x) = 0.5(x+7)$?
+
+                    The first step is to find the endpoints of the region, which are the points of intersection of the two functions.
+                    \begin{align*}
+                        \sqrt{x+7} &= 0.5(x+7) \\
+                        x+7 &= 0.25(x+7)^2 \\
+                        0.25(x+7)^2 - (x+7) &= 0
+                        (x+7) \left( 0.25(x+7) - 1 \right) &= 0
+                        x+7 &= 0, \, 4 \\
+                        x &= -7, \, -3
+                    \end{align*}
+
+                    Next, plot the two graphs to see which one is on top. (\hyperref[fig:abcx2]{Figure 18}.)
+
+                    \begin{figure}[H]
+                        \begin{center}
+                            \frame{\includegraphics[scale=0.4]{fig18.JPG}}
+                            \caption{$f(x)$ (top), and $g(x)$ (bottom)}
+                            \label{fig:abcx2}
+                        \end{center}
+                    \end{figure}
+
+                    From the graph, we see that $f(x) \ge g(x) \, \forall \, x \in [-3, 2]$. This means we have to solve for:
+                    \[ \int_{-7}^{-3} \left( f(x) - g(x) \right) \, dx. \]
+                    \begin{align*}
+                        \int_{-7}^{-3} \left( f(x) - g(x) \right) \, dx &= \int_{-7}^{-3} \sqrt{x+7} - 0.5(x+7) \\[6pt]
+                        &= \left[ \frac{2(x+7)^\frac{3}{2}}{3} - \frac{(x+7)^2}{4} \right]_{-7}^{-3} \\[6pt]
+                        &= \frac{16}{3} - 4 - 0 \\[6pt]
+                        &= \frac{4}{3}
+                    \end{align*}
+                    Therefore the area enclosed by the curves of the graphs is $\frac{4}{3}$.
+                \end{enumerate}
+
+            \subsubsection{Curves as Functions of y}
+                Finding the area between two functions of $y$ is as simple as integrating in terms of $y$. Its steps are no different than those for functions of $x$. The one difference is that the graph on the \textit{left} should be subtracted from the graph on the \textit{right}.
+
+                \noindent \textbf{Example:} Find the area between the two curves $f(y)=2y^2 + 19y + 18$ and $g(y)=7y + 18$.
+
+                \noindent First find the points of intersection for the upper and lower bound of the integral.
+                \begin{align*}
+                    2y^2 + 19y + 18 &= 7y + 18 \\
+                    2y^2 + 12y &= 0 \\
+                    y^2 + 6y &= 0 \\
+                    y(y+6) &= 0 \\
+                    y = -6, \, 0
+                \end{align*}
+                Next, draw the graphs to see which one is on the left and which one is on the right. (\hyperref[fig:abcy1]{Figure 19}.)
+
+                \begin{figure}[H]
+                    \begin{center}
+                        \frame{\includegraphics[scale=0.3]{fig19.JPG}}
+                        \caption{$f(y)$ (left), and $g(y)$ (right)}
+                        \label{fig:abcy1}
+                    \end{center}
+                \end{figure}
+
+                From the graph we see that $g(y)$ is on the right of $f(y)$, so the area between the curves will be:
+                \[ \int_{-6}^0 g(y) - f(y) \, dy. \]
+
+                \noindent Putting everything together and solving:
+                \begin{align*}
+                    \int_{-6}^0 g(y) - f(y) \, dy &= \int_{-6}^0 7y + 18 - (2y^2 + 19y + 18) \, dy \\
+                    &= \int_{-6}^0 -2y^2 - 12y \, dy \\
+                    &= \left[ -\frac{2y^3}{3} - 6y^2 \right]_{-6}^0 \\[6pt]
+                    &= 0 - 0 + \frac{432}{3} - 216 \\[6pt]
+                    &= -72
+                \end{align*}
 
         \subsection{Volumes with Cross Sections}
-            % different methods: washer method, disk method, etc.
+            Definite integrals can also be used to find the volumes of 3D shapes. The sections below highlight a few of the more common methods in finding such volumes.
+
+            \subsubsection{Square and Rectangle Cross Sections}
+                % kind of hard to explain without images of the 3d shape
+                Given two functions, $f(x)$ and $g(x)$, where $f(x) \ge g(x) \, \forall \, x \in [a, b]$. If the graph was then extended to the $z$ axis with a given height $h$, such that all cross sections were rectangles, the volume of this figure would be:
+                \[ \int_a^b \left[ f(x) - g(x) \right] \cdot h \, dx. \]
+
+                If the cross sections were square then the height would be the same as the base, therefore the volume would be:
+                \[ \int_a^b \left[ f(x) - g(x) \right]^2 \, dx. \]
+                The same formula would work with functions in respect to $y$.
+                \bigskip
+
+                For example, let $R$ be the region enclosed by $y=\frac{x^3}{2}$, $y=4$, and the $y$ axis (\hyperref[fig:srcross]{Figure 20}). Region $R$ is the base of a solid. For each $y$-value, the cross section of the solid taken \textit{perpendicular} to the $y$-axis is a rectangle whose base lies in $R$ and whose height is $\frac{y}{2}$. \textbf{What is the definite integral needed to find the volume of the solid?}
+
+                \noindent Region $R$ is between the function and the $y$-axis, so in order to find its area with a definite integral we first need to convert the function to be in terms of $y$.
+                \begin{align*}
+                    y &= \frac{x^3}{2} \\[6pt]
+                    x &= \sqrt[3]{2y}
+                \end{align*}
+                We can now plug everything in to the formula to find the definite integral needed to find the volume.
+                \begin{align*}
+                    V &= \int_a^b \left[ f(y) - g(y) \right] \cdot h \, dy \\
+                    &= \int_0^4 \left[ \sqrt[3]{2y} - 0 \right] \cdot \frac{y}{2} \, dy \\[6pt]
+                    &= \int_0^4 \sqrt[3]{2y} \cdot \frac{y}{2} \, dy
+                \end{align*}
+
+                \begin{figure}[H]
+                    \begin{center}
+                        \frame{\includegraphics[scale=0.4]{fig20.JPG}}
+                        \caption{region $R$, shaded}
+                        \label{fig:srcross}
+                    \end{center}
+                \end{figure}
+
+            \subsubsection{Triangle and Semi-circle Cross Sections}
+                If the cross section of a shape is a triangle or semi-circle, the formula is very similar to that of a rectangle or square.
+                \\ For a triangle with height $h$, the formula is:
+                \[ \int_a^b \left[ f(x) - g(x) \right] \cdot \frac{h}{2} \, dx. \]
+                For a semi-circle with radius $r$, the formula is:
+                \[ \int_a^b \pi \cdot \left[ f(x) - g(x) \right]^2 \, dx. \]
+
+            \subsubsection{Revolving Around Axis: Disc Method}
+                When a shape is rotated or revolved around an axis to form a solid, its volume can be split up into an infinite amount of circles. The formula is then very similar to the area of a circle. Given $f(x) \ge g(x) \, \forall \, x \in [a, b]$, the area of the solid made by rotating the area between $f(x)$ and $g(x)$ around $g(x)$ would be:
+                \[ \int_a^b \pi \left( f(x) - g(x) \right)^2 \, dx. \]
+                For example, find the volume of the solid made by revolving the area between $f(x) = \frac{x^2}{4} + 2$ and $g(x) = 1$ over the interval $[2, 4]$ around $g(x)$ (\hyperref[fig:disc]{Figure 21}).
+                \begin{align*}
+                    V &= \int_a^b \pi \left( f(x) - g(x) \right)^2 \, dx \\
+                    &= \int_2^4 \pi \left( \frac{x^2}{4} + 2 - 1 \right)^2 \, dx \\[6pt]
+                    &= \pi \int_2^4 \left( \frac{x^2}{4} + 1 \right)^2 \, dx \\[6pt]
+                    &= \pi \int_2^4 \frac{x^4}{16} + \frac{x^2}{2} + 1 \, dx \\[6pt]
+                    &= \pi \left[ \frac{x^5}{80} + \frac{x^3}{6} + x \right]_2^4 \\[6pt]
+                    &= \pi \left( \frac{412}{15} - \frac{56}{15} \right) \\[6pt]
+                    &= \frac{356}{15} \pi
+                \end{align*}
+                Therefore the volume of the solid is $\frac{356}{15} \pi$.
+
+                \begin{figure}[H]
+                    \begin{center}
+                        \frame{\includegraphics[scale=0.4]{fig21.JPG}}
+                        \caption{$f(x)$ (top), and $g(x)$ (bottom)}
+                        \label{fig:disc}
+                    \end{center}
+                \end{figure}
+
+            \subsubsection{Revolving Around Axis: Washer Method}
+                When a shape that does not have side(s) perpendicular to one of the axis is rotated around another axis to form a solid, the washer method can be used to find the volume. The idea behind this method is to find the volume of the solid formed by the top line, and subtract the volume of the solid formed by the bottom line.
+                \\ Given $f(x) \ge g(x) \, \forall \, x \in [a, b]$, rotating around $h(x)$, the formula is:
+                \[ \pi \int_a^b \underbrace{\left( f(x) - h(x) \right)^2}_{\text{solid formed by $f(x)$}} - \underbrace{\left( g(x) - h(x) \right)^2}_{\text{solid formed by $g(x)$}} \, dx.\]
+
+                \noindent \textbf{Example:}
+                \\ Let $R$ be the region enclosed by $f(x) = 4$, $g(x) = \frac{x^3}{2}$ and the $y$ axis (\hyperref[fig:washer]{Figure 22}). A solid is formed by rotating $R$ around $y=-1$. What is the volume of this solid? ($f(x)$ and $g(x)$ intersect at $(2, 4)$.)
+                \begin{align*}
+                    V &= \pi \int_a^b \left( f(x) - h(x) \right)^2 - \left( g(x) - h(x) \right)^2 \, dx \\
+                    &= \pi \int_0^2 (4+1)^2 - \left( \frac{x^3}{2} + 1 \right)^2 \, dx \\[6pt]
+                    &= \pi \int_0^2 24 - \frac{x^6}{4} - x^3 \, dx \\[6pt]
+                    &= \pi \left[ 24x - \frac{x^7}{28} - \frac{x^4}{4} \right]_0^2 \\[6pt]
+                    &= \pi \left( 48 - \frac{128}{28} - 4 \right) \\[6pt]
+                    &= \frac{276}{7} \pi
+                \end{align*}
+                Therefore the volume of the solid is $\frac{276}{7} \pi$.
+
+                \begin{figure}[H]
+                    \begin{center}
+                        \frame{\includegraphics[scale=0.3]{fig22.JPG}}
+                        \caption{from top to bottom: $f(x)$, $g(x)$, $y=-1$}
+                        \label{fig:washer}
+                    \end{center}
+                \end{figure}
 
         \subsection{Determining the Length of a Planar Curve}
+            The equation for the length of a curve of $f(x)$ in between $[a, b]$ is:
+            \[ \int_a^b \sqrt{1 + \left( f'(x) \right)^2} \, dx.\]
+
+            This formula comes directly from Pythagorean's Theorem. Given a function $f(x)$, split the curve up into an infinite amount of small slants, each of which will be of length $ds$ (\hyperref[fig:planarcurve]{Figure 23}).
+
+            \begin{figure}[H]
+                \begin{center}
+                    \frame{\includegraphics[scale=0.3]{fig23.JPG}}
+                    \caption{$f(x)$ split up into an infinite amount of $ds$'s}
+                    \label{fig:planarcurve}
+                \end{center}
+            \end{figure}
+
+            \noindent The length of $f(x)$ would then be:
+            \[ \int ds. \]
+            According to Pythagorean's Theorem, we can rewrite this equation:
+            \begin{align*}
+                ds &= \sqrt{(dx)^2 + (dy)^2} \\
+                \int ds &= \int \sqrt{(dx)^2 + (dy)^2} \\
+                &= \int \sqrt{(dx^2) \left( 1 + \frac{(dy)^2}{(dx)^2} \right)} \\[6pt]
+                &= \int \sqrt{1 + \left(\frac{dy}{dx} \right)^2} \, dx \\[6pt]
+                &= \sqrt{1 + \left( f'(x) \right)^2} \, dx
+            \end{align*}
 
     \section{Parametric Equations, Polar Coordinates, and Vector-Valued Functions (11\% - 12\%)}
     \fline
