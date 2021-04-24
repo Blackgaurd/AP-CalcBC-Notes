@@ -5,9 +5,12 @@ Notes.log
 Notes.out
 Notes.synctex.gz
 Notes.toc
+desktop.ini
 
 # intellij
 .idea
 
 # vscode
 .vscode
+
+wordcounter.py

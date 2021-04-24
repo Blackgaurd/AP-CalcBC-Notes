@@ -2043,11 +2043,276 @@
                 \int ds &= \int \sqrt{(dx)^2 + (dy)^2} \\
                 &= \int \sqrt{(dx^2) \left( 1 + \frac{(dy)^2}{(dx)^2} \right)} \\[6pt]
                 &= \int \sqrt{1 + \left(\frac{dy}{dx} \right)^2} \, dx \\[6pt]
-                &= \sqrt{1 + \left( f'(x) \right)^2} \, dx
+                &= \int \sqrt{1 + \left( f'(x) \right)^2} \, dx
             \end{align*}
 
     \section{Parametric Equations, Polar Coordinates, and Vector-Valued Functions (11\% - 12\%)}
     \fline
+
+        \noindent \textbf{Brief Refresher:}
+        \\ Parametric Equations are basically where both $x$ and $y$ are in terms of a third variable, usually $t$. For example:
+        \begin{align*}
+            y &= 3t + 1 \\
+            x &= 1 - 4t
+        \end{align*}
+
+        \subsection{Derivatives of Parametric and Vector-Valued Functions}
+            \subsubsection{First Derivative}
+                The key realization with taking the derivative of parametric functions is that:
+                \[ \frac{dy}{dx} = \frac{\frac{dy}{dt}}{\frac{dx}{dt}}. \]
+                For example, find the derivative of the following parametric equation:
+                \begin{align*}
+                    x &= \cos(\pi - t) \\
+                    y &= \tan(2t)
+                \end{align*}
+                The first step is to differentiate the two equations separately.
+                \begin{align*}
+                    \frac{dx}{dt} &= t \sin(\pi - t) \\[6pt]
+                    \frac{dy}{dt} &= 2 \sec(2t)
+                \end{align*}
+                We can combine these two derivatives to get the derivative of the whole function.
+                \begin{gather*}
+                    \frac{dy}{dx} = \frac{\frac{dy}{dt}}{\frac{dx}{dt}} \\[6pt]
+                    = \frac{2 \sec(2t)}{t \sin(\pi - t)}
+                \end{gather*}
+
+            \subsubsection{Higher Order Derivatives}
+                A higher order derivative of a parametric function is not just the derivative of the previous order derivative. It is actually taking the previous derivative with respect to $t$, then dividing by the derivative of $x$ with respect to $t$.
+                \\ For example, the second derivative would be:
+                \[ \frac{d^2 y}{dx^2} = \frac{\frac{d}{dt} \left( \frac{dy}{dx} \right)}{\frac{dx}{dt}}. \]
+
+        \subsection{Arc Lengths of Curves by Parametric Equations}
+            The arc length of a curve by a parametric equation is:
+            \[ \int_a^b \sqrt{x'(t)^2 + y'(t)^2} \, dt. \]
+
+            The arc length of parametric equations is very similar to the arc length of a normal equation. Let $dt$ by an infinitely small section of the curve, and let $dy$ be its change in $y$ and $dx$ be its change in $x$.
+            \begin{align*}
+                \text{Length} &= \int \, dt \\
+                &= \int \sqrt{(dx)^2 + (dy)^2} \\
+                &= \int \sqrt{\left( \frac{dx}{dt} \cdot dt \right)^2 + \left( \frac{dy}{dt} \cdot dt \right)^2} \\[6pt]
+                &= \int \sqrt{(dt)^2 \left( x'(t)^2 + y'(t)^2 \right)} \\
+                &= \int \sqrt{x'(t)^2 + y'(t)^2} \, dt
+            \end{align*}
+
+        \subsection{Derivatives of Vector-Valued Functions}
+            The derivative of a vector valued function is just the derivative of its $x$ component and its $y$ component.
+            \begin{gather*}
+                \vec{r}(t) = \left( x(t), \, y(t) \right) \\
+                \vec{r} \, '(t) = \left( x'(t), \, y'(t) \right)
+            \end{gather*}
+            Or in unit vector notation:
+            \begin{gather*}
+                \vec{r} = x(t) \hat{\imath} + y(t) \hat{\jmath} \\
+                \vec{r} \, '(t) = x'(t) \hat{\imath} + y'(t) \hat{\jmath}
+            \end{gather*}
+            The same rule follows with higher order derivatives.
+
+        \subsection[Motion Problems With Parametric and Vector-Valued Functions]{Motion Problems With Parametric and Vector-Valued\\Functions}
+            The relation between position, velocity and acceleration in parametric and vector-valued functions is the same as in a normal function.
+            \begin{align*}
+                \vec{p} \, '(t) &= \vec{v}(t) \\
+                \vec{v} \, '(t) &= \vec{a}(t)
+            \end{align*}
+            Something else to remember is that the \textit{magnitude} of a vector valued function is written in the following notation:
+            \[ || \vec{r}(t) ||. \]
+            The value of the magnitude is:
+            \begin{align*}
+                \vec{a} &= (b, c) \\
+                || \vec{a} || &= \sqrt{b^2 + c^2}
+            \end{align*}
+
+            \noindent \textbf{Examples:}
+            \begin{enumerate}
+                \item A particle moves in the $xy$ plane so that at any $t \ge 0$ its position vector is equal to $(2t^2 + 5, \, -t^3 + 4t^2)$. What is the magnitude of its acceleration vector at $t=1$?
+
+                The first step is to find the acceleration vector. This can be done by taking the derivative of the position vector twice.
+                \begin{align*}
+                    \vec{p}(t) &= (2t^2 + 5, \, -t^3 + 4t^2) \\
+                    \vec{v}(t) &= (4t, \, -3t^2 + 8t) \\
+                    \vec{a}(t) &= (4, \, -6t + 8)
+                \end{align*}
+                Next we can plug in $t=1$ and solve for the magnitude of $\vec{a}$.
+                \begin{align*}
+                    \vec{a}(1) &= (4, \, 2) \\
+                    || \vec{a}(1) || &= \sqrt{4^2 + 2^2} \\
+                    &= 2\sqrt{5}
+                \end{align*}
+                Therefore the magnitude of the particle's acceleration at $t=1$ is $2\sqrt{5}$.
+                \bigskip
+
+                \item A particle moves along the curve $y=2x^2 + 2$ so that the $x$ coordinate is increasing at a constant rate of $4$ units per second. What is the magnitude of the particle's velocity vector (in units per second) when the particle is at the point $(0, \, 2)$?
+
+                The magnitude of a particle's velocity vector is given by:
+                \[ ||(\frac{dx}{dt}, \, \frac{dy}{dt})||. \]
+
+                It is given in the question that the $x$ coordinate is changing at a constant rate of $4$ units per second. In other words, $\frac{dx}{dt} = 4$.
+
+                We can differentiate the given function in respect to $t$ to solve for $\frac{dy}{dt}$.
+                \begin{align*}
+                    y &= 2x^2 + 2 \\
+                    \frac{d}{dt} [y] &= \frac{d}{dt} [2x^2 + 2] \\[6pt]
+                    \frac{dy}{dt} &= 4x \frac{dx}{dt} \\
+                    &= 4 \cdot 0 \cdot 4 \\
+                    &= 0
+                \end{align*}
+
+                Plugging everything in to solve for the magnitude:
+                \begin{align*}
+                    ||\vec{v}(t)|| &= ||(\frac{dx}{dt}, \, \frac{dy}{dt})|| \\[6pt]
+                    &= ||(4, \, 0)|| \\
+                    &= \sqrt{4^2 + 0^2} \\
+                    &= 4
+                \end{align*}
+                Therefore the magnitude of the function's velocity vector is equal to $4$.
+                \bigskip
+
+                \item A particle moving in the $xy$ plane has velocity vector given by $v(t) = (2t^3, \, 3t^2)$ for time $t \ge 0$. At $t=1$, the particle's position is $(3, \, 4)$. What is the particle's position at $t=3$?
+
+                The particle's position at $t=3$ is given by its position at $t=1$ plus its change in $x$ and $y$, respectively.
+                \[ p(3) = (3 + \Delta x, \, 4 + \Delta y) \]
+
+                We can use integrals to solve for $\Delta x$ and $\Delta y$.
+                \begin{align*}
+                    \Delta x &= \int_1^3 2t^3 \, dt \\
+                    &= \left[ \frac{t^4}{2} \right]_1^3 \\[6pt]
+                    &= \frac{81}{2} - \frac{1}{2} \\[6pt]
+                    &= 40
+                \end{align*}
+                And now for $\Delta y$.
+                \begin{align*}
+                    \Delta y &= \int_1^3 3t^2 \, dt \\
+                    &= \left[ t^3 \right]_1^3 \\
+                    &= 27 - 1 \\
+                    &= 26
+                \end{align*}
+
+                Plugging everything in to the equation to solve for the particle's position at $t=3$:
+                \begin{align*}
+                    p(3) &= (3 + \Delta x, \, 4 + \Delta y) \\
+                    &= (43, \, 30).
+                \end{align*}
+                Therefore at $t=3$, the particle is at $(43, \, 30)$.
+            \end{enumerate}
+
+        \subsection{Derivatives of Functions in Polar Coordinates}
+            When finding the derivative of functions in polar coordinates, the one important thing to remember is that:
+            \begin{align*}
+                x &= r \cos \theta \\
+                y &= r \sin \theta
+            \end{align*}
+
+            \noindent \textbf{For example}, given the polar curve $r=\frac{8}{\theta}$, what is the derivative of the $y$ coordinate?
+            \begin{align*}
+                r &= \frac{8}{\theta} \\[6pt]
+                y &= r \sin \theta \\
+                &= \frac{8}{\theta} \cdot \sin \theta \\[10pt]
+                y'(\theta) &= \frac{8 \theta \cos(\theta) - 8 \sin(\theta)}{\theta^2}
+            \end{align*}
+
+            \subsubsection{Tangent Lines in Polar Coordinates}
+                The slope of the tangent line in polar coordinates is equal to the change in $y$ divided by the change in $x$.
+                \begin{align*}
+                    m &= \frac{dy}{dx} \\[6pt]
+                    &= \frac{\frac{dy}{d\theta}}{\frac{dx}{d\theta}}
+                \end{align*}
+                Another useful thing to remember is the point slope form for lines on a graph, which comes directly from the equation of the slope:
+                \[ y - y_1 = m(x - x_1). \]
+
+                \noindent \textbf{For example}, given the polar curve $r=\sin^2(2\theta)$, what is the equation of the tangent line of the curve at $\theta = \frac{\pi}{4}$?
+
+                \noindent The first step is to find the slope of the line, which is given by:
+                \[ \frac{dy}{dx}. \]
+                To find this we first need to find $\frac{dy}{d\theta}$ and $\frac{dx}{d\theta}$.
+                \begin{align*}
+                    y &= r \sin \theta \\
+                    &= \sin^2(2\theta) \sin \theta \\[10pt]
+                    y' &= 2 \cdot 2\sin(2\theta) \cos(2\theta) \sin \theta + \cos \theta \sin^2(2\theta) \\
+                    &= 2 \sin(4\theta) \sin \theta + \cos \theta \sin^2(2\theta) \quad \text{(sum trig rule)}
+                \end{align*}
+                And now $\frac{dx}{d\theta}$.
+                \begin{align*}
+                    x &= r \cos \theta \\
+                    &= \sin^2(2\theta) \cos \theta \\[10pt]
+                    x' &= 2 \cdot 2\sin(2\theta) \cos(2\theta) \cos \theta - \sin \theta \sin^2(2\theta) \\
+                    &= 2\sin(4\theta) \cos \theta - \sin \theta \sin^2(2\theta)
+                \end{align*}
+                Now combining the two derivatives and evaluating at $\theta=\frac{\pi}{4}$ to find the slope of the function:
+                \begin{align*}
+                    \frac{dy}{dx} &= \frac{\frac{dy}{d\theta}}{\frac{dx}{d\theta}} \\[6pt]
+                    &= \frac{2 \sin(4\theta) \sin \theta + \cos \theta \sin^2(2\theta)}{2\sin(4\theta) \cos \theta - \sin \theta \sin^2(2\theta)} \\[6pt]
+                    &= -1
+                \end{align*}
+
+                \noindent The next two things needed to complete the line equation are $x_1$ and $y_1$. This is just evaluating $x$ and $y$ at $\theta=\frac{\pi}{4}$.
+                \begin{align*}
+                    y_1 &= \sin^2(2\theta) \sin \theta \\
+                    &= \frac{\sqrt{2}}{2} \\[10pt]
+                    x_1 &= \sin^2(2\theta) \cos \theta \\
+                    &= \frac{\sqrt{2}}{2}
+                \end{align*}
+                Plugging everything in to the line equation to get the final answer:
+                \begin{align*}
+                    y - y_1 = m(x - x_1) \\
+                    y - \frac{\sqrt{2}}{2} = -\left( x - \frac{\sqrt{2}}{2} \right)
+                \end{align*}
+
+        \subsection{Areas of Regions Bound by Polar Curves}
+            \subsubsection{Area Bound by a Single Polar Curve}
+                The area bound by a polar curve $r$ in the interval $[a, \, b]$ is equal to:
+                \[ \int_a^b \frac{1}{2} r^2 \, d\theta. \]
+
+                To get to this formula, imagine the area split up into an infinite amount of ``pie sections'' of radius $r$ (where the function is at that point), and of angle $d\theta$ (an infinitely small angle). The area of each one of these sections would be equal to:
+                \begin{align*}
+                    A &= \underbrace{\frac{d\theta}{2\pi}}_{\text{Fraction of} \, 2\pi} \cdot \underbrace{\pi r^2}_{\text{Area of a circle}} \\[6pt]
+                    &= \frac{1}{2} r^2 \, d\theta
+                \end{align*}
+                The sum of all of these sections could be found using integrals, thus the above formula.
+
+            \subsubsection{Area Bound by Two Polar Curves}
+                The steps in finding the area bound by polar curves is very similar to that of normal functions. First, draw out the curves to see which one is on the outside, or further away from the origin. Given two polar curves $f(\theta) \ge g(\theta) \, \forall \, \theta \in [a, \, b]$, then the area bound by the two curves is equal to:
+                \[ \frac{1}{2} \int_a^b \left( f(\theta) \right)^2 - \left( g(\theta) \right)^2 \, d\theta. \]
+
+                \noindent \textbf{Examples:}
+                \begin{enumerate}
+                    \item What is the area between the two polar curves $r=\pi$ and $r=\theta$ in the first two quadrants?
+
+                    First graphing the area, we see that $\pi \ge \theta$ within the first two quadrants, that is, between $0$ and $\pi$ (\hyperref[fig:abpc1]{Figure 24}).
+
+                    \begin{figure}[H]
+                        \begin{center}
+                            \frame{\includegraphics[scale=0.6]{fig24.JPG}}
+                            \caption{Area between $r=\pi$ and $r=\theta$ in quadrant 2 (\href{https://www.khanacademy.org/math/ap-calculus-bc/bc-advanced-functions-new/bc-9-9/e/area-between-two-polar-curves?modal=1}{source})}
+                            \label{fig:abpc1}
+                        \end{center}
+                    \end{figure}
+
+                    Therefore the area of this region is equal to:
+                    \[ \frac{1}{2} \int_0^\pi \left( \pi^2 - \theta^2 \right) \, d\theta. \]
+                    \bigskip
+
+                    \item What is the area between the two polar curves $r=2$ and $r=2+\cos(2\theta)$ in the fourth quadrant? The two graphs intersect at $\theta = -\frac{\pi}{4}$.
+
+                    First graphing the area, we see that it's not the case where one curve is always greater than the other (\hyperref[fig:abpc2]{Figure 25}).
+
+                    \begin{figure}[H]
+                        \begin{center}
+                            \frame{\includegraphics[scale=0.6]{fig25.JPG}}
+                            \caption{Area between $r=2$ and $r=2+\cos(2\theta)$ in quadrant 4 (\href{https://www.khanacademy.org/math/ap-calculus-bc/bc-advanced-functions-new/bc-9-9/e/area-between-two-polar-curves?modal=1}{source})}
+                            \label{fig:abpc2}
+                        \end{center}
+                    \end{figure}
+
+                    In order to solve for this area, we can split it up into two sections, one from $-\frac{\pi}{2}$ to $-\frac{\pi}{4}$, and the other from $-\frac{\pi}{4}$ to $0$. Notice that the two areas split at where the two graphs intersect.
+
+                    The first section (from $-\frac{\pi}{2}$ to $-\frac{\pi}{4}$) is just the area under $r=2+\cos(2\theta)$. Therefore its area is:
+                    \[ \frac{1}{2} \int_{-\frac{\pi}{2}}^{-\frac{\pi}{4}} \left( 2+\cos(2\theta) \right)^2 \, d\theta. \]
+
+                    The second section (from $-\frac{\pi}{4}$ to $0$) is just the area under $r=2$. Therefore its area is:
+                    \[ \frac{1}{2} \int_{-\frac{\pi}{4}}^0 4 \, d\theta. \]
+
+                    Combining the two areas we get that the total area bound by the two curves is equal to:
+                    \[ \frac{1}{2} \int_{-\frac{\pi}{2}}^{-\frac{\pi}{4}} \left( 2+\cos(2\theta) \right)^2 \, d\theta + \frac{1}{2} \int_{-\frac{\pi}{4}}^0 4 \, d\theta. \]
+                \end{enumerate}
 
     \section{Infinite Sequences and Series (17\% - 18\%)}
     \fline
