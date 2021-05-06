@@ -2316,4 +2316,321 @@
 
     \section{Infinite Sequences and Series (17\% - 18\%)}
     \fline
+
+        \noindent An infinite series is the sum of an infinite number of terms in a sequence.
+
+        \subsection{Convergence and Divergence of Infinite Series}
+            An infinite series \textbf{converges} if $\displaystyle \lim_{n \to \infty} a_n$ approaches a value that is not $\pm \infty$. Otherwise it diverges.
+
+            \subsubsection{Partial Sums}
+                A partial sum is the sum of the first $n$ terms of an infinite series. It is usually represented as $S_n$. For example,
+                \begin{align*}
+                    S_1 &= \sum_{n=1}^1 a_n = a_1 \\
+                    S_2 &= \sum_{n=1}^2 a_n = a_1 + a_2 \\
+                    S_3 &= \sum_{n=1}^3 a_n = a_1 + a_2 + a_3 \\
+                    \vdots \\
+                    S &= \sum_{n=1}^\infty a_n = a_1 + a_2 + a_3 + \cdots
+                \end{align*}
+
+                \noindent Partial sums can also be used to evaluate a term in the series.
+                \[ a_n = S_n - S_{n-1}. \]
+
+                \noindent For example, the $n$\textsuperscript{th} partial sum of the series $a$ is:
+                \[ S_n = 2 - \frac{4}{n^2}. \]
+                What is $a_5$?
+
+                \noindent To solve this, remember what a partial sum really is.
+                \[ \rlap{$\overbrace{\phantom{a_1 + a_2 + a_3 + a_4}}^{S_4}$} \underbrace{a_1 + a_2 + a_3 + a_4 + a_5}_{S_5} \]
+                Therefore,
+                \begin{align*}
+                    a_5 &= S_5 - S_4 \\
+                    &= 2 - \frac{4}{5^2} - \left( 2 - \frac{4}{4^2} \right) \\[6pt]
+                    a_5 &= \frac{9}{100}
+                \end{align*}
+
+                The sum of the entire sequence $a_n$ is equal to $S$. The formula to find $S$ is:
+                \[ S = \lim_{n \to \infty} S_n. \]
+                For example, given
+                \[ S_n = 6n + \frac{1}{n^3} \]
+                what is $S$?
+                \begin{align*}
+                    S &= \lim_{n \to \infty} S_n \\
+                    &= \lim_{n \to \infty} 6n + \frac{1}{n^3} \\[6pt]
+                    &= \infty
+                \end{align*}
+                Therefore $S$ is equal to infinity and it diverges.
+
+        \subsection{Types of Series}
+            % Arithmetic, Geometric, Harmonic, P-series
+            % When do each converge and diverge
+            \subsubsection{Arithmetic Series}
+                Arithmetic series are where each term is derived from the previous term by adding or subtracting a constant. (E.g. $1, 3, 5, 7, 9, \cdots$)
+                \[ \sum_{n=1}^\infty (a_1 + d(n-1)) \]
+                \textbf{Convergent}: never
+                \\ \textbf{Divergent}: always
+
+            \subsubsection{Geometric Series}
+                Geometric series are where each term is derived from the previous term by multiplying or dividing a constant. (E.g. $1, 2, 4, 8, 16, \cdots$)
+                \[ \sum_{n=1}^\infty a_1r^{n-1} \]
+                \textbf{Convergent}: $|r| < 1$ with $S = \frac{a_1}{1-r}$ (sum of infinite geometric series)
+                \\ \textbf{Divergent}: $|r| \ge 1$
+
+            \subsubsection{P-Series}
+                A p-series is a special type of geometric series. Their general form can be written as ($p$ is constant):
+                \[ \sum_{n=1}^\infty \frac{1}{n^p} \]
+                \textbf{Convergent}: $p > 1$
+                \\ \textbf{Divergent}: $0 < p \le 1$
+
+            \subsubsection{Harmonic Series}
+                The harmonic series is a specific p-series where $p=1$.
+                \[ \sum_{n=1}^\infty \frac{1}{n} \]
+                \textbf{Convergent}: never
+                \\ \textbf{Divergent}: always
+
+        \subsection{Convergence and Divergence Tests}
+            \subsubsection{Divergence Test}
+                If $\displaystyle \lim_{n \to \infty} a_n \ne 0$ then $\displaystyle \sum_{n=1}^\infty a_n$ diverges.
+
+            \subsubsection{Integral Test for Convergence}
+                Given $f(x)$ is a \underline{positive and decreasing} function over the interval $[k, \, \infty)$, such that $f(n) = a_n$, then:
+
+                \noindent If $\displaystyle \int_k^\infty f(x) \, dx$ converges so does $\displaystyle \sum_{n=k}^\infty a_n$.
+
+                \noindent If $\displaystyle \int_k^\infty f(x) \, dx$ diverges so does $\displaystyle \sum_{n=k}^\infty a_n$.
+
+            \subsubsection{Comparisson Test}
+                Given two series $\displaystyle \sum a_n$ and $\displaystyle \sum b_n$ such that $a_n, \, b_n \ge 0$ for all $n$ and $a_n \ge b_n$ for all $n$, then:
+
+                \noindent If $\displaystyle \sum a_n$ converges so does $\displaystyle \sum b_n$.
+
+                \noindent If $\displaystyle \sum b_n$ diverges so does $\displaystyle \sum a_n$.
+
+                \noindent (If the lower one diverges the upper one can't converge, and if the upper one converges the lower one can't diverge.)
+
+            \subsubsection{Alternating Series Test}
+                Given a series $\displaystyle \sum a_n$ and either $a_n = (-1)^n b_n$ or $a_n = (-1)^{n+1} b_n$ where $b_n \ge 0$ for all $n$. Then if:
+                \[ \lim_{n \to \infty} b_n = 0 \quad \text{and} \quad \{b_n\} \, \text{is a decreasing sequence} \]
+                then $\displaystyle \sum a_n$ converges.
+
+            \subsubsection{Ratio Test}
+                \noindent Given a series $\displaystyle \sum a_n$, let
+                \[ L = \lim_{n \to \infty} \left| \frac{a_{n+1}}{a_n} \right|. \]
+
+                \noindent If $L < 1$ the series converges absolutely.
+                \\ If $L > 1$ the series diverges.
+                \\ If $L = 1$ the test is inconclusive.
+
+            \subsubsection{Absolute vs Conditional Convergence}
+                \noindent A series $\displaystyle \sum a_n$ is \textbf{absolutely convergent} if $\displaystyle \sum |a_n|$ is convergent.
+
+                \noindent If $\displaystyle \sum a_n$ is convergent and $\displaystyle \sum |a_n|$ is divergent than it is \textbf{conditionally convergent}.
+
+        \subsection{Power Series}
+            A power series is any series that can be written in the form of:
+            \[ \sum_{n=0}^\infty a_n (x-c)^n. \]
+            where $a_n$ and $c$ are numbers. The power series can be written as a function of $x$.
+
+            \noindent An example of a power series is:
+            \[ \sum_{n=1}^\infty \frac{(-1)^n n}{4^n} (x+3)^n. \]
+
+            \subsubsection{Radius and Interval of Convergence}
+                \noindent If a power series converges such that
+                \[ |x-c| < R \]
+                then $R$ is called the \textbf{radius of convergence}. The \textbf{interval of convergence} is just the radius of convergence rewritten as an interval.
+                \[ c - R < x < c + R \]
+
+                To determine that radius or interval of convergence for a power series, simply use any one of the convergence tests. The ratio test is usually very effective.
+
+                \noindent \textbf{Examples}:
+                \begin{enumerate}
+                    \item Find the radius and interval of convergence for the following power series:
+                    \[ \sum_{n=1}^\infty \frac{(-1)^n n}{4^n} (x+3)^n. \]
+
+                    The ratio test is one way to solve this. The series will converge if:
+                    \[ \lim_{n \to \infty} \left| \frac{a_{n+1}}{a_n} \right| < 1. \]
+                    Plugging in the given series:
+                    \begin{align*}
+                        &\lim_{n \to \infty} \left| \frac{(-1)^{n+1}(n+1)(x+3)^{n+1}}{4^{n+1}} \cdot \frac{4^n}{(-1)^n (n)(n+3^n)} \right| < 1 \\[6pt]
+                        &\lim_{n \to \infty} \left| \frac{-(n+1)(x+3)}{4n} \right| < 1 \\[6pt]
+                    \end{align*}
+                    Keep in mind that $x$ is not actually part of the limit, so it can be written on the outside of the limit.
+                    \begin{align*}
+                        |x+3| \cdot \lim_{n \to \infty} \frac{n+1}{4n} &< 1 \\[6pt]
+                        \frac{1}{4} |x+3| &< 1 \\[6pt]
+                        |x+3| &< 4
+                    \end{align*}
+                    Therefore the radius of convergence for the power series is $|x+3| < 4$. Now to find the interval of convergence:
+                    \begin{gather*}
+                        |x+3| < 4 \\
+                        -4 < x+3 < 4 \\
+                        -7 < x < 1.
+                    \end{gather*}
+                    The final step is to see if either of the endpoints will cause the series to converge.
+
+                    First testing out $x=1$:
+                    \begin{gather*}
+                        \sum_{n=1}^\infty \frac{(-1)^n n}{4^n} (1+3)^n \\[6pt]
+                        \sum_{n=1}^\infty (-1)^n n
+                    \end{gather*}
+                    By the alternating series test this series diverges.
+
+                    Next testing out $x=-7$:
+                    \begin{align*}
+                        \sum_{n=1}^\infty \frac{(-1)^n n}{4^n} (-7+3)^n \\[6pt]
+                        \sum_{n=1}^\infty (-1)^{n+1} n
+                    \end{align*}
+                    By the alternating series test this series also diverges.
+
+                    It can thus be concluded that the interval of convergence for the original series is $-7 < x < 1$.
+                    \bigskip
+
+                    \item Find the radius and interval of convergence for the following power series:
+                    \[ \sum_{n=1}^\infty \frac{4(x-5)^n}{n^2 (-4)^n}. \]
+
+                    The ratio test can be used to solve this. The series converges if:
+                    \[ \lim_{n \to \infty} \left| \frac{a_{n+1}}{a_n} \right| < 1. \]
+                    Plugging in the given series and solving:
+                    \begin{gather*}
+                        \lim_{n \to \infty} \left| \frac{4(x-5)^{n+1}}{(n+1)^2 (-4)^{n+1}} \cdot \frac{n^2 (-4)^n}{4(x-5)^n} \right| < 1 \\[6pt]
+                        \lim_{n \to \infty} \left( \frac{n^2}{4(n+1)^2} \right) \cdot |x-5| < 1 \\[6pt]
+                        \frac{|x-5|}{4} < 1 \\[6pt]
+                        |x-5| < 4 \\
+                        1 < x < 9
+                    \end{gather*}
+                    Now to check if either if the series converges at either of the endpoints. First testing out $x=9$:
+                    \begin{gather*}
+                        \sum_{n=1}^\infty \frac{4(9-5)^n}{n^2 (-4)^n} \\[6pt]
+                        \sum_{n=1}^\infty \frac{4}{n^2} \cdot (-1)^{n+1}
+                    \end{gather*}
+                    By the alternating series test this series converges.
+
+                    Next testing $x=1$:
+                    \begin{gather*}
+                        \sum_{n=1}^\infty \frac{4(1-5)^n}{n^2 (-4)^n} \\[6pt]
+                        \sum_{n=1}^\infty \frac{4}{n^2} \cdot (-1)^{n}
+                    \end{gather*}
+                    By the alternating series test this series also converges.
+
+                    Therefore the interval of convergence for the original series is $1 \le x \le 9$.
+                \end{enumerate}
+
+        \subsection{Taylor and Maclaurin Series}
+            \noindent The \textbf{Taylor Series} centered at $c$ of $f(x)$:
+            \begin{align*}
+                f(x) &= \sum_{n=0}^\infty \frac{f^{(n)}(c)}{n!} (x-c)^n \\
+                &= f(c) + f'(c)(x-c) + \frac{f''(c)(x-c)^2}{2!} + \frac{f'''(c)(x-c)^3}{3!} + \cdots
+            \end{align*}
+            The $n$\textsuperscript{th} degree Taylor polynomial of $f(x)$ is:
+            \[ T_n(x) = \sum{i=0}^n \frac{f^{(i)}(c)}{i!} (x-c)^i. \]
+            The \textbf{Maclaurin Series} is just the Taylor Series centered at $0$:
+            \begin{align*}
+                f(x) &= \sum_{n=0}^\infty \frac{f^{(n)}(0)}{n!} x^n \\
+                &= f(0) + f'(0)x + \frac{f''(0)x^2}{2!} + \frac{f'''(0)x^3}{3!} + \cdots
+            \end{align*}
+
+            \subsubsection{Lagrange Error Bound}
+                \noindent The error of a Taylor polynomial is equal to:
+                \[ R_n = f(x) - T_n(x). \]
+
+                \noindent The Lagrange Error Bound for $R_n(x)$, the error of approximating $f(x)$ with the $n$\textsuperscript{th} Taylor polynomial of $f$ about $c$ is:
+                \[ |R_n(x)| \le \left| \frac{M}{(n+1)!} (x-c)^{n+1} \right|. \]
+                Where $M$ is the maximum value of $f^{(n+1)}(z)$ for any value $z$ between $x$ and $c$.
+
+                \noindent \textbf{Examples:}
+                \begin{enumerate}
+                    \item Estimating $\sin(-0.1)$ using a Maclaurin polynomial, what is the least degree of polynomial that assures an error smaller than $0.001$?
+
+                    The absolute value for the $(n+1)$\textsuperscript{th} derivative of $\sin(x)$ is never more than $1$. Its derivatives go through the cycle:
+                    \begin{gather*}
+                        \sin(x) \\
+                        \cos(x) \\
+                        -\sin(x) \\
+                        -\cos(x)
+                    \end{gather*}
+
+                    We can now plug in what we know into the Lagrange Error Bound. Note that $c=0$ because this is a Maclaurin Series.
+                    \begin{align*}
+                        |R_n(-0.1)| &\le \left| \frac{1}{(n+1)!} (-0.1)^{n+1} \right| \\
+                        &= \frac{(-0.1)^{n+1}}{(n+1)!}
+                    \end{align*}
+                    The inequality to satisfy is:
+                    \[ \frac{(-0.1)^{n+1}}{(n+1)!} < 0.001 \]
+                    Through trial and error we find that the smallest possible $n$ is $2$.
+
+                    Therefore the least degree polynomial that assures an error smaller than $0.001$ is $n=2$.
+                    \bigskip
+
+                    \item Estimating $\ln(1.7)$ using a Taylor polynomial about $x=2$, what is the least degree of the polynomial that assures an error smaller than $0.001$?
+                    \\ (The $n$\textsuperscript{th} derivative of $\ln(x)$ for all $n \ge 1$ is:)
+                    \[ (-1)^{n+1} \frac{(n-1)!}{x^n}. \]
+
+                    The maximum value for the $(n+1)$\textsuperscript{th} derivative of $\ln(x)$ is:
+                    \[ \frac{n!}{x^{n+1}}. \]
+                    Where $x$ is between $1.7$ and $2$. It can be proven that $x=1.7$ would yield a greater result.
+
+                    Plugging in everything into the Lagrange Error Bound:
+                    \begin{align*}
+                        |R_n(1.7) &\le \left| \frac{n!}{1.7^{n+1}} \cdot \frac{1}{(n+1)!} \cdot (1.7-2)^{n+1} \right| \\[6pt]
+                        &= \frac{(0.3)^{n+1}}{(1.7)^n (n+1)}
+                    \end{align*}
+                    The inequality to satisfy is:
+                    \[ \frac{(0.3)^{n+1}}{(1.7)^n (n+1)} < 0.001 \]
+                    Through trial and error we find that the smallest possible $n$ is $3$.
+
+                    Therefore the least degree polynomial that assures an error less than $0.001$ is $n=3$.
+                \end{enumerate}
+
+            \subsubsection{Important Maclaurin Series}
+                \noindent Some important Maclaurin Series that may be useful in solving problems:
+                \begin{align*}
+                    &e^x = \sum_{n=0}^\infty \frac{x^n}{n!} = 1 + x + \frac{x^2}{2!} + \frac{x^3}{3!} + \cdots \\[6pt]
+                    &\cos(x) = \sum_{n=0}^\infty \frac{(-1)^n x^{2n}}{(2n)!} = 1 - \frac{x^2}{2!} + \frac{x^4}{4!} - \frac{x^6}{6!} + \cdots \\[6pt]
+                    &\sin(x) = \sum_{n=0}^\infty \frac{(-1)^n x^{2n+1}}{(2n+1)!} = x - \frac{x^3}{3!} + \frac{x^5}{5!} - \frac{x^7}{7!} + \cdots
+                \end{align*}
+
+            \subsubsection{Function as a Geometric Sequence}
+                \noindent Note that the sum of an infinite geometric sequence is:
+                \[ \frac{a}{1-r} \]
+                Where $a$ is the first term and $r$ is the common ratio.
+
+                \noindent So if a function follows roughly the same structure it can be rewritten as a geometric sequence. For example,
+                \[ f(x) = \frac{1}{3+x^2} \]
+                resembles the sum of a geometric sequence. We can rearrange it to have it closer resemble the sum.
+                \begin{align*}
+                    f(x) &= \frac{1}{3+x^2} \\[6pt]
+                    &= \frac{\frac{1}{3}}{1 + \frac{x^2}{3}}
+                \end{align*}
+                Therefore the first term is $\frac{1}{3}$ and the common ratio is $-\frac{x^2}{3}$. The series can thus be written as:
+                \[ \frac{1}{3} - \frac{x^2}{9} + \frac{x^4}{27} + \cdots. \]
+
+        \subsection{Error Bounds of Convergent Infinite Series}
+            \subsubsection{Alternating Series Error Bound}
+                An alternating series can be approximated by finding the sum of its first $k$ elements. The sum of the remaining terms will be the \textbf{remainder}.
+                \begin{gather*}
+                    \sum_{n=1}^\infty a_n = \sum_{n=1}^k a_n + \sum_{n=k+1}^\infty a_n \\[10pt]
+                    S = \underbrace{S_k}_{\text{approximation}} + \underbrace{\sum_{n=k+1}^\infty a_n}_{\text{remainder}}
+                \end{gather*}
+                The remainder for the sum of the first $k$ elements is usually written as $R_k$.
+                \begin{gather*}
+                    R_k = a_{k+1} + a_{k+2} + a_{k+3} + \cdots \\
+                    S = S_k + R_k
+                \end{gather*}
+                Because $a$ is an alternating series, $R_k$ can be either positive or negative. The sign of $R_k$ is equal to the sign of $a_{k+1} + a_{k+2}$. If $R_k$ is positive, then the approximation is an \underline{underestimate} of $S$. Otherwise the approximation is an \underline{overestimate} of $S$.
+
+                \noindent Another relation between the remainder and the series is:
+                \[ |R_k| \le |a_{k+1}| \le |\text{error}|. \]
+                (`error' is explained in the example below)
+
+                \noindent \textbf{Example}:
+                \[ \sum_{n=1}^\infty \frac{(-1)^{n+1}}{n^4} \]
+                Using the alternate series test, what is the least number of terms necessary to approximate the series to within $\pm 0.0001$ of the actual value?
+                \begin{align*}
+                    |a_{k+1}| &\le |\text{error}| \\[6pt]
+                    \left| \frac{(-1^{k+2})}{(k+1)^4} \right| &\le |\pm 0.0001| \\[6pt]
+                    \frac{1}{(k+1)^4} &\le 0.0001 \\[6pt]
+                    10000 &\le (k+1)^4 \\
+                    k+1 &\ge 10 \\
+                    k &\ge 9
+                \end{align*}
+                Therefore the least number of terms necessary to approximate the series to within $\pm 0.0001$ of the actual value is $9$.
 \end{document}
