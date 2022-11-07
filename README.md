@@ -1,4 +1,8 @@
-# AP Calculus BC Notes
+# Legacy branch
+
+edits made before 2022
+
+## AP Calc BC Notes
 
 by Bryan Deng
 
