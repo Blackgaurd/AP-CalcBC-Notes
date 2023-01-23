@@ -1381,7 +1381,7 @@ Solving improper integrals is very similar to solving definite integrals, just t
 Differential equations involve functions and their derivatives. Unlike algebraic equations who evaluate to numbers or values, differential equations evaluate to a function or class (several) functions.
 
 \subsection{Modelling Differential Equations}
-When interpreting words to turn into a differential equations, there are a few keywords that should be looked out for. Listed below are some of the more common ones (examples from Khan Academy):
+When interpreting words to turn into differential equations, there are a few keywords that should be looked out for. Listed below are some of the more common ones (examples from Khan Academy):
 
 \begin{itemize}
     \item \textbf{Proportional}: means that the rate of change is equal to some constant $k$ multiplied by what the rate of change is proportional to.
@@ -1569,6 +1569,100 @@ Finally, solve for the unknown $y$ by plugging in its given $x$.
     f(4) & = -\frac{16}{4} - 8 \\[6pt]
          & = -4 - 8            \\
          & = -12
+\end{align*}
+
+\subsection{Homogeneous Differential Equations}
+A homogeneous differential equation is in the form $\frac{dy}{dx} = f \left( \frac{y}{x} \right)$. To solve these, we can make the substitution $v = \frac{y}{x}$.
+
+Implicitly differentiating $v = \frac{y}{x}$ with respect to $x$ (using product rule) gives:
+
+\[ \frac{dy}{dx} = x \frac{dv}{dx} + v .\]
+
+For example:
+\[ 4x \frac{dy}{dx} = x + 2y \]
+
+The first step is to rewrite the equation to be a function of $\frac{y}{x}$, by dividing both sides by $4x$.
+\[ \frac{dy}{dx} = \frac{1}{4} + \frac{1}{2} \cdot \frac{y}{x}. \]
+
+Next, make the substitutions for $\frac{y}{x}$ and $\frac{dy}{dx}$.
+\begin{align*}
+    x \frac{dv}{dx} + v &= \frac{1}{4} + \frac{v}{2} \\[6pt]
+    x \frac{dv}{dx} &= \frac{1}{4} - \frac{v}{2}
+\end{align*}
+
+Solve the differential equation with $v$ and $x$.
+\begin{align*}
+    x \frac{dv}{dx} &= \frac{1}{4} - \frac{v}{2} \\[6pt]
+    x \frac{dv}{dx} &= \frac{1 - 2v}{4} \\[6pt]
+    \frac{4}{1 - 2v} \, dv &= \frac{1}{x} \, dx \\[6pt]
+    \int \frac{4}{1 - 2v} \, dv &= \int \frac{1}{x} \, dx \\[6pt]
+    -2 \ln|1 - 2v| &= \ln|x| + C \\
+    \ln|1 - 2v| &= -\frac{1}{2} \ln|x| + C \\[6pt]
+    1 - 2v &= e^{-\frac{1}{2} \ln|x| + C} \\[6pt]
+    1 - 2v &= A e^{\ln x^{-\frac{1}{2}}} \\[6pt]
+    1 - 2v &= A x^{-\frac{1}{2}} \\[6pt]
+    v &= \frac{1 - A x^{-\frac{1}{2}}}{2} \\[6pt]
+\end{align*}
+
+Finally, substitute $\frac{y}{x}$ back into $v$.
+\begin{align*}
+    \frac{y}{x} &= \frac{1 - A x^{-\frac{1}{2}}}{2} \\[6pt]
+    y &= x \cdot \frac{1 - A x^{-\frac{1}{2}}}{2}
+\end{align*}
+
+\subsection{Integrating Factor}
+The integrating factor technique can be used to solve any differential equation in the form:
+\[ \frac{dy}{dx} + P(x)y = Q(x). \]
+
+By multiplying the equation by another function, $I(x)$, we notice that the left-hand side of the equation resembles the product rule for implicitly differentiating $I(x) y$:
+\[ I(x) \frac{dy}{dx} + I(x) P(x)y = I(x) Q(x). \]
+
+Therefore, we need to find $I(x)$ so that $I'(x) = I(x) P(x)$. This can be done by solving the differential equation with the following steps. Notice that the constant factor is not considered in the integrating step to simplify the final product.
+\begin{align*}
+    I'(x) &= I(x) P(x) \\
+    P(x) &= \frac{I'(x)}{I(x)} \\[6pt]
+    \int P(x) \, dx &= \int \frac{I'(x)}{I(x)} \, dx \\[6pt]
+    \int P(x) \, dx &= \ln|I(x)| \\
+    I(x) &= e^{\int P(x) \, dx}
+\end{align*}
+
+Altogether, the steps for using the integrating factor technique are as follows:
+\begin{enumerate}
+    \item Calculate the integrating factor using $I(x) = e^{\int P(x) \, dx}$.
+    \item Multiply both sides of the equation by $I(x)$.
+    \item Integrate to obtain a general solution.
+\end{enumerate}
+
+For example:
+\[ \frac{dy}{dx} - 4y = e^x. \]
+
+First, we notice that $P(x) = -4$. Therefore:
+\begin{align*}
+    I(x) &= e^{\int -4 \, dx} \\
+    I(x) &= e^{-4x}
+\end{align*}
+
+Multiplying the differential equation by $I(x)$ gives:
+\[ e^{-4x} \frac{dy}{dx} - e^{-4x} \cdot 4y = e^x \cdot e^{-4x}. \]
+
+Finally, we can solve for the general solution.
+\begin{align*}
+    e^{-4x} \frac{dy}{dx} - e^{-4x} \cdot 4y &= e^x \cdot e^{-4x} \\[6pt]
+    \frac{d}{dx} \left( e^{-4x}y \right) &= e^{-3x} \\[6pt]
+    \int \frac{d}{dx} \left( e^{-4x}y \right) \, dx &= \int e^{-3x} \, dx \\[6pt]
+    e^{-4x}y &= -\frac{e^{-3x}}{3} + C \\[6pt]
+    y &= -\frac{e^x}{3} + C e^{4x}
+\end{align*}
+
+In this other example, we observe that the equation is already in the form $I(x) \frac{dy}{dx} + I(x) P(x)y = I(x) Q(x)$, with $P(x) = 2x$:
+\[ x^2 \frac{dy}{dx} + 2xy = 1. \]
+
+We can solve this by integrating both sides:
+\begin{align*}
+    \frac{d}{dx} \left( x^2 y \right) &= 1 \\[6pt]
+    \int \frac{d}{dx} \left( x^2 y \right) \, dx &= \int 1 \, dx \\[6pt]
+    x^2 y &= x + C \\
+    y &= \frac{x + C}{x^2}
 \end{align*}
 
 \subsection{Exponential Model Equations}
