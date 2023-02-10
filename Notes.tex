@@ -777,36 +777,36 @@ L'Hopital's rule can also be used to find limits involving exponential functions
 Let $y = f(x)^{g(x)}$, and take the natural log of both sides. Rearrange and use L'Hopital's rule to solve the limit.
 
 \begin{align*}
-    y &= f(x)^{g(x)} \\
-    \ln y &= g(x) \ln f(x) \\
-    \lim \ln y &= \lim g(x) \ln f(x)
+    y          & = f(x)^{g(x)}        \\
+    \ln y      & = g(x) \ln f(x)      \\
+    \lim \ln y & = \lim g(x) \ln f(x)
 \end{align*}
 
 For example, find the limit $\lim_{x \to 0^+} x^x$.
 
 \begin{align*}
-    y &= x^x \\
-    \ln y &= x \ln x \\
-    \lim_{x \to 0^+} \ln y &= \lim_{x \to 0^+} x \ln x
+    y                      & = x^x                      \\
+    \ln y                  & = x \ln x                  \\
+    \lim_{x \to 0^+} \ln y & = \lim_{x \to 0^+} x \ln x
 \end{align*}
 
 Apply L'Hopital's rule to the fraction.
 
 \begin{align*}
-    \lim_{x \to 0^+} \ln y &= \lim_{x \to 0^+} x \ln x \\[6pt]
-    &= \lim_{x \to 0^+} \frac{\ln x}{\frac{1}{x}} \\[6pt]
-    & \text{Take derivatives} \\
-    &= \lim_{x \to 0^+} \frac{\frac{1}{x}}{-\frac{1}{x^2}} \\[6pt]
-    &= \lim_{x \to 0^+} -x \\
-    \lim_{x \to 0^+} \ln y &= 0
+    \lim_{x \to 0^+} \ln y & = \lim_{x \to 0^+} x \ln x                            \\[6pt]
+                           & = \lim_{x \to 0^+} \frac{\ln x}{\frac{1}{x}}          \\[6pt]
+                           & \text{Take derivatives}                               \\
+                           & = \lim_{x \to 0^+} \frac{\frac{1}{x}}{-\frac{1}{x^2}} \\[6pt]
+                           & = \lim_{x \to 0^+} -x                                 \\
+    \lim_{x \to 0^+} \ln y & = 0
 \end{align*}
 
 Substitute this back into the original equation to find the limit $\lim_{x \to 0^+} x^x$:
 
 \begin{align*}
-    \lim_{x \to 0^+} x^x &= e^{\lim_{x \to 0^+} x \ln x} \\
-    &= e^{0} \\
-    \lim_{x \to 0^+} x^x &= 1
+    \lim_{x \to 0^+} x^x & = e^{\lim_{x \to 0^+} x \ln x} \\
+                         & = e^{0}                        \\
+    \lim_{x \to 0^+} x^x & = 1
 \end{align*}
 
 \section{Analytical Applications of Differentiation}
