@@ -2754,11 +2754,43 @@ Knowing the Maclaurin series $\arctan(x) = x - \frac{x^3}{3} + \frac{x^5}{5} - \
 
 \subsubsection{Derivatives and Integrals of Maclaurin Series}
 
-% TODO
+We can also apply differentiation and integration to Maclaurin series because they are just sums. In general terms, if:
+\[ f(x) = \sum_{n=0}^{\infty} a_n x^n, \]
+
+\noindent then:
+\[ f'(x) = \sum_{n=0}^{\infty} \frac{d}{dx} \left( a_n x^n \right) \, , \, \int f(x) = \sum_{n=0}^{\infty} \left( \int a_n x^n \, dx \right). \]
+
+For example, we can use these methods to find the Maclaurin series for $\cos(x)$ given that of $\sin(x)$.
+
+\begin{align*}
+    \cos(x) &= \frac{d}{dx} \sin(x) \\[6pt]
+    &= \frac{d}{dx} \left( \sum_{n=0}^\infty \frac{(-1)^n x^{2n+1}}{(2n+1)!} \right) \\[6pt]
+    &= \sum_{n=0}^\infty \left( \frac{d}{dx} \left( \frac{(-1)^n x^{2n+1}}{(2n+1)!} \right) \right) \\[6pt]
+    &= \sum_{n=0}^\infty \left( \frac{(-1)^n}{(2n+1)!} \cdot \frac{d}{dx} (x^{2n+1}) \right) \\[6pt]
+    &= \sum_{n=0}^\infty \left( \frac{(-1)^n}{(2n+1)!} \cdot (2n+1) x^{2n} \right) \\[6pt]
+    \cos(x) &= \sum_{n=0}^\infty \frac{(-1)^n x^{2n}}{(2n)!}
+\end{align*}
+
+This series matches up with that of $\cos(x)$, validating the process of using differentiation. Similarly, integration can be used on Maclaurin series. Note that this method will not always work because of the constant factor. A working example is to integrate the Maclaurin series of $\cos(x)$ to get that of $\sin(x)$. To deal with the constant factor, we use a definite integral from $0$ to $x$, and integrate with respect to another variable.
+
+\begin{align*}
+    \sin(x) &= \int_0^x \cos(t) \, dt \\
+    &= \int_0^x \sum_{n=0}^\infty \frac{(-1)^n t^{2n}}{(2n)!} \, dt \\[6pt]
+    &= \sum_{n=0}^\infty \left( \int_0^x \frac{(-1)^n t^{2n}}{(2n)!} \, dt \right) \\[6pt]
+    &= \sum_{n=0}^\infty \left( \frac{(-1)^n}{(2n)!} \int_0^x t^{2n} \, dt \right) \\[6pt]
+    &= \sum_{n=0}^\infty \left( \frac{(-1)^n}{(2n)!} \left[ \frac{t^{2n+1}}{2n+1} \right]_0^x \right) \\[6pt]
+    &= \sum_{n=0}^\infty \left( \frac{(-1)^n}{(2n)!} \cdot \frac{x^{2n+1}}{2n+1} \right) \\[6pt]
+    \sin(x) &= \sum_{n=0}^\infty \frac{(-1)^n x^{2n+1}}{(2n+1)!}
+\end{align*}
+
+This series matches up with that of $\sin(x)$, validating the process of integration as well.
 
 \subsubsection{Binomial Maclaurin Series}
 
-% TODO
+\noindent The binomial expansion of $(a + bx)^p$ can be written as the Maclaurin series:
+\[ \sum_{n=0}^{p} \binom{p}{n} a^{n-p} b^n x^n. \]
+
+Note that this is not an infinite series because $\binom{p}{n}$ is restricted for $0 \le n \le p$. Therefore, it would not make sense for $n$ to go any higher than $p$.
 
 \subsubsection{Function as a Geometric Sequence}
 \noindent Note that the sum of an infinite geometric sequence is:
