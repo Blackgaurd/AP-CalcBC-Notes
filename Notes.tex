@@ -2729,6 +2729,37 @@ Where $M$ is the maximum value of $f^{(n+1)}(z)$ for any value $z$ between $x$ a
      & \sin(x) = \sum_{n=0}^\infty \frac{(-1)^n x^{2n+1}}{(2n+1)!} = x - \frac{x^3}{3!} + \frac{x^5}{5!} - \frac{x^7}{7!} + \cdots
 \end{align*}
 
+\subsubsection{Algebraic Operations on Maclaurin Series}
+
+If we know the base case for a Maclaurin series, algebraic manipulation can be done to find the series for similar functions. For example, we know that:
+
+\[ \sin(t) = \sum_{n=0}^\infty \frac{(-1)^n t^{2n+1}}{(2n+1)!}. \]
+
+\noindent Therefore, we can substitute $t = 2x$ to find $\sin(2x)$:
+
+\[ \sin(2x) = \sum_{n=0}^\infty \frac{(-1)^n (2x)^{2n+1}}{(2n+1)!}. \]
+
+\noindent This technique can also be used to solve undefined limits, such as:
+
+\[ \lim_{x \to 0} \frac{x - \arctan(x)}{x^3}. \]
+
+Knowing the Maclaurin series $\arctan(x) = x - \frac{x^3}{3} + \frac{x^5}{5} - \frac{x^7}{7} + \cdots$, we can use algebraic manipulation to solve the limit as such:
+
+\begin{align*}
+    \lim_{x \to 0} \frac{x - \arctan(x)}{x^3} & = \lim_{x \to 0} \frac{x - \left( x - \frac{x^3}{3} + \frac{x^5}{5} - \frac{x^7}{7} + \cdots \right)}{x^3} \\[6pt]
+                                              & = \lim_{x \to 0} \frac{1}{x^3} \left( \frac{x^3}{3} - \frac{x^5}{5} + \frac{x^7}{7} + \cdots \right)       \\[6pt]
+                                              & = \lim_{x \to 0} \frac{1}{3} - \frac{x^2}{5} + \frac{x^4}{7}                                               \\[6pt]
+    \lim_{x \to 0} \frac{x - \arctan(x)}{x^3} & = \frac{1}{3}
+\end{align*}
+
+\subsubsection{Derivatives and Integrals of Maclaurin Series}
+
+% TODO
+
+\subsubsection{Binomial Maclaurin Series}
+
+% TODO
+
 \subsubsection{Function as a Geometric Sequence}
 \noindent Note that the sum of an infinite geometric sequence is:
 \[ \frac{a}{1-r} \]
