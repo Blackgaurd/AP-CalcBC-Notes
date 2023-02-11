@@ -2763,34 +2763,58 @@ We can also apply differentiation and integration to Maclaurin series because th
 For example, we can use these methods to find the Maclaurin series for $\cos(x)$ given that of $\sin(x)$.
 
 \begin{align*}
-    \cos(x) &= \frac{d}{dx} \sin(x) \\[6pt]
-    &= \frac{d}{dx} \left( \sum_{n=0}^\infty \frac{(-1)^n x^{2n+1}}{(2n+1)!} \right) \\[6pt]
-    &= \sum_{n=0}^\infty \left( \frac{d}{dx} \left( \frac{(-1)^n x^{2n+1}}{(2n+1)!} \right) \right) \\[6pt]
-    &= \sum_{n=0}^\infty \left( \frac{(-1)^n}{(2n+1)!} \cdot \frac{d}{dx} (x^{2n+1}) \right) \\[6pt]
-    &= \sum_{n=0}^\infty \left( \frac{(-1)^n}{(2n+1)!} \cdot (2n+1) x^{2n} \right) \\[6pt]
-    \cos(x) &= \sum_{n=0}^\infty \frac{(-1)^n x^{2n}}{(2n)!}
+    \cos(x) & = \frac{d}{dx} \sin(x)                                                                         \\[6pt]
+            & = \frac{d}{dx} \left( \sum_{n=0}^\infty \frac{(-1)^n x^{2n+1}}{(2n+1)!} \right)                \\[6pt]
+            & = \sum_{n=0}^\infty \left( \frac{d}{dx} \left( \frac{(-1)^n x^{2n+1}}{(2n+1)!} \right) \right) \\[6pt]
+            & = \sum_{n=0}^\infty \left( \frac{(-1)^n}{(2n+1)!} \cdot \frac{d}{dx} (x^{2n+1}) \right)        \\[6pt]
+            & = \sum_{n=0}^\infty \left( \frac{(-1)^n}{(2n+1)!} \cdot (2n+1) x^{2n} \right)                  \\[6pt]
+    \cos(x) & = \sum_{n=0}^\infty \frac{(-1)^n x^{2n}}{(2n)!}
 \end{align*}
 
 This series matches up with that of $\cos(x)$, validating the process of using differentiation. Similarly, integration can be used on Maclaurin series. Note that this method will not always work because of the constant factor. A working example is to integrate the Maclaurin series of $\cos(x)$ to get that of $\sin(x)$. To deal with the constant factor, we use a definite integral from $0$ to $x$, and integrate with respect to another variable.
 
 \begin{align*}
-    \sin(x) &= \int_0^x \cos(t) \, dt \\
-    &= \int_0^x \sum_{n=0}^\infty \frac{(-1)^n t^{2n}}{(2n)!} \, dt \\[6pt]
-    &= \sum_{n=0}^\infty \left( \int_0^x \frac{(-1)^n t^{2n}}{(2n)!} \, dt \right) \\[6pt]
-    &= \sum_{n=0}^\infty \left( \frac{(-1)^n}{(2n)!} \int_0^x t^{2n} \, dt \right) \\[6pt]
-    &= \sum_{n=0}^\infty \left( \frac{(-1)^n}{(2n)!} \left[ \frac{t^{2n+1}}{2n+1} \right]_0^x \right) \\[6pt]
-    &= \sum_{n=0}^\infty \left( \frac{(-1)^n}{(2n)!} \cdot \frac{x^{2n+1}}{2n+1} \right) \\[6pt]
-    \sin(x) &= \sum_{n=0}^\infty \frac{(-1)^n x^{2n+1}}{(2n+1)!}
+    \sin(x) & = \int_0^x \cos(t) \, dt                                                                         \\
+            & = \int_0^x \sum_{n=0}^\infty \frac{(-1)^n t^{2n}}{(2n)!} \, dt                                   \\[6pt]
+            & = \sum_{n=0}^\infty \left( \int_0^x \frac{(-1)^n t^{2n}}{(2n)!} \, dt \right)                    \\[6pt]
+            & = \sum_{n=0}^\infty \left( \frac{(-1)^n}{(2n)!} \int_0^x t^{2n} \, dt \right)                    \\[6pt]
+            & = \sum_{n=0}^\infty \left( \frac{(-1)^n}{(2n)!} \left[ \frac{t^{2n+1}}{2n+1} \right]_0^x \right) \\[6pt]
+            & = \sum_{n=0}^\infty \left( \frac{(-1)^n}{(2n)!} \cdot \frac{x^{2n+1}}{2n+1} \right)              \\[6pt]
+    \sin(x) & = \sum_{n=0}^\infty \frac{(-1)^n x^{2n+1}}{(2n+1)!}
 \end{align*}
 
 This series matches up with that of $\sin(x)$, validating the process of integration as well.
 
 \subsubsection{Binomial Maclaurin Series}
-
 \noindent The binomial expansion of $(a + bx)^p$ can be written as the Maclaurin series:
 \[ \sum_{n=0}^{p} \binom{p}{n} a^{n-p} b^n x^n. \]
 
 Note that this is not an infinite series because $\binom{p}{n}$ is restricted for $0 \le n \le p$. Therefore, it would not make sense for $n$ to go any higher than $p$.
+
+\subsubsection{Solving Differential Equations With Maclaurin Series}
+
+Maclaurin series can be used to solve first order differential equations that follow the form $\frac{dy}{dx} = f(x, y)$ with an initial condition $y(0) = y_0$.
+
+For example, this technique can be used in solving $y' = x - 4xy$ if $y(0) = 1$. The first few terms can be approximated as shown below:
+
+\begin{center}
+    \begin{tabular}{|c|c|}
+        \hline
+                                             & $y(0) = 1$                                              \\
+        \hline
+        $y' = x - 4xy$                       & $y'(0) = 0 - 4 \times 0 \times 1 = 0$                   \\
+        \hline
+        $y'' = 1 - 4y - 4xy'$                & $y''(0) = 1 - 4 \times 1 - 4 \times 0 \times 0 = -3$    \\
+        \hline
+        $y^{(3)}(x) = -8y' - 4xy''$          & $y^{(3)}(0) = -8 \times 0 - 4 \times 0 \times (-3) = 0$ \\
+        \hline
+        $y^{(4)}(x) = -12y'' - 4xy^{(3)}(x)$ & $y^{(4)}(0) = -12 \times (-3) - 0 = 36$                 \\
+        \hline
+    \end{tabular}
+\end{center}
+
+\noindent Therefore, the Maclaurin series approximation is:
+\[ y \approx 1 - \frac{3x^2}{2!} + \frac{36x^4}{4!}. \]
 
 \subsubsection{Function as a Geometric Sequence}
 \noindent Note that the sum of an infinite geometric sequence is:
