@@ -2787,10 +2787,32 @@ This series matches up with that of $\sin(x)$, validating the process of integra
 
 \subsubsection{Binomial Maclaurin Series}
 
-\noindent The binomial expansion of $(a + bx)^p$ can be written as the Maclaurin series:
-\[ \sum_{n=0}^{p} \binom{p}{n} a^{n-p} b^n x^n. \]
+\noindent The binomial expansion of $(1 + x)^p$, for $|x| < 1$ and $p \in \mathbb{R}$, can be written as the Maclaurin series:
+\[ \sum_{n=0}^\infty \binom{p}{n} x^n. \]
 
-Note that this is not an infinite series because $\binom{p}{n}$ is restricted for $0 \le n \le p$. Therefore, it would not make sense for $n$ to go any higher than $p$.
+In order to expand this summation, we must first understand how to generalize $\binom{p}{n}$ for any $p \in \mathbb{R}$. That is, including cases when $p$ is negative or not whole:
+\[ \binom{p}{n} = \frac{p!}{n!(n-p)!} = \frac{p(p-1)(p-2) \cdots (p-n+1)}{n!}. \]
+
+\noindent Therefore, the expanded form of the summation can be written as:
+\[ 1 + px + \frac{p(p-1)}{2!} x^2 + \frac{p(p-1)(p-2)}{3!} x^3 + \cdots + \frac{p(p-1) \cdots (p-n+1)}{n!} x^n. \]
+
+Furthermore, this summation can be generalized to the binomial expansion of ${(a + bx)^p}$ as follows:
+\begin{align*}
+    (a + bx)^p &= \left[ a \left( 1 + \frac{bx}{a} \right) \right]^p \\[6pt]
+    &= a^p \left( 1 + \frac{bx}{a} \right)^p \\[6pt]
+    &= a^p \sum_{n=0}^{\infty} \binom{p}{n} \left( \frac{bx}{a} \right)^n
+\end{align*}
+
+For example, using this method to find the Maclaurin series for the binomial expansion of $\frac{1}{\sqrt{4 - x}}$:
+\begin{align*}
+    \frac{1}{\sqrt{4 - x}} &= (4 - x)^{-\frac{1}{2}} \\[6pt]
+    &= \left[ 4 \left( 1 - \frac{x}{4} \right) \right]^{-\frac{1}{2}} \\[6pt]
+    &= \frac{1}{2} \left( 1 - \frac{x}{4} \right)^{-\frac{1}{2}} \\[6pt]
+    \frac{1}{\sqrt{4 - x}} &= \frac{1}{2} \left[ 1 + \frac{-1}{2} \left( \frac{-x}{4} \right) + \frac{\left( \frac{-1}{2} \right) \left( \frac{-1}{2} - 1 \right)}{2!} \left( \frac{-x}{4} \right)^2 + \cdots \right]
+\end{align*}
+
+\noindent The $n^{th}$ term of the sequence can be expressed as:
+\[ \frac{\left( \frac{-1}{2} \right) \left( \frac{-1}{2} - 1 \right) \cdots \left( \frac{-1}{2} - n + 1 \right)}{n!} \left( \frac{-x}{4} \right)^n. \]
 
 \subsubsection{Function as a Geometric Sequence}
 \noindent Note that the sum of an infinite geometric sequence is:
