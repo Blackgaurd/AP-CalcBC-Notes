@@ -775,23 +775,20 @@ L'Hopital's rule can also be used to find limits involving exponential functions
 \end{enumerate}
 
 Let $y = f(x)^{g(x)}$, and take the natural log of both sides. Rearrange and use L'Hopital's rule to solve the limit.
-
 \begin{align*}
     y          & = f(x)^{g(x)}        \\
     \ln y      & = g(x) \ln f(x)      \\
     \lim \ln y & = \lim g(x) \ln f(x)
 \end{align*}
 
-For example, find the limit $\lim_{x \to 0^+} x^x$.
-
+\noindent For example, find the limit $\lim_{x \to 0^+} x^x$.
 \begin{align*}
     y                      & = x^x                      \\
     \ln y                  & = x \ln x                  \\
     \lim_{x \to 0^+} \ln y & = \lim_{x \to 0^+} x \ln x
 \end{align*}
 
-Apply L'Hopital's rule to the fraction.
-
+\noindent Apply L'Hopital's rule to the fraction.
 \begin{align*}
     \lim_{x \to 0^+} \ln y & = \lim_{x \to 0^+} x \ln x                            \\[6pt]
                            & = \lim_{x \to 0^+} \frac{\ln x}{\frac{1}{x}}          \\[6pt]
@@ -801,8 +798,7 @@ Apply L'Hopital's rule to the fraction.
     \lim_{x \to 0^+} \ln y & = 0
 \end{align*}
 
-Substitute this back into the original equation to find the limit $\lim_{x \to 0^+} x^x$:
-
+\noindent Substitute this back into the original equation to find the limit $\lim_{x \to 0^+} x^x$:
 \begin{align*}
     \lim_{x \to 0^+} x^x & = e^{\lim_{x \to 0^+} x \ln x} \\
                          & = e^{0}                        \\
@@ -811,18 +807,15 @@ Substitute this back into the original equation to find the limit $\lim_{x \to 0
 
 \section{Analytical Applications of Differentiation}
 \fline
-%* intro here?
 \subsection{Mean Value Theorem}
-\begin{wrapfigure}[11]{r}{0.5\textwidth}
+The mean value theorem states that for any arc between two endpoints on a graph, there will be a point whose tangent line will be parallel to the secant line between the two endpoints.
+\begin{figure}[H]
     \begin{center}
-        \frame{\includegraphics[scale=0.6]{fig6.JPG}}
+        \frame{\includegraphics[scale=0.7]{fig6.JPG}}
     \end{center}
     \caption{\href{https://www.khanacademy.org/math/ap-calculus-bc/bc-diff-analytical-applications-new/bc-5-1/a/mean-value-theorem-review?modal=1}{source}}
     \label{fig:meanvaluetheorem}
-\end{wrapfigure}
-
-The mean value theorem states that for any arc between two endpoints on a graph, there will be a point whose tangent line will be parallel to the secant line between the two endpoints.
-
+\end{figure}
 More precisely, given a \textbf{continuous and differentiable} function $f$, in the interval $[a, b]$, there exists a number $c$ such that $f'(c)$ is equal to the average rate of change over $[a, b]$.
 
 \begin{equation*}
@@ -2786,14 +2779,9 @@ This series matches up with that of $\cos(x)$, validating the process of using d
 This series matches up with that of $\sin(x)$, validating the process of integration as well.
 
 \subsubsection{Binomial Maclaurin Series}
-<<<<<<< HEAD
 
 \noindent The binomial expansion of $(1 + x)^p$, for $|x| < 1$ and $p \in \mathbb{R}$, can be written as the Maclaurin series:
 \[ \sum_{n=0}^\infty \binom{p}{n} x^n. \]
-=======
-\noindent The binomial expansion of $(a + bx)^p$ can be written as the Maclaurin series:
-\[ \sum_{n=0}^{p} \binom{p}{n} a^{n-p} b^n x^n. \]
->>>>>>> 817620d2e523d2f512b923e4311c4e559845a9f6
 
 In order to expand this summation, we must first understand how to generalize $\binom{p}{n}$ for any $p \in \mathbb{R}$. That is, including cases when $p$ is negative or not whole:
 \[ \binom{p}{n} = \frac{p!}{n!(n-p)!} = \frac{p(p-1)(p-2) \cdots (p-n+1)}{n!}. \]
