@@ -1,9 +1,10 @@
-\documentclass[11pt]{article}
+\documentclass[12pt]{article}
 \usepackage[utf8]{inputenc}
 \usepackage[english]{babel}
-\usepackage{times}
+%\usepackage{times}
 \usepackage[none]{hyphenat} % turns off word hyphenation
 %\usepackage{titling}
+\usepackage{hyperref}
 \usepackage{fancyhdr}
 \usepackage{geometry}
 \usepackage{caption}
@@ -20,7 +21,7 @@
 
 %\spacedforallowdisplaybreaks
 \graphicspath{{./images/}}
-\geometry{margin=1.5in}
+\geometry{margin=1.2in}
 \renewcommand{\baselinestretch}{1.5}
 \newcommand{\spacedforall}{\;\forall\;}
 \newcommand{\numberthis}{\addtocounter{equation}{1}\tag{\theequation}}
@@ -315,5 +316,125 @@ then $\lim \limits_{x \to c} g(x) = L$.
 	by the squeeze theorem,
 	\[ \lim_{x \to -\infty} \frac{x^2 (\sin x + \cos^3 x)}{(x^2 + 1)(x - 3)} = 0. \]
 \end{enumerate}
+
+\subsection{Intermediate Value Theorem}
+Given a \textbf{continuous} segment of a function $f(x)$, let $c \in [a, b]$ and $w$ be in between $f(a)$ and $f(b)$. By the intermediate value theorem, there must be at least one value $c$ such that $f(c) = w$. That is, a continuous line in between points $A$ and $B$ must pass through every $x$ and $y$ value in between them. This goes both ways: if there is a $c$ then there is a $w$, and vice versa.
+
+\begin{figure}[H]
+	\begin{center}
+		\frame{\includegraphics{images/fig3.JPG}}
+	\end{center}
+	\label{fig:inter_value_theorem}
+	\caption{Visualization of the intermediate value theorem.}
+\end{figure}
+
+\section[Differentiation: Definition and Fundamental Properties]{Differentiation: Definition and Fundamental\\Properties}
+A derivative is the \textbf{instantaneous} rate of change of a function at a point, or the average rate of change over an infinitely small interval. There are two notations for derivatives:
+
+\begin{itemize}
+	\item \textbf{Lagrange's notation:} The derivative of $f(x)$ if $f'(x)$. The $n$-th order derivative is written as $f^n(x)$, or with $n$ ticks.
+	\item \textbf{Leibniz's notation:} The derivative of $f$ is $\frac{d}{dx}$, indicating a derivative with respect to $x$. When $y = f(x)$,  the first derivative is written as $\frac{dy}{dx}$. The $n$-th order derivative is written as $\frac{d^n y}{dx^n}$.
+\end{itemize}
+
+\subsection{Continuity and Differentiability}
+\textbf{Differentiability} means that the function must be differentiable for every value in its domain. On the other hand, \textbf{continuity} means that the function has no breaks over its domain, or ``can be drawn without lifting the pencil''. While differentiability implies continuity, continuity does not mean differentiability.
+
+\subsection{Limit Definition of the Derivative}
+This is also known as the first principle of derivatives. Because derivatives involve changes in slope over \textit{infinitely} small sections of a curve, it can be expressed as a limit. Given a function $f(x)$, its derivative $f'(x)$ can be written as:
+\[ f'(x) = \lim_{h \to 0} \frac{f(x + h) - f(x)}{h}. \]
+
+Notice the similarity in definition between this and that for slope of a linear line, $m = \frac{\Delta y}{\Delta x}$. The numerator, $f(x + h) - f(x)$, represents an infinitely small change in $y$, and the denominator is an infinitely small change in $x$. The first principle can also be written as:
+\[ f'(a) = \lim_{x \to a} \frac{f(x) - f(a)}{x - a}. \]
+
+\subsection{Differentiation Rules}
+
+\subsubsection{Derivative of a Constant}
+The derivative of a constant is always $0$. This is because a constant would be a horizontal line, and its rate of change (slope) is always $0$.
+\begin{align*}
+	f(x) &= C \\
+	f'(x) &= 0
+\end{align*}
+For example, the derivative of $f(x) = \pi$ is $f'(x) = 0$.
+
+\subsubsection{Power Rule}
+Given a function in the form $f(x) = x^p$ such that $p \in \R$, its derivative can be found by moving $p$ in front of $x$, and subtracting one from the exponent. This also applies to negative or fractional exponents.
+\begin{align*}
+	f(x) &= x^p \\
+	f'(x) &= px^{p - 1}
+\end{align*}
+For example, the derivative of $f(x) = x^{24}$ is found as follows:
+\[ f'(x) = 24 x^{24 - 1} = 24x^{23}. \]
+As another example, the derivative of $g(x) = \sqrt[3]{x^2}$ can be found as follows:
+\begin{gather*}
+	g(x) = \sqrt[3]{x^2} = x^{\frac{2}{3}} \\
+	g'(x) = \frac{2 x^{\frac{2}{3} - 1}}{3} = \frac{2 x^{-\frac{1}{3}}}{3} = \frac{2}{3 \sqrt[3]{x}}.
+\end{gather*}
+
+\subsubsection{Constant Coefficient}
+The constant coefficient of a function can be moved outside of the derivative.
+\[ \frac{d}{dx} \left( k f(x) \right) = k f'(x). \]
+For example, the derivative of $f(x) = 5x^2$ can be found as follows:
+\begin{align*}
+	f'(x) &= \frac{d}{dx} \left( 5x^2 \right) \\[6pt]
+	&= 5 \left( \frac{d}{dx} \left( x^2 \right) \right) \\
+	&= 5 \cdot 2x \\
+	f'(x) &= 10x
+\end{align*}
+
+\subsubsection{Sum Rule}
+The derivative of the sum of several functions is equal to the sum of the derivative of the individual functions. The same applies for subtraction.
+\[ \frac{d}{dx} \left( \sum_i f_i(x) \right) = \sum_i f_i'(x). \]
+Or in expanded form:
+\[ \frac{d}{dx} \left( f_1(x) + f_2(x) + \cdots + f_n(x) \right) = f_1'(x) + f_2'(x) + \cdots + f_n'(x). \]
+For example, the derivative of $f(x) = x^3 + x$ can be found as follows:
+\begin{align*}
+	f'(x) &= \frac{d}{dx} \left( x^3 + x \right) \\[6pt]
+	&= \frac{d}{dx} \left( x^3 \right) + \frac{d}{dx} (x) \\[6pt]
+	f'(x) &= 3x^2 + 1
+\end{align*}
+
+\subsubsection{Product Rule}
+The derivative of the product of two functions is given by:
+\[ \frac{d}{dx} \left[ f(x) g(x) \right] = f(x) g'(x) + f'(x) g(x). \]
+For example, the derivative of $f(x) = x^2 e^x$ can be found as follows (the derivative of $e^x$ is explained in \autoref{sec:deriv_exp_funcs}):
+\begin{align*}
+	f'(x) &= \frac{d}{dx} \left( x^2 e^x \right) \\[6pt]
+	&= x^2 \cdot \frac{d}{dx} \left( e^x \right) + \frac{d}{dx} \left( x^2 \right) \cdot e^x \\[6pt]
+	f'(x) &= x^2 e^x + 2x e^x
+\end{align*}
+
+\subsubsection{Quotient Rule}
+The derivative of one function divided by another function is given by the formula below. It may be helpful to realize the similarties between the quotient and product rules for memorization.
+\[ \frac{d}{dx} \left( \frac{f(x)}{g(x)} \right) = \frac{f'(x) g(x) - f(x) g'(x)}{g(x)^2}. \]
+For example, the derivative of $f(x) = \frac{x^3}{e^x}$ can be found as follows (the derivative of $e^x$ is explained in \autoref{sec:deriv_exp_funcs}):
+\begin{align*}
+	f'(x) &= \frac{d}{dx} \left( \frac{x^3}{e^x} \right) \\[6pt]
+	&= \frac{\frac{d}{dx} \left( x^3 \right) \cdot e^x - x^3 \cdot \frac{d}{dx} \left( e^x \right)}{\left( e^x \right)^2} \\[6pt]
+	&= \frac{3x^2 e^x - x^3 e^x}{e^{2x}} \\[6pt]
+	f'(x) &= \frac{3x^2 - x^3}{e^x}
+\end{align*}
+
+\subsubsection{Chain Rule}
+The chain rule allows for the differentiation of a composition of two or more functions, such as $f(g(x))$. The formula is:
+\[ \frac{d}{dx} \left[ f(g(x)) \right] = f'(g(x)) g'(x). \]
+For compositions of more functions, simply apply the formula recursively:
+\begin{align*}
+	\frac{d}{dx} \left[ f(g(h(x))) \right] &= f'(g(h(x))) \cdot \frac{d}{dx} \left[ g(h(x)) \right] \\
+	&= f'(g(h(x))) g'(h(x)) h'(x).
+\end{align*}
+For example, the derivative of $f(x) = \sin x^2$ can be found as follows (the derivatie of $\sin x$ is explained in \autoref{sec:deriv_trig_funcs}):
+\begin{align*}
+	f'(x) &= \frac{d}{dx} \left( \sin x^2 \right) \\[6pt]
+	&= \cos x^2 \cdot 2x \\
+	f'(x) &= 2x \cos x^2.
+\end{align*}
+
+\subsection{Exponential Functions}
+\label{sec:deriv_exp_funcs}
+
+\subsection{Logarithmic Functions}
+
+\subsection{Trigonometric Functions}
+\label{sec:deriv_trig_funcs}
 
 \end{document}
