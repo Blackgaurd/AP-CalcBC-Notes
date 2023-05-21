@@ -422,7 +422,7 @@ For compositions of more functions, simply apply the formula recursively:
 	\frac{d}{dx} \left[ f(g(h(x))) \right] &= f'(g(h(x))) \cdot \frac{d}{dx} \left[ g(h(x)) \right] \\
 	&= f'(g(h(x))) g'(h(x)) h'(x).
 \end{align*}
-For example, the derivative of $f(x) = \sin x^2$ can be found as follows (the derivatie of $\sin x$ is explained in \autoref{sec:deriv_trig_funcs}):
+For example, the derivative of $f(x) = \sin x^2$ can be found as follows (the derivative of $\sin x$ is explained in \autoref{sec:deriv_trig_funcs}):
 \begin{align*}
 	f'(x) &= \frac{d}{dx} \left( \sin x^2 \right) \\[6pt]
 	&= \cos x^2 \cdot 2x \\
@@ -431,10 +431,42 @@ For example, the derivative of $f(x) = \sin x^2$ can be found as follows (the de
 
 \subsection{Exponential Functions}
 \label{sec:deriv_exp_funcs}
+The formula for finding a function in the form $f(x) = a^x$ where $a$ is a constant is:
+\[ \frac{d}{dx} (a^x) = a^x \ln a. \]
+If the value of the constant is $e$, the derivative works out nicely:
+\[ \frac{d}{dx} (e^x) = e^x \ln e = e^x. \]
 
 \subsection{Logarithmic Functions}
+The derivative of $\ln x$ is:
+\[ \frac{d}{dx} (\ln x) = \frac{1}{x}. \]
+This can be used to derive the derivative of other base logarithms using the log base change formula:
+\begin{align*}
+	\frac{d}{dx} (\log_a x) &= \frac{d}{dx} \left( \frac{\ln x}{\ln a} \right) \\[6pt]
+	&= \frac{1}{\ln a} \cdot \frac{d}{dx} (\ln x) \\[6pt]
+	\frac{d}{dx} (\log_a x) &= \frac{1}{x \ln a}
+\end{align*}
 
 \subsection{Trigonometric Functions}
 \label{sec:deriv_trig_funcs}
+The derivatives of the common trigonometric functions are listed below:
+\begin{center}
+	\begin{tabular}{|c|c|}
+		\hline
+		$f(x)$ & $f'(x)$ \\
+		\hline \hline
+		$\sin{x}$ & $\cos{x}$ \\
+		\hline
+		$\cos{x}$ & $-\sin{x}$ \\
+		\hline
+		$\tan{x}$ & $\frac{1}{\cos^2{x}}$ \\
+		\hline \hline
+		$\cot{x}$ & $-\frac{1}{\sin^2{x}}$ \\
+		\hline
+		$\sec{x}$ & $\tan{x} \sec{x}$ \\
+		\hline
+		$\csc{x}$ & $-\cot{x} \csc{x}$ \\
+		\hline
+	\end{tabular}
+\end{center}
 
 \end{document}
