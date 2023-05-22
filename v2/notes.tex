@@ -191,7 +191,7 @@ There are two cases for when direct substitution will not work. The first of whi
 \subsubsection{Algebraic Manipulation}
 When direct substitution results in an undefined value, the next method to try is algebraic manipulation. Such a method can involve factoring or polynomial division. For example:
 \begin{align*}
-	\lim_{x \to 2} \frac{x^4 + 3x^3 - 10x^2}{x^2 - 2x} & = \lim_{x \to 2} \frac{x^2 (x + 5)(x - 2)}{x(x - 2)} \\[6pt]
+	\lim_{x \to 2} \frac{x^4 + 3x^3 - 10x^2}{x^2 - 2x} & = \lim_{x \to 2} \frac{x^2 (x + 5)(x - 2)}{x(x - 2)} \\[5pt]
 	&= \lim_{x \to 2} x(x + 5) \\
 	&= 14
 \end{align*}
@@ -216,20 +216,20 @@ Trig identities can be used when dealing with trig equations, and direct substit
 		& $\cos(2x) = 2\cos^2(x) - 1$ \\
 		& $\cos(2x) = 1 - 2\sin^2(x)$ \\
 		\hline
-		\multirow{3}{*}{\textbf{Reciprocal identities}} & $\csc(x) = \frac{1}{\sin(x)}$ \\[6pt]
-		& $\sec(x) = \frac{1}{\cos(x)}$ \\[6pt]
-		& $\cot(x) = \frac{1}{\tan(x)} = \frac{\cos(x)}{\sin(x)}$ \\[6pt]
+		\multirow{3}{*}{\textbf{Reciprocal identities}} & $\csc(x) = \frac{1}{\sin(x)}$ \\[5pt]
+		& $\sec(x) = \frac{1}{\cos(x)}$ \\[5pt]
+		& $\cot(x) = \frac{1}{\tan(x)} = \frac{\cos(x)}{\sin(x)}$ \\[5pt]
 		\hline
 	\end{tabular}
 \end{table}
 
 An example of when trig identities can be used to solve a limit is the limit as $x \to \frac{\pi}{2}$ for the function $f(x) = \frac{\cot^2(x)}{1 - \sin(x)}$. If direct substitution is used, it results in an indeterminate form $\frac{0}{0}$. Therefore, the limit can be solved as follows:
 \begin{align*}
-	\lim_{x \to \frac{\pi}{2}} \frac{\cot^2(x)}{1 - \sin(x)} &= \lim_{x \to \frac{\pi}{2}} \frac{1}{1 - \sin(x)} \left( \frac{\cos(x)}{\sin(x)} \right)^2 \\[6pt]
-	&= \lim_{x \to \frac{\pi}{2}} \frac{\cos^2(x)}{\sin^2(x) (1 - \sin(x))} \\[6pt]
-	&= \lim_{x \to \frac{\pi}{2}} \frac{1 - \sin^2(x)}{\sin^2(x) (1 - \sin(x))} \\[6pt]
-	&= \lim_{x \to \frac{\pi}{2}} \frac{(1 + \sin(x))(1 - \sin(x))}{\sin^2(x) (1 - \sin(x))} \\[6pt]
-	&= \lim_{x \to \frac{\pi}{2}} \frac{1 + \sin(x)}{\sin^2(x)} , \, 1 - \sin(x) \ne 0 \\[6pt]
+	\lim_{x \to \frac{\pi}{2}} \frac{\cot^2(x)}{1 - \sin(x)} &= \lim_{x \to \frac{\pi}{2}} \frac{1}{1 - \sin(x)} \left( \frac{\cos(x)}{\sin(x)} \right)^2 \\[5pt]
+	&= \lim_{x \to \frac{\pi}{2}} \frac{\cos^2(x)}{\sin^2(x) (1 - \sin(x))} \\[5pt]
+	&= \lim_{x \to \frac{\pi}{2}} \frac{1 - \sin^2(x)}{\sin^2(x) (1 - \sin(x))} \\[5pt]
+	&= \lim_{x \to \frac{\pi}{2}} \frac{(1 + \sin(x))(1 - \sin(x))}{\sin^2(x) (1 - \sin(x))} \\[5pt]
+	&= \lim_{x \to \frac{\pi}{2}} \frac{1 + \sin(x)}{\sin^2(x)} , \, 1 - \sin(x) \ne 0 \\[5pt]
 	&= 2
 \end{align*}
 
@@ -328,7 +328,7 @@ Given a \textbf{continuous} segment of a function $f(x)$, let $c \in [a, b]$ and
 	\caption{Visualization of the intermediate value theorem.}
 \end{figure}
 
-\section[Differentiation: Definition and Fundamental Properties]{Differentiation: Definition and Fundamental\\Properties}
+\section{Differentiation}
 A derivative is the \textbf{instantaneous} rate of change of a function at a point, or the average rate of change over an infinitely small interval. There are two notations for derivatives:
 
 \begin{itemize}
@@ -371,11 +371,11 @@ As another example, the derivative of $g(x) = \sqrt[3]{x^2}$ can be found as fol
 \end{gather*}
 
 \subsubsection{Constant Coefficient}
-The constant coefficient of a function can be moved outside of the derivative.
+The constant coefficient of a function can be moved outside the derivative.
 \[ \frac{d}{dx} \left( k f(x) \right) = k f'(x). \]
 For example, the derivative of $f(x) = 5x^2$ can be found as follows:
 \begin{align*}
-	f'(x) &= \frac{d}{dx} \left( 5x^2 \right) \\[6pt]
+	f'(x) &= \frac{d}{dx} \left( 5x^2 \right) \\[5pt]
 	&= 5 \left( \frac{d}{dx} \left( x^2 \right) \right) \\
 	&= 5 \cdot 2x \\
 	f'(x) &= 10x
@@ -388,8 +388,8 @@ Or in expanded form:
 \[ \frac{d}{dx} \left( f_1(x) + f_2(x) + \cdots + f_n(x) \right) = f_1'(x) + f_2'(x) + \cdots + f_n'(x). \]
 For example, the derivative of $f(x) = x^3 + x$ can be found as follows:
 \begin{align*}
-	f'(x) &= \frac{d}{dx} \left( x^3 + x \right) \\[6pt]
-	&= \frac{d}{dx} \left( x^3 \right) + \frac{d}{dx} (x) \\[6pt]
+	f'(x) &= \frac{d}{dx} \left( x^3 + x \right) \\[5pt]
+	&= \frac{d}{dx} \left( x^3 \right) + \frac{d}{dx} (x) \\[5pt]
 	f'(x) &= 3x^2 + 1
 \end{align*}
 
@@ -398,19 +398,19 @@ The derivative of the product of two functions is given by:
 \[ \frac{d}{dx} \left[ f(x) g(x) \right] = f(x) g'(x) + f'(x) g(x). \]
 For example, the derivative of $f(x) = x^2 e^x$ can be found as follows (the derivative of $e^x$ is explained in \autoref{sec:deriv_exp_funcs}):
 \begin{align*}
-	f'(x) &= \frac{d}{dx} \left( x^2 e^x \right) \\[6pt]
-	&= x^2 \cdot \frac{d}{dx} \left( e^x \right) + \frac{d}{dx} \left( x^2 \right) \cdot e^x \\[6pt]
+	f'(x) &= \frac{d}{dx} \left( x^2 e^x \right) \\[5pt]
+	&= x^2 \cdot \frac{d}{dx} \left( e^x \right) + \frac{d}{dx} \left( x^2 \right) \cdot e^x \\[5pt]
 	f'(x) &= x^2 e^x + 2x e^x
 \end{align*}
 
 \subsubsection{Quotient Rule}
-The derivative of one function divided by another function is given by the formula below. It may be helpful to realize the similarties between the quotient and product rules for memorization.
+The derivative of one function divided by another function is given by the formula below. It may be helpful to realize the similarities between the quotient and product rules for memorization.
 \[ \frac{d}{dx} \left( \frac{f(x)}{g(x)} \right) = \frac{f'(x) g(x) - f(x) g'(x)}{g(x)^2}. \]
 For example, the derivative of $f(x) = \frac{x^3}{e^x}$ can be found as follows (the derivative of $e^x$ is explained in \autoref{sec:deriv_exp_funcs}):
 \begin{align*}
-	f'(x) &= \frac{d}{dx} \left( \frac{x^3}{e^x} \right) \\[6pt]
-	&= \frac{\frac{d}{dx} \left( x^3 \right) \cdot e^x - x^3 \cdot \frac{d}{dx} \left( e^x \right)}{\left( e^x \right)^2} \\[6pt]
-	&= \frac{3x^2 e^x - x^3 e^x}{e^{2x}} \\[6pt]
+	f'(x) &= \frac{d}{dx} \left( \frac{x^3}{e^x} \right) \\[5pt]
+	&= \frac{\frac{d}{dx} \left( x^3 \right) \cdot e^x - x^3 \cdot \frac{d}{dx} \left( e^x \right)}{\left( e^x \right)^2} \\[5pt]
+	&= \frac{3x^2 e^x - x^3 e^x}{e^{2x}} \\[5pt]
 	f'(x) &= \frac{3x^2 - x^3}{e^x}
 \end{align*}
 
@@ -424,7 +424,7 @@ For compositions of more functions, simply apply the formula recursively:
 \end{align*}
 For example, the derivative of $f(x) = \sin x^2$ can be found as follows (the derivative of $\sin x$ is explained in \autoref{sec:deriv_trig_funcs}):
 \begin{align*}
-	f'(x) &= \frac{d}{dx} \left( \sin x^2 \right) \\[6pt]
+	f'(x) &= \frac{d}{dx} \left( \sin x^2 \right) \\[5pt]
 	&= \cos x^2 \cdot 2x \\
 	f'(x) &= 2x \cos x^2.
 \end{align*}
@@ -441,8 +441,8 @@ The derivative of $\ln x$ is:
 \[ \frac{d}{dx} (\ln x) = \frac{1}{x}. \]
 This can be used to derive the derivative of other base logarithms using the log base change formula:
 \begin{align*}
-	\frac{d}{dx} (\log_a x) &= \frac{d}{dx} \left( \frac{\ln x}{\ln a} \right) \\[6pt]
-	&= \frac{1}{\ln a} \cdot \frac{d}{dx} (\ln x) \\[6pt]
+	\frac{d}{dx} (\log_a x) &= \frac{d}{dx} \left( \frac{\ln x}{\ln a} \right) \\[5pt]
+	&= \frac{1}{\ln a} \cdot \frac{d}{dx} (\ln x) \\[5pt]
 	\frac{d}{dx} (\log_a x) &= \frac{1}{x \ln a}
 \end{align*}
 
@@ -468,5 +468,112 @@ The derivatives of the common trigonometric functions are listed below:
 		\hline
 	\end{tabular}
 \end{center}
+
+\subsection{Implicit Differentiation}
+Implicit different is a technique that can be used to find $\frac{dy}{dx}$ in an equation, without having to explicitly solve for $y$ in terms of $x$. Simply differentiation both sides of the equation, with respect to one of the variables. For example, differentiating the following equation:
+\begin{align*}
+	x^2 + y^2 &= 1 \\
+	\frac{d}{dx} (x^2 + y^2) &= \frac{d}{dx} \\[5pt]
+	\frac{d}{dx} (x^2) + \frac{d}{dx} (y^2) &= 0 \\[5pt]
+	2x + 2y \cdot \frac{d}{dx} &= 0 \\[5pt]
+	\frac{dy}{dx} &= -\frac{x}{y}
+\end{align*}
+Notice that when differentiating the $y$ terms, the derivative is multiplied by $\frac{dy}{dx}$, as the equation is being differentiated \textbf{as a function of $x$}. Here is a slightly more complicated example:
+\begin{align*}
+	\frac{y}{x} &= 7 \\[5pt]
+	\frac{x \cdot \frac{dy}{dx} - y}{x^2} &= 0 \\[5pt]
+	x \cdot \frac{dy}{dx} - y &= 0 \\[5pt]
+	\frac{dy}{dx} &= \frac{y}{x}
+\end{align*}
+
+\subsection{Inverse Functions}
+Given a function $f(x)$ such that $g(x) = f^{-1}(x)$, the derivative of $g(x)$ can be found with the following formula:
+\[ g'(x) = \frac{1}{f'(g(x))}. \]
+The derivation for this formula is as follows:
+\begin{align*}
+	g(x) &= f^{-1}(x) \\
+	f(g(x)) &= f(f^{-1}(x)) \\
+	f(g(x)) &= x \\
+	\frac{d}{dx} \left[ f(g(x)) \right] &= \frac{d}{dx} (x) \\[5pt]
+	f'(g(x)) g'(x) &= 1 \\
+	g'(x) &= \frac{1}{f'(g(x))}
+\end{align*}
+For example, given a function $f(x) = e^x$, find the derivative of its inverse, $(f^{-1})'(x)$:
+\begin{align*}
+	f(x) = e^x &\Rightarrow f^{-1}(x) = \ln{x} \\
+	f'(x) &= e^x \\
+	(f^{-1})'(x) &= \frac{1}{f' \left( f^{-1}(x) \right)} \\[5pt]
+	&= \frac{1}{f'(\ln{x})} \\[5pt]
+	&= \frac{1}{f'(\ln{(1)})} \\[5pt]
+	&= \frac{1}{e^{\ln{(1)}}} \\[5pt]
+	&= \frac{1}{1} \\[5pt]
+	(f^{-1})'(x) &= 1
+\end{align*}
+
+\subsection{Inverse Trigonometric Functions}
+The derivatives of the inverse trigonometric functions are listed below:
+\begin{center}
+	\begin{tabular}{|c|c|}
+		\hline
+		$f(x)$ & $f'(x)$ \\
+		\hline \hline
+		$\sin^{-1} x$ & $\frac{1}{\sqrt{1-x^2}}$ \\
+		\hline
+		$\cos^{-1} x$ & $-\frac{1}{\sqrt{1-x^2}}$ \\
+		\hline
+		$\tan^{-1} x$ & $\frac{1}{1+x^2}$ \\
+		\hline
+	\end{tabular}
+\end{center}
+
+\subsubsection{Derivations}
+\begin{itemize}
+	\item Derivative of $\sin^{-1} x$:
+	\begin{align*}
+		y &= \sin^{-1} x \\
+		\sin y &= x \\
+		\frac{d}{dx} (\sin y) &= \frac{d}{dx} (x) \\[5pt]
+		\cos y \cdot \frac{dy}{dx} &= 1 \\[5pt]
+		\frac{dy}{dx} &= \frac{1}{\cos y} \\[5pt]
+		\frac{dy}{dx} &= \frac{1}{\sqrt{\cos^2 y}} \\[5pt]
+		\frac{dy}{dx} &= \frac{1}{\sqrt{ - \sin^2 y}} \\[5pt]
+		\frac{dy}{dx} &= \frac{1}{\sqrt{ - x^2}}
+	\end{align*}
+
+	\item Derivative of $\cos^{-1} x$:
+	\begin{align*}
+		y &= \cos^{-1} x \\
+		\cos y &= x \\
+		\frac{d}{dx} (\cos y) &= \frac{d}{dx} (x) \\[5pt]
+		-\sin y \cdot \frac{dy}{dx} &= 1 \\[5pt]
+		\frac{dy}{dx} &= -\frac{1}{\sin y} \\[5pt]
+		\frac{dy}{dx} &= -\frac{1}{\sqrt{\sin^2 y}} \\[5pt]
+		\frac{dy}{dx} &= -\frac{1}{\sqrt{1 - \cos^2 y}} \\[5pt]
+		\frac{dy}{dx} &= -\frac{1}{\sqrt{1 - x^2}}
+	\end{align*}
+
+	\item Derivative of $\tan^{-1} x$:
+	\begin{align*}
+		y &= \tan^{-1} x \\
+		\tan y &= x \\
+		\frac{d}{dx} (\tan y) &= \frac{d}{dx} (x) \\[5pt]
+		\sec^2 y \cdot \frac{dy}{dx} &= 1\\[5pt]
+		\frac{dy}{dx} &= \cos^2 y \\[5pt]
+		\frac{dy}{dx} &= \frac{\cos^2 y}{\cos^2 y + \sin^2 y} \\[5pt]
+		\frac{dy}{dx} &= \frac{1}{1 + \frac{\sin^2 y}{\cos^2 y}} \\[5pt]
+		\frac{dy}{dx} &= \frac{1}{1 + \tan^2 y} \\[5pt]
+		\frac{dy}{dx} &= \frac{1}{1 + x^2}
+	\end{align*}
+\end{itemize}
+
+\subsection{Higher Order Derivatives}
+Higher order derivatives are found by differentiating the previous order derivative. This also applies to implicit differentiation.
+\[ \frac{d^n y}{dx^n} f(x) = \frac{d}{dx} \left( \frac{d^{n-1} y}{dx^{n-1}} f(x) \right). \]
+For example, find the second derivative of $f(x) = 3x^2$:
+\begin{align*}
+	f(x) &= 3x^2 \\
+	f'(x) &= 6x \\
+	f''(x) &= 6
+\end{align*}
 
 \end{document}
