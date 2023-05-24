@@ -576,4 +576,245 @@ For example, find the second derivative of $f(x) = 3x^2$:
 	f''(x) &= 6
 \end{align*}
 
+\section{Applications of Differentiation}
+
+\subsection{Position, Velocity and Acceleration}
+\begin{itemize}
+	\item \textbf{Position} is where something is at a specific time. It is represented by a function $x(t)$, where $t$ is time.
+
+	\item \textbf{Velocity} is the rate of change of an object's position, or the derivative of position: $v(t) = x'(t)$. It represents how fast something is moving at a specific time. Depending on the sign of velocity, the object can be moving in different directions:
+	\[ v(t) \begin{cases}
+		< 0 \; \Rightarrow \; \text{moving left} \\
+		= 0 \; \Rightarrow \; \text{not moving} \\
+		> 0 \; \Rightarrow \; \text{moving right}
+	\end{cases} \]
+
+	\item \textbf{Acceleration} is the rate of change of an object's velocity, or the derivative of velocity: $a(t) = v'(t) = p''(t)$. It represents how fast something is changing speed at a specific time. If the sign of acceleration is the same as velocity, the object is speeding up. If the two signs are different, the object is slowing down. Finally, if the acceleration is $0$, it means that the object is moving at a constant velocity. This is visualized in Figure \ref{fig:acceleration}.
+	\begin{figure}[H]
+		\begin{center}
+			\frame{\includegraphics[width=0.6\textwidth]{images/fig4.JPG}}
+			\caption{An explanation of acceleration.}
+			\label{fig:acceleration}
+		\end{center}
+	\end{figure}
+\end{itemize}
+
+\subsection{Related Rates}
+Related rates involve problems which involve two quantities that are changing at the same time. Given that the two rates are related, we can figure out how fast one of them is changing based on how fast the other is changing. This is usually done by implicitly differentiating a relation equation with respect to time, $t$.
+
+\noindent \textbf{Examples:}
+\begin{enumerate}
+	\item Given the equation: $\frac{x}{y} = 9$, and $\frac{dy}{dt} = -\frac{2}{3}$, find $\frac{dx}{dt}$ when $x = 3$.
+
+	To begin, implicitly differentiate the given equation $\frac{x}{y} = 9$ with respect to $t$:
+	\begin{align*}
+		\frac{x}{y} &= 9 \\[5pt]
+		\frac{y \cdot \frac{dx}{dt} - x \cdot \frac{dy}{dt}}{y^2} &= 0 \\[5pt]
+		y \cdot \frac{dx}{dt} - x \cdot \frac{dy}{dt} &= 0.
+	\end{align*}
+
+	In this new equation, there are two unknowns: $\frac{dx}{dt}$ and $y$. To solve for $\frac{dx}{dt}$, we first have to solve for $y$:
+	\begin{align*}
+		\frac{x}{y} &= 9 \\[5pt]
+		y &= \frac{x}{9} \\[5pt]
+		y &= \frac{3}{9} \\[5pt]
+		y &= \frac{1}{3}
+	\end{align*}
+
+	Finally, solving for $\frac{dx}{dt}$:
+	\begin{align*}
+		y \cdot \frac{dx}{dt} - x \cdot \frac{dy}{dt} &= 0 \\[5pt]
+		\frac{dx}{dt} &= \frac{x \cdot \frac{dy}{dt}}{y} \\[5pt]
+		\frac{dx}{dt} &= \frac{3 \cdot \left( -\frac{2}{3} \right)}{\frac{1}{3}} \\[5pt]
+		\frac{dx}{dt} &= -6
+	\end{align*}
+
+	\item The surface area of a sphere is increasing at a rate of $14 \pi$ square meters per hour. At a certain instant, the surface area is $36 \pi$ square meters. What is the rate of change of the volume of the sphere at that instant?
+
+	First, list out relevant equations, and implicitly differentiate them with respect to time:
+	\begin{itemize}
+		\item Surface area, $SA$, of a sphere with radius $r$:
+		\begin{align*}
+			SA &= 4 \pi r^2 \\
+			\frac{dSA}{dt} &= 8 \pi r \cdot \frac{dr}{dt}.
+		\end{align*}
+
+		\item Volume, $V$, of a sphere with radius $r$:
+		\begin{align*}
+			V &= \frac{4}{3} \pi r^3 \\[5pt]
+			\frac{dV}{dt} &= 4 \pi r^2 \cdot \frac{dr}{dt}.
+		\end{align*}
+	\end{itemize}
+
+	Within these four equations, there are several unknowns:
+	\begin{itemize}
+		\item The radius of the sphere, $r$.
+		\item The rate of change of radius, $\frac{dr}{dt}$.
+		\item The rate of change of volume, $\frac{dV}{dt}$.
+	\end{itemize}
+
+	Solving for $r$:
+	\begin{align*}
+		SA &= 4 \pi r^2 \\
+		r^2 &= \frac{SA}{4 \pi} \\[5pt]
+		r &= \sqrt{\frac{SA}{4 \pi}} \\[5pt]
+		r &= \sqrt{\frac{36 \pi}{4 \pi}} \\[5pt]
+		r &= 3
+	\end{align*}
+
+	Solving for $\frac{dr}{dt}$:
+	\begin{align*}
+		\frac{dSA}{dt} &= 8 \pi r \cdot \frac{dr}{dt} \\[5pt]
+		\frac{dr}{dt} &= \frac{\frac{dSA}{dt}}{8 \pi r} \\[5pt]
+		\frac{dr}{dt} &= \frac{14 \pi}{8 \pi \cdot 3} \\[5pt]
+		\frac{dr}{dt} &= \frac{7}{12}
+	\end{align*}
+
+	Finally, solving for $\frac{dV}{dt}$:
+	\begin{align*}
+		\frac{dV}{dt} &= 4 \pi r^2 \cdot \frac{dr}{dt} \\[5pt]
+		\frac{dV}{dt} &= 4 \pi \cdot 3^2 \cdot \frac{7}{12} \\[5pt]
+		\frac{dV}{dt} &= 21 \pi
+	\end{align*}
+
+	Therefore, at this instance in time, the volume of the sphere is changing by $21 \pi$ meters cubed.
+\end{enumerate}
+
+\subsection{Local Linearity and Approximation}
+Local linearity is the graphical representation of a derivative. By zooming in really close to a function that is differentiable on all points in its domain, it would eventually become a straight line. It is much easier to work with this straight line as a slope for approximating other values.
+
+Given a function $f(x)$, the equation of the tangent line at a point where $x = a$ is given below. Notice that this equation resembles the point-slope form equation, $y = m(x - x_1) - y_1$. The slope, $m$, is the derivative at point $a$, $f'(a)$.
+\[ y = f'(a) (x - a) + f(a) \]
+
+This can be useful in approximating values on a graph that are close another, known value. For example, in Figure \ref{fig:linearity}, there is a graph with function $f(x) = \sqrt{x}$. The value of point $A$ is $\sqrt{0.25} = 0.5$. However, the point $B$ is at $\sqrt{0.3}$, which is harder to calculate. However, it can be observed that the tangent line at point $A$ comes really close to point $B$, so we can use local linearity to approximate the value of $B$.
+
+\begin{figure}[H]
+	\begin{center}
+		\frame{\includegraphics[width=0.4\textwidth]{images/fig5.JPG}}
+		\caption{A demonstration of local linearity.}
+		\label{fig:linearity}
+	\end{center}
+\end{figure}
+
+The first step is to find the value of the slope at point $A$. This can be done by finding the value of the derivative at $x_A = 0.25$, or $f'(0.25)$.
+\begin{align*}
+	f(x) &= \sqrt{x} \\
+	f'(x) &= \frac{1}{2} \cdot x^{-\frac{1}{2}} \\[5pt]
+	f'(x) &= \frac{1}{2 \sqrt{x}} \\[5pt]
+	f'(0.25) &= 1
+\end{align*}
+
+With this, we can plug in all required values into the local linearity line equation to get the equation of the tangent at point $A$.
+\begin{align*}
+	y &= f'(0.25) (x - 0.25) + f(0.25) \\
+	y &= 1 (x - 0.25) + \sqrt{0.25} \\
+	y &= x + 0.25
+\end{align*}
+
+Finally, to find the $y$ value of point $B$, substitute in the $x$ value of point $B$ into the above equation.
+\begin{align*}
+	y_B &= x_B + 0.25 \\
+	y_B &= 0.3 + 0.25 \\
+	y_B &= 0.55
+\end{align*}
+
+Therefore, point $B$ is located at approximately $(0.3, 0.55)$. Using a calculator reveals that the actual value of $B$ is $(0.3, 0.547)$, which is really close to the approximation.
+
+\subsection{L'Hopital's Rule}
+L'Hopital's rule allows the evaluation of limits in indeterminate forms. It states the following:
+\begin{gather*}
+	\text{if} \\
+	\lim_{x \to c} \frac{f(x)}{g(x)} = \frac{0}{0} \quad \text{or} \quad \lim_{x \to c} \frac{f(x)}{g(x)} = \frac{\pm \infty}{\pm \infty} \\
+	\text{then} \\
+	\lim_{x \to c} \frac{f(x)}{g(x)} = \lim_{x \to c} \frac{f'(x)}{g'(x)}.
+\end{gather*}
+
+Note that l'Hopital's rule only applies with direct substitution of the limit evaluates to an indeterminate form. That is, if direct substitution gives a definite value, l'Hopital's rule will not work.
+
+\noindent \textbf{Examples:}
+
+\begin{enumerate}
+	\item Find the value of $\lim \limits_{x \to 0} \frac{\sin x}{x}$.
+
+	Direct substitution results in indeterminate form:
+	\[ \lim_{x \to 0} \frac{\sin x}{x} = \frac{\sin 0}{0} = \frac{0}{0}. \]
+
+	Using l'Hopital's rule, take the derivative of the numerator and denominator, separately. Then, reevaluate the limit:
+	\begin{align*}
+		\lim_{x \to 0} \frac{\sin x}{x} &= \lim_{x \to 0} \frac{\cos x}{1} \\[5pt]
+		&= \frac{\cos 0}{1} \\[5pt]
+		\lim_{x \to 0} \frac{\sin x}{x} &= 1.
+	\end{align*}
+
+	\item Find the value of $\lim \limits_{x \to \infty} \frac{e^x}{x^2}$.
+
+	Direct substitution results in indeterminate form:
+	\[ \lim_{x \to \infty} \frac{e^x}{x^2} = \frac{e^\infty}{\infty^2} = \frac{\infty}{\infty}. \]
+
+	As with before, use l'Hopital's rule to take the derivative of the numerator and denominator. Then, reevaluate the limit:
+	\[ \lim_{x \to \infty} \frac{e^x}{x^2} = \lim_{x \to \infty} \frac{e^x}{2x}. \]
+
+	However, this limit still results in indeterminate form:
+	\[ \lim_{x \to \infty} \frac{e^x}{2x} = \frac{e^\infty}{2 \cdot \infty} = \frac{\infty}{\infty}. \]
+
+	Simply apply l'Hopital's rule again, then reevaluate the limit:
+	\begin{align*}
+		\lim_{x \to \infty} \frac{e^x}{2x} &= \lim_{x \to \infty} \frac{e^x}{2} \\[5pt]
+		&= \frac{\infty}{2} \\[5pt]
+		\lim_{x \to \infty} \frac{e^x}{2x} &= \infty.
+	\end{align*}
+
+	Therefore, the value of the original limit is also $\infty$.
+\end{enumerate}
+
+\subsubsection{Other Indeterminate Forms}
+L'Hopital's rule can also be used to find limits involving exponential functions $f(x)^{g(x)}$. When taking the limit, the functions approach one of the following sets of values:
+
+\begin{enumerate}
+	\item $f(x) \to 0$ and $g(x) \to 0$
+	\item $f(x) \to 1$ and $g(x) \to \infty$
+	\item $f(x) \to \infty$ and $g(x) \to 0$
+\end{enumerate}
+
+Let $y = f(x)^{g(x)}$, and take the natural log of both sides. Rearrange and use l'Hopital's rule to solve the limit.
+\begin{align*}
+	y &= f(x)^{g(x)} \\
+	\ln y &= g(x) \ln f(x) \\
+	\lim_{x \to c} \ln y &= \lim_{x \to c} g(x) \ln f(x)
+\end{align*}
+
+\noindent For example, find the limit $\lim \limits_{x \to 0^+} x^x$.
+\begin{align*}
+	y &= x^x \\
+	\ln y &= x \ln x \\
+	\lim_{x \to 0^+} \ln y &= \lim_{x \to 0^+} x \ln x
+\end{align*}
+
+\noindent An attempt at direct substitution on the right hand side results in an unfamiliar indeterminate form, $0 \times (- \infty)$. To solve this, rearrange the right hand side to involve a fraction.
+\[ \lim_{x \to 0^+} \ln y = \lim_{x \to 0^+} \frac{\ln x}{\frac{1}{x}}. \]
+
+\noindent Now, direct substitution results in a workable indeterminate form:
+\[ \lim_{x \to 0^+} \frac{\ln x}{\frac{1}{x}} = -\frac{\infty}{\infty}. \]
+
+\noindent We can apply l'Hopital's rule again to solve this limit:
+\begin{align*}
+	\lim_{x \to 0^+} \ln y &= \lim_{x \to 0^+} \frac{\ln x}{\frac{1}{x}} \\[5pt]
+	&= \lim_{x \to 0^+} \frac{\frac{1}{x}}{-\frac{1}{x^2}} \\[5pt]
+	&= \lim_{x \to 0^+} -x \\
+	\lim_{x \to 0^+} \ln y &= 0
+\end{align*}
+
+\noindent Finally, substitute this back into the original equation to find the limit $\lim \limits_{x \to 0^+} x^x$:
+\begin{align*}
+	\lim_{x \to 0^+} x^x &= \lim_{x \to 0^+} y \\
+	&= \lim_{x \to 0^+} e^{\ln y} \\
+	&= e^{\left( \lim \limits_{x \to 0^+} \ln y \right)} \\
+	&= e^0 \\
+	\lim_{x \to 0^+} x^x &= 1
+\end{align*}
+
+\noindent Note that in the step involving moving the limit operator inside the exponent:
+\[ \lim_{x \to 0^+} e^{\ln y} = e^{\left( \lim \limits_{x \to 0^+} \ln y \right)}, \]
+this is justified by the continuity of the function $e^x$. That is, $e^x$ is continuous everywhere including at $\lim \limits_{x \to 0^+} \ln y$, allowing the movement of the limit.
+
 \end{document}
