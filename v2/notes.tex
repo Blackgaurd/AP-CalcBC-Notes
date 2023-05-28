@@ -196,7 +196,7 @@ When direct substitution results in an undefined value, the next method to try i
 	&= 14
 \end{align*}
 
-However, not all functions can be factored. In these cases, granted direct substitution does not work, the limit will evaluate to be undefined. For example:
+However, not all functions can be factored. In these cases, if direct substitution does not work, the limit will evaluate to be undefined. For example:
 \begin{align*}
 	\lim_{x \to 1} \frac{2x}{x^2 - 7x + 6} &= \lim_{x \to 1} \frac{2x}{(x-6)(x-1)} \\
 	&= \frac{2}{0} \\
@@ -396,7 +396,7 @@ For example, the derivative of $f(x) = x^3 + x$ can be found as follows:
 \subsubsection{Product Rule}
 The derivative of the product of two functions is given by:
 \[ \frac{d}{dx} \left[ f(x) g(x) \right] = f(x) g'(x) + f'(x) g(x). \]
-For example, the derivative of $f(x) = x^2 e^x$ can be found as follows (the derivative of $e^x$ is explained in \autoref{sec:deriv_exp_funcs}):
+For example, the derivative of $f(x) = x^2 e^x$ can be found as follows (the derivative of $e^x$ is explained in \ref{sec:deriv_exp_funcs}):
 \begin{align*}
 	f'(x) &= \frac{d}{dx} \left( x^2 e^x \right) \\[5pt]
 	&= x^2 \cdot \frac{d}{dx} \left( e^x \right) + \frac{d}{dx} \left( x^2 \right) \cdot e^x \\[5pt]
@@ -406,7 +406,7 @@ For example, the derivative of $f(x) = x^2 e^x$ can be found as follows (the der
 \subsubsection{Quotient Rule}
 The derivative of one function divided by another function is given by the formula below. It may be helpful to realize the similarities between the quotient and product rules for memorization.
 \[ \frac{d}{dx} \left( \frac{f(x)}{g(x)} \right) = \frac{f'(x) g(x) - f(x) g'(x)}{g(x)^2}. \]
-For example, the derivative of $f(x) = \frac{x^3}{e^x}$ can be found as follows (the derivative of $e^x$ is explained in \autoref{sec:deriv_exp_funcs}):
+For example, the derivative of $f(x) = \frac{x^3}{e^x}$ can be found as follows (the derivative of $e^x$ is explained in \ref{sec:deriv_exp_funcs}):
 \begin{align*}
 	f'(x) &= \frac{d}{dx} \left( \frac{x^3}{e^x} \right) \\[5pt]
 	&= \frac{\frac{d}{dx} \left( x^3 \right) \cdot e^x - x^3 \cdot \frac{d}{dx} \left( e^x \right)}{\left( e^x \right)^2} \\[5pt]
@@ -422,7 +422,7 @@ For compositions of more functions, simply apply the formula recursively:
 	\frac{d}{dx} \left[ f(g(h(x))) \right] &= f'(g(h(x))) \cdot \frac{d}{dx} \left[ g(h(x)) \right] \\
 	&= f'(g(h(x))) g'(h(x)) h'(x).
 \end{align*}
-For example, the derivative of $f(x) = \sin x^2$ can be found as follows (the derivative of $\sin x$ is explained in \autoref{sec:deriv_trig_funcs}):
+For example, the derivative of $f(x) = \sin x^2$ can be found as follows (the derivative of $\sin x$ is explained in \ref{sec:deriv_trig_funcs}):
 \begin{align*}
 	f'(x) &= \frac{d}{dx} \left( \sin x^2 \right) \\[5pt]
 	&= \cos x^2 \cdot 2x \\
@@ -816,5 +816,278 @@ Let $y = f(x)^{g(x)}$, and take the natural log of both sides. Rearrange and use
 \noindent Note that in the step involving moving the limit operator inside the exponent:
 \[ \lim_{x \to 0^+} e^{\ln y} = e^{\left( \lim \limits_{x \to 0^+} \ln y \right)}, \]
 this is justified by the continuity of the function $e^x$. That is, $e^x$ is continuous everywhere including at $\lim \limits_{x \to 0^+} \ln y$, allowing the movement of the limit.
+
+\subsection{Mean Value Theorem}
+The mean value theorem states that for any arc between two endpoints on a graph, there will be a point whose tangent line is parallel to the secant line between the two endpoints.
+
+\begin{figure}[H]
+	\centering
+	\frame{\includegraphics[width=0.4\textwidth]{images/fig6.JPG}}
+	\caption{The mean value theorem.}
+	\label{fig:mean_value_theorem}
+\end{figure}
+
+More precisely, given a \textit{continuous and differentiable} function $f(x)$ in the interval $[a, b]$, there exists a value $x = c, \; c \in [a, b]$ such that $f'(c)$ is equal to the average rate of change over $[a, b]$.
+\[ f'(c) = \frac{f(b) - f(a)}{b - a}. \]
+
+\subsection{Extreme Value Theorem}
+If $f(x)$ is a continuous function over the closed interval $[a, b]$, then there exists a maximum and minimum value of $f(x)$. More formally, there much exist numbers $c$ and $d$ in $[a, b]$ such that $f(c) \leq f(x) \leq f(d)$ for all $x \in [a, b]$.
+
+\subsection{First Derivative, Second Derivative and Candidates Tests}
+The first derivative test, second derivative test, and candidates test are used together to find relative (or local) and absolute (or global) extrema in a function.
+
+\subsubsection{Relative and Local Extrema}
+A \textit{relative} maximum is a point on a graph where the function is the largest, relative to its immediate left and right. At this point, the function changes from increasing to decreasing. Similarly, a relative minimum is a point on a graph where the value of the function is the smallest, relative to its immediate left and right. At this point, the function changes from decreasing to increasing.
+
+Points of extrema, such as a maximum or minimum, alongside points of inflection, are all categorized as critical points. Such points occur when the first derivative of the function is $0$ or undefined. Therefore, we can use the \textbf{first derivative test} to find extrema. For example, find the relative extremum of $f(x) = \frac{x^2}{x - 1}$.
+\begin{align*}
+	f(x) &= \frac{x^2}{x - 1} \\[5pt]
+	f'(x) &= \frac{x^2 - 2x}{(x - 1)^2}
+\end{align*}
+
+\noindent The critical points occur at when $f'(x)$ is $0$ or undefined.
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|c|c|}
+		\hline
+		$x$ & $f'(x)$ \\
+		\hline \hline
+		$0, 2$ & $0$ \\
+		\hline
+		$1$ & undefined \\
+		\hline
+	\end{tabular}
+\end{table}
+
+\noindent Next, test the intervals between the critical points to see whether they are at a maximum, minimum, or point of inflection. This can be done by testing to see if the function is increasing ($f'(x) > 0$), or decreasing ($f'(x) < 0$) at each interval. Simply pick a random number in the interval and see if it is positive or negative.
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|c|c|c|}
+		\hline
+		Interval & $f'(x)$ & Slope of $f(x)$ \\
+		\hline \hline
+		$(-\infty, 0)$ & $+$ & $\nearrow$ \\
+		\hline
+		$(0, 1)$ & $-$ & $\searrow$ \\
+		\hline
+		$(1, 2)$ & $-$ & $\searrow$ \\
+		\hline
+		$(2, \infty)$ & $+$ & $\nearrow$ \\
+		\hline
+	\end{tabular}
+\end{table}
+
+\noindent At $x = 0$, $f'(x)$ switches from positive to negative, so $f(x)$ has a relative maximum. Similarly, at $x = 2$, $f'(x)$ switches from negative to positive, so $f(x)$ has a relative minimum. The sign of $f'(x)$ does not change at $x = 1$, so $f(x)$ experiences neither a relative maximum nor minimum, but rather a point of inflection (discussed in \ref{sec:concavity}).
+
+An alternative, easier method for determining the nature of a critical point is the \textbf{second derivative test}. The second derivative is the change in the first derivative. Therefore, the sign of the second derivative determines whether the slope of the function is increasing or decreasing (not positive or negative). Given a point where $f'(x) = 0$, then:
+\[ f''(x) \begin{cases}
+	> 0 \Rightarrow \text{minimum point at } x \\
+	< 0 \Rightarrow \text{maximum point at } x \\
+	= 0 \Rightarrow \text{test is inconclusive}
+\end{cases} \]
+
+\subsubsection{Absolute and Global Extrema}
+An \textit{absolute} extremum is a point where the function is at its largest or smallest across its entire domain. The method for finding absolute extrema is similar to that for finding relative ones, but with the extra consideration for the endpoints of the domain. For example, find the absolute extrema of $f(x) = x^3 + 2x^2$ for $-2 \leq x \leq 1$:
+
+\noindent To begin, we can use the first derivative test to find the critical points:
+\begin{align*}
+	f(x) &= x^3 + 2x^2 \\
+	f'(x) &= 3x^2 + 4x.
+\end{align*}
+
+\noindent Find the values for which $f'(x)$ is $0$ or undefined, the critical points:
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|c|c|}
+		\hline
+		$x$ & $f'(x)$ \\
+		\hline \hline
+		$-\frac{4}{3}, 0$ & $0$ \\
+		\hline
+	\end{tabular}
+\end{table}
+
+\noindent Determine the nature of the critical points using the second derivative test:
+\begin{align*}
+	f'(x) &= 3x^2 + 4x \\
+	f''(x) &= 6x + 4
+\end{align*}
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|c|c|}
+		\hline
+		$x$ & $f''(x)$ \\
+		\hline \hline
+		$-\frac{4}{3}$ & $-$ \\
+		\hline
+		$0$ & $+$ \\
+		\hline
+	\end{tabular}
+\end{table}
+
+\noindent This test concludes that $f(x)$ has a \textit{relative} maximum at $x = -\frac{4}{3}$ and a \textit{relative} minimum at $x = 0$. In order to find the global extrema, we have to consider the $y$ values of these points alongside $x = -2$ and $x = 1$, the endpoints of the closed interval.
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|c|c|}
+		\hline
+		$x$ & $y = f(x)$ \\
+		\hline \hline
+		$-2$ & $0$ \\
+		\hline
+		$-\frac{4}{3}$ & $\frac{32}{27} \approx 1.19$ \\
+		\hline
+		$0$ & $0$ \\
+		\hline
+		$1$ & $3$ \\
+		\hline
+	\end{tabular}
+\end{table}
+
+\noindent Therefore, it can be concluded that the absolute maximum of $f(x)$ is at $x = 1$. The $y$ values for $x = -2$ and $x = 0$ are the same, so both are absolute minimums.
+
+\subsubsection{Concavity and Points of Inflection}
+\label{sec:concavity}
+Concavity is the sign of curvature of a function. Parts of a graph can either be \textit{concave up} or \textit{concave down}. When the concavity is concave up, the first derivative is increasing, thus the second derivative is positive. Inversely, when the concavity is concave down, the first derivative is decreasing, thus the second derivative is negative.
+
+Inflection points are where the concavity flips. At inflection points both the first and second derivatives are $0$. Furthermore, at points of inflection the sign of the second derivative changes.
+
+\begin{figure}[H]
+	\begin{center}
+		\frame{\includegraphics[width=0.4\textwidth]{fig8.JPG}}
+		\caption{Concavity and points of inflection.}
+		\label{fig:concavityinflection}
+	\end{center}
+\end{figure}
+
+\subsection{Optimization Problems}
+Optimization problems involve finding the largest or smallest something can be. This can be done by first find a function $f(x)$ to model the relationship between variables, then using $f'(x)$ to find the extrema.
+
+\noindent \textbf{Examples:}
+\begin{enumerate}
+	\item Find the value of $x$ for which $y = 2x + 3$ is the closest to the origin.
+
+	First, we can model the distance from a point $(x, y)$ to the origin, $(0, 0)$. This is given by:
+	\[ D = \sqrt{x^2 + y^2}. \]
+
+	Substitute in the given equation to get $D$ in terms of just $x$:
+	\begin{align*}
+		D &= \sqrt{x^2 + y^2} \\
+		&= \sqrt{x^2 + (2x + 3)^2} \\
+		D &= \sqrt{5x^2 + 12x + 9}.
+	\end{align*}
+
+	In order to find the minimum value of $D$, we can solve for the value of $x$ for which $\frac{dD}{dx} = 0$. First taking the derivative of $D$ with respect to $x$:
+	\begin{align*}
+		D &= \sqrt{5x^2 + 12x + 9} \\
+		\frac{dD}{dx} &= \frac{5x + 6}{\sqrt{5x^2 + 12x + 9}}.
+	\end{align*}
+
+	Next finding the point where the derivative is $0$:
+	\begin{align*}
+		\frac{dD}{dx} &= 0 \\[5pt]
+		\frac{5x + 6}{\sqrt{5x^2 + 12x + 9}} &= 0 \\[5pt]
+		5x + 6 &= 0 \\
+		x &= -\frac{6}{5}.
+	\end{align*}
+
+	We can use the second derivative test to determine whether $x = -\frac{6}{5}$ is a minimum value:
+	\begin{align*}
+		\frac{dD}{dx} &= \frac{5x + 6}{\sqrt{5x^2 + 12x + 9}} \\[5pt]
+		\frac{d^2 D}{dx^2} &= \frac{9}{\left( 5x^2 + 12x + 9 \right)^{\frac{3}{2}}} \\[5pt]
+		\frac{d^2 D}{dx^2} \Big|_{x = -\frac{6}{5}} &\approx 3.7.
+	\end{align*}
+
+	The second derivative is greater than $0$ at $x = -\frac{6}{5}$, so it can be concluded that this point is indeed a minimum point. Therefore, the function $y = 2x + 3$ will be closest to the origin at $x = -\frac{6}{5}$.
+
+	\item Find the maximum product of two positive numbers whose sum if $300$.
+
+	This question asks for a maximum $a \cdot b$ given $a + b = 300$. The first step if to represent the product in terms of a function of just one variable, $f(a)$.
+	\begin{align*}
+		b &= 300 - a \\
+		ab &= a (300 - a) \\
+		f(a) &= a (300 - a) \\
+		f(a) &= 300a - a^2
+	\end{align*}
+
+	We can follow the same stems as the previous example to find the maximum of $f(a)$. First find the derivative of $f(a)$:
+	\begin{align*}
+		f(a) &= 300a - a^2 \\
+		f'(a) &= 300 - 2a.
+	\end{align*}
+
+	Next, find the critical points:
+	\begin{align*}
+		f'(a) &= 0 \; \text{(or undefined)} \\
+		300 - 2a &= 0 \\
+		a &= 150.
+	\end{align*}
+
+	Use the second derivative test to validate that $a = 150$ is a maximum point:
+	\begin{gather*}
+		f'(a) = 300 - 2a \\
+		f''(a) = -2 \\
+		f''(a) < 0 \; \forall \; x \in \R.
+	\end{gather*}
+
+	Therefore, the value of $a$ that yields a maximum product is $150$. Now to find $b$:
+	\begin{align*}
+		a + b &= 300 \\
+		150 + b &= 300 \\
+		b &= 150.
+	\end{align*}
+
+	Finally, the two positive integers whose sum if $300$ and yield a maximum product are $150$ and $150$.
+
+	\item We want to construct a cylindrical can with a bottom but no top that will have a volume of $30 \mathrm{cm^3}$. Determine the dimensions of the can that will minimize the amount of material needed to construct the can.
+
+	First, we can list out the equations for the volume ($V$), and surface area ($SA$) of the specified can:
+	\begin{gather*}
+		V = \pi r^2 h \\
+		SA = \pi r^2 + 2 \pi r h.
+	\end{gather*}
+
+	What we are trying to minimize in this question is the surface area. To begin, we can rewrite the $SA$ equation in terms of just one variable, $r$. First we can solve for $h$ in terms of $r$:
+	\begin{align*}
+		\pi r^2 h &= V \\
+		\pi r^2 h &= 30 \\
+		h &= \frac{30}{\pi r^2}.
+	\end{align*}
+
+	Next, rewrite the equation for $SA$ as a function of $r$:
+	\begin{align*}
+		SA &= \pi r^2 + 2 \pi r h \\
+		SA(r) &= \pi r^2 + 2 \pi r \cdot \frac{30}{\pi r^2} \\[5pt]
+		SA(r) &= \pi r^2 + \frac{60}{r}.
+	\end{align*}
+
+	Take the derivative of $SA(r)$:
+	\begin{align*}
+		SA(r) &= \pi r^2 + \frac{60}{r} \\[5pt]
+		SA'(r) &= 2 \pi r - \frac{60}{r^2}.
+	\end{align*}
+
+	Find critical points:
+	\begin{align*}
+		SA'(r) &= 0 \\
+		2 \pi r - \frac{60}{r^2} &= 0 \\
+		2 \pi r^3 - 60 &= 0 \\
+		r^3 &= \frac{30}{\pi} \\
+		r &= \sqrt[3]{\frac{30}{\pi}}.
+	\end{align*}
+
+	Furtheremore, $SA'(r)$ would be undefined at $r = 0$. However the radius of a cylinder can not be $0$, so this would not actually be a valid critical point. We can use the second derivative test to validate the critical point $r = \sqrt[3]{\frac{30}{\pi}}$:
+	\begin{gather*}
+		SA''(r) = 2 \pi + \frac{120}{r^3} \\[5pt]
+		SA'' \left( \sqrt[3]{\frac{30}{\pi}} \right) > 0
+	\end{gather*}
+
+	Therefore, $r = \sqrt[3]{\frac{30}{\pi}}$ would yield the least material used for the cylinder. Going back to solve for $h$:
+	\begin{align*}
+		h &= \frac{30}{\pi r^2} \\
+		h &\approx 2.12.
+	\end{align*}
+\end{enumerate}
+
+\subsection{Implicit Relations}
 
 \end{document}
