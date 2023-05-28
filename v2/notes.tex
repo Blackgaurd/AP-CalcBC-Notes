@@ -729,7 +729,7 @@ L'Hopital's rule allows the evaluation of limits in indeterminate forms. It stat
 	\lim_{x \to c} \frac{f(x)}{g(x)} = \lim_{x \to c} \frac{f'(x)}{g'(x)}.
 \end{gather*}
 
-Note that l'Hopital's rule only applies with direct substitution of the limit evaluates to an indeterminate form. That is, if direct substitution gives a definite value, l'Hopital's rule will not work.
+Note that l'Hopital's rule only applies if direct substitution of the limit evaluates to an indeterminate form. That is, if direct substitution gives a definite value, l'Hopital's rule will not work.
 
 \noindent \textbf{Examples:}
 
@@ -790,7 +790,7 @@ Let $y = f(x)^{g(x)}$, and take the natural log of both sides. Rearrange and use
 	\lim_{x \to 0^+} \ln y &= \lim_{x \to 0^+} x \ln x
 \end{align*}
 
-\noindent An attempt at direct substitution on the right hand side results in an unfamiliar indeterminate form, $0 \times (- \infty)$. To solve this, rearrange the right hand side to involve a fraction.
+\noindent An attempt at direct substitution on the right-hand side results in an unfamiliar indeterminate form, $0 \times (- \infty)$. To solve this, rearrange the right-hand side to involve a fraction.
 \[ \lim_{x \to 0^+} \ln y = \lim_{x \to 0^+} \frac{\ln x}{\frac{1}{x}}. \]
 
 \noindent Now, direct substitution results in a workable indeterminate form:
@@ -1075,7 +1075,7 @@ Optimization problems involve finding the largest or smallest something can be. 
 		r &= \sqrt[3]{\frac{30}{\pi}}.
 	\end{align*}
 
-	Furtheremore, $SA'(r)$ would be undefined at $r = 0$. However the radius of a cylinder can not be $0$, so this would not actually be a valid critical point. We can use the second derivative test to validate the critical point $r = \sqrt[3]{\frac{30}{\pi}}$:
+	Furthermore, $SA'(r)$ would be undefined at $r = 0$. However, the radius of a cylinder can not be $0$, so this would not actually be a valid critical point. We can use the second derivative test to validate the critical point $r = \sqrt[3]{\frac{30}{\pi}}$:
 	\begin{gather*}
 		SA''(r) = 2 \pi + \frac{120}{r^3} \\[5pt]
 		SA'' \left( \sqrt[3]{\frac{30}{\pi}} \right) > 0
@@ -1088,6 +1088,27 @@ Optimization problems involve finding the largest or smallest something can be. 
 	\end{align*}
 \end{enumerate}
 
-\subsection{Implicit Relations}
+\subsection{Behaviors of Implicit Relations}
+Implicit relations are equations that can not the rewritten to have one variable in terms of the other. They can be useful in solving for unknown values or line equations. When working with implicit relations and their derivatives, the key takeaway is that variables in the original equation and higher derivatives can be substituted both ways.
+
+\noindent \textbf{Examples:}
+\begin{enumerate}
+	\item Consider the curve given by $x^3 + xy = -2$. It can be shown that $\frac{dy}{dx} = \frac{-3x^2 - y}{x}$. Find the point where the tangent line of the curve is horizontal.
+
+	The tangent line of a curve is horizontal when its derivative is $0$. That is:
+	\begin{align*}
+		\frac{dy}{dx} &= 0 \\[5pt]
+		\frac{-3x^2 - y}{x} &= 0 \\[5pt]
+		3x^2 + y &= 0 , \; x \neq 0
+	\end{align*}
+
+	This equation along with the equation of the original curve provides a system of equations that can be solved:
+	\[ \begin{cases}
+		x^3 + xy = -2 \\
+		3x^2 + y = 0 , \; x \neq 0
+	\end{cases} \]
+
+	Solving this would give the values $x = 1$ and $y = -3$. Therefore, at the point $(1, -3)$, the slope of the tangent line is $0$ and thus horizontal.
+\end{enumerate}
 
 \end{document}
