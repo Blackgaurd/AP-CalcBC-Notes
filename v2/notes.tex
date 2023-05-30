@@ -1250,12 +1250,116 @@ These integrals may look messy, but come often come in handy.
 \end{align*}
 
 \subsubsection{Integration by Parts}
+Integration by parts is used to find the antiderivative of the product of functions. It is also referred to as the reverse power rule. The formula is:
+\[ \int f(x) g'(x) \; dx = f(x) g(x) - \int f'(x) g(x) \; dx. \]
+
+A tip for this technique is to have $f(x)$ be an easily differentiable function, while $g'(x)$ should be easily integrated. For example, integrate the following:
+\[ \int x \cos x \; dx. \]
+
+\noindent Let $f(x) = x$ and $g'(x) = \cos x$. This is because the derivative of $f(x)$ cancels out nicely to $1$, and the antiderivative of $g(x)$ doesn't get too complicated either. Thus, $f'(x) = 1$ and $g(x) = \sin x$. Substitute everything into the formula:
+\begin{align*}
+	\int x \cos x \; dx &= x \sin x - \int 1 \cdot \sin x \; dx \\[5pt]
+	&= x \sin x - (-\cos x) + C \\
+	\int x \cos x \; dx &= x \sin x + \cos x + C.
+\end{align*}
+
+\noindent Here is another example, find the integral of the following:
+\[ \int \ln x \; dx. \]
+
+\noindent Let $f(x) = \ln x$ and $g'(x) = 1$. Therefore, $f'(x) = \frac{1}{x}$ and $g(x) = x$. Substitute everything into the formula:
+\begin{align*}
+	\int \ln x \; dx &= x \ln x - \int \frac{1}{x} \cdot x \; dx \\[5pt]
+	&= x \ln x - \int 1 \; dx \\[5pt]
+	\int \ln x \; dx &= x \ln x - x + C.
+\end{align*}
 
 \subsubsection{U-Substitution}
+Integration using u-substitution is also referred to as the reverse chain rule. It can be used when one part of a function resembles the derivative of another. For example, in the following integral:
+\[ \int 2x \cos (x^2) \; dx, \]
+notice that the derivative of $x^2$ is $2x$. Thus, we can let $u = x^2$, then implicitly differentiate:
+\begin{align*}
+	u &= x^2 \\
+	\frac{d}{dx} (u) &= \frac{d}{dx} (x^2) \\[5pt]
+	\frac{du}{dx} &= 2x.
+\end{align*}
+
+At this point, we can multiply both sides of the equation by $dx$. Note that while this step is usually considered unorthodox, it can help in this situation.
+\[ 2x \; dx = du. \]
+
+\noindent We can substitute this into the original integral to simplify it drastically:
+\[ \int 2x \cos(x^2) \; dx = \int \cos(u) \; du. \]
+
+\noindent Finally, solve the integral and substitute back $u = x^2$:
+\begin{align*}
+	\int 2x \cos(x^2) \; dx &= \int \cos(u) \; du \\[5pt]
+	&= \sin(u) + C \\[5pt]
+	\int 2x \cos(x^2) \; dx &= \sin(x^2) + C.
+\end{align*}
+
+Sometimes, more a bit manipulation is needed after u-substitution. For example, in the following integral:
+\[ \int \sin(3x + 5) \; dx. \]
+
+\noindent Let $u = 3x + 5$, and thus $du = 3 \; dx$. It may be useful to rearrange this equation to $dx = \frac{1}{3} \; du$, so we can directly substitute in $dx$. The integral then becomes:
+\[ \int \frac{1}{3} \cdot \sin(u) \; du. \]
+
+\noindent Solve and substitute back in $x$:
+\begin{align*}
+	\int \sin(3x + 5) \; dx &= \int \frac{1}{3} \cdot \sin(u) \; du \\[5pt]
+	&= \frac{1}{3} \int \sin(u) \; du \\[5pt]
+	&= -\frac{1}{3} \cos(u) + C \\[5pt]
+	\int \sin(3x + 5) \; dx &= -\frac{\cos(3x + 5)}{3} + C.
+\end{align*}
 
 \subsubsection{Partial Fractions}
+Partial fractions involve breaking up a fraction into the sum of several simpler ones for ease of integration. For example, integrate the following:
+\[ \int \frac{2x + 3}{(x + 1)(x + 2)} \; dx. \]
+
+The integrand is a big fraction that might get messy if we try to integrate directly. Rather, we notice that its denominator is made up of two smaller functions, and we can split up the large function according to the two separate denominators. Let $A$ and $B$ be the numerators of the two smaller functions. We write the following:
+\begin{align*}
+	\frac{2x + 3}{(x + 1)(x + 2)} &= \frac{A}{x + 1} + \frac{B}{x + 2} \\[5pt]
+	\frac{2x + 3}{(x + 1)(x + 2)} &= \frac{A(x + 2) + B(x + 1)}{(x + 1)(x + 2)} \\[5pt]
+	2x + 3 &= A(x + 2) + B(x + 1) \\
+	&= Ax + 2A + Bx + B \\
+	2x + 3 &= (A + B)x + 2A + B.
+\end{align*}
+
+\noindent By equating coefficients we get the following system, which can be solved:
+\begin{gather*}
+	\begin{cases}
+		A + B = 2 \\
+		2A + B = 3
+	\end{cases} \\
+	\therefore A = 1, B = 1
+\end{gather*}
+
+\noindent Returning to the original problem:
+\begin{align*}
+	\int \frac{2x + 3}{(x + 1)(x + 2)} \; dx &= \int \frac{1}{x + 1} + \frac{1}{x + 2} \; dx \\[5pt]
+	&= \int \frac{1}{x + 1} \; dx + \int \frac{1}{x + 2} \; dx \\[5pt]
+	\int \frac{2x + 3}{(x + 1)(x + 2)} \; dx &= \ln |x + 1| + \ln |x + 2| + C.
+\end{align*}
 
 \subsubsection{Other Integration Techniques}
+\begin{itemize}
+	\item \textbf{Long division:} when encountering a fraction with an equal degree numerator and denominator, divide the polynomials. This is most useful when methods like u-subsection do not work. For example:
+	\[ \frac{2x + 7}{x + 3} = 2 + \frac{1}{x + 3}. \]
+
+	\item \textbf{Completing the square:} when encountering a function that seems difficult to integrate. Completing the square may rearrange the function to resemble an easily integrable pattern. For example:
+	\[ \int \frac{1}{6x^2 + 36x + 78} \; dx. \]
+
+	There is no easy way to deal with the polynomial in the denominator. But by completing the square:
+	\begin{align*}
+		\frac{1}{6x^2 + 36x + 78} &= \frac{1}{6} \cdot \frac{1}{x^2 + 6x + 13} \\[5pt]
+		\frac{1}{6x^2 + 36x + 78} &= \frac{1}{6} \cdot \frac{1}{(x + 3)^2 + 4},
+	\end{align*}
+	we notice that this now resembles a function that integrates into $\arctan$. Integrate as follows:
+	\begin{align*}
+		\int \frac{1}{6x^2 + 36x + 78} \; dx &= \int \frac{1}{6} \cdot \frac{1}{(x + 3)^2 + 4} \; dx \\[5pt]
+		&= \frac{1}{6} \int \frac{1}{(x + 3)^2 + 4} \; dx \\[5pt]
+		&= \frac{1}{6} \cdot \frac{1}{2} \arctan \left( \frac{x + 3}{2} \right) \\[5pt]
+		\int \frac{1}{6x^2 + 36x + 78} \; dx &= \frac{1}{12} \arctan \left( \frac{x + 3}{2} \right).
+	\end{align*}
+\end{itemize}
 
 \subsection{Solving Definite Integrals}
 
