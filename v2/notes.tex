@@ -1362,7 +1362,57 @@ The integrand is a big fraction that might get messy if we try to integrate dire
 \end{itemize}
 
 \subsection{Solving Definite Integrals}
+The method for solving definite integrals comes directly from the fundamental theorem of calculus. Recall:
+\[ \int_a^b f(x) \; dx = F(b) - F(a), \]
+where $F(x)$ is the antiderivative of $f(x)$. Usually the antiderivative would be written in the form:
+\[ [F(x)]_a^b, \]
+which just means $F(b) - F(a)$. Note that if $a = b$, then the value of the definite integral would be $0$:
+\[ \int_a^a f(x) \; dx = 0. \]
+
+\noindent \textbf{Examples:}
+\begin{enumerate}
+	\item Solve the following definite integral:
+	\begin{align*}
+		\int_{-1}^2 x^2 \; dx &= [2x]_{-1}^2 \\[5pt]
+		&= 2 \cdot 2 - 2 \cdot (-1) \\
+		\int_{-1}^2 x^2 \; dx &= 6.
+	\end{align*}
+
+	\item Find the area under the curve of $\frac{8}{x^2}$ from $x = e$ to $x = e^2$.
+
+	This area can be modelled using a definite integral:
+	\[ \int_e^{e^2} \frac{8}{x} \; dx. \]
+
+	Solve the integral to find the area under the curve:
+	\begin{align*}
+		\int_e^{e^2} \frac{8}{x} \; dx &= 8 \int_e^{e^2} \frac{1}{x} \; dx \\[5pt]
+		&= 8 [\ln x]_e^{e^2} \\
+		&= 8 (\ln (e^2) - \ln (e)) \\
+		\int_e^{e^2} \frac{8}{x} \; dx &= 8.
+	\end{align*}
+\end{enumerate}
 
 \subsection{Improper Integrals}
+Improper integrals are definite integrals that have one or both endpoints at infinity, or an integrand that approaches infinity. Such integrals can not be evaluated using a Riemann Sum.
+
+One type of improper integral occurs when at least one of the endpoints is infinity. The endpoint can therefore be rewritten as a limit. For example:
+\[ \int_1^\infty \frac{1}{x^2} \; dx = \lim_{a \to \infty} \int_1^a \frac{1}{x^2} \; dx. \]
+Given that the limit of the integrand converges, or approaches a finite value, the definite integral can be evaluated as follows:
+\begin{align*}
+	\int_1^\infty \frac{1}{x^2} \; dx &= \left[ -\frac{1}{x} \right]_1^\infty \\[5pt]
+	&= \lim_{a \to \infty} \left[ -\frac{1}{x} \right]_1^a \\[5pt]
+	&= \lim_{a \to \infty} \left( -\frac{1}{1} - \left( -\frac{1}{a} \right) \right) \\[5pt]
+	&= \lim_{a \to \infty} \left( -1 + \frac{1}{a} \right) \\[5pt]
+	\int_1^\infty \frac{1}{x^2} \; dx &= -1
+\end{align*}
+
+The other type of improper integral occurs when the integrand evaluates to infinity or an undefined value at least one of the endpoints. As with before, the endpoint can be rewritten as a limit. For example:
+\[ \int_0^5 \frac{1}{\sqrt{x}} \; dx = \lim_{a \to 0^+} \int_a^5 \frac{1}{\sqrt{x}} \; dx. \]
+Such integrals can also be solved using limits:
+\begin{align*}
+	\int_0^5 \frac{1}{\sqrt{x}} \; dx &= \lim_{a \to 0^+} [2 \sqrt{x}]_a^5 \\[5pt]
+	&= \lim_{a \to 0^+} (2 \sqrt{5} - 2 \sqrt{a}) \\
+	\int_0^5 \frac{1}{\sqrt{x}} \; dx &= 2 \sqrt{5}.
+\end{align*}
 
 \end{document}
