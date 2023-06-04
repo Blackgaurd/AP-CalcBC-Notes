@@ -19,7 +19,7 @@
 \usepackage{tabularx}
 \usepackage{multirow}
 
-%\spacedforallowdisplaybreaks
+\allowdisplaybreaks
 \graphicspath{{./images/}}
 \geometry{margin=1.2in}
 \renewcommand{\baselinestretch}{1.5}
@@ -1588,12 +1588,148 @@ Some more examples of both separable and non-separable differential equations ar
 \end{enumerate}
 
 \subsubsection{General Solutions}
+A general solution to a differential equation takes into consideration the entire class of possible solutions. This means that we have to add a constant $C$ to the end of the function. For example, find the general solution for the following differential equation:
+\[ \frac{dy}{dx} = \frac{e^x}{y^2}. \]
+
+\noindent The first step if to separate the equation. This means rearranging the equation into the form: $f(y) \; dy = g(x) \; dx$. Normally, it is considered unorthodox to separate $dx$ and $dy$, but in this case it is allowed. The equation then becomes:
+\begin{align*}
+	\frac{dy}{dx} &= \frac{e^x}{y^2} \\[5pt]
+	y^2 \frac{dy}{dx} &= e^x \\[5pt]
+	y^2 \; dy &= e^x \; dx.
+\end{align*}
+
+\noindent Next, take the integral of both sides. If the left and right sides are equal, then their Antiderivatives would also be equal.
+\begin{align*}
+	\int y^2 \; dx &= \int e^x \; dx \\[5pt]
+	\frac{y^3}{3} &= e^x + C
+\end{align*}
+
+\noindent Notice that we only need to add a constant to one side, as adding it to both sides would be redundant. The final step is to rearrange the equation and solve for $y$. Note that in the second step, $3C = C$ because $3$ times a constant is still a constant.
+\begin{align*}
+	\frac{y^3}{3} &= e^x + C \\[5pt]
+	y^3 &= 3e^x + 3C \\
+	y^3 &= 3e^x + C \\
+	y &= \sqrt[3]{3e^x + C}
+\end{align*}
 
 \subsubsection{Particular Solutions}
+Particular solutions to differential equations have one answer. That is, we also have to solve for the value of the constant $C$. This is possible when given the value of $y$ at a point $x$. For example, find the particular solution to the following differential equation:
+\[ f'(x) = \frac{16}{x^2} \quad \text{where} \quad f(-2) = 0. \]
+
+\noindent The first step would be to find the general solution of $f(x)$.
+\begin{align*}
+	\frac{dy}{dx} &= \frac{16}{x^2} \\[5pt]
+	dy &= \frac{16}{x^2} \; dx \\[5pt]
+	\int 1 \; dy &= \int \frac{16}{x^2} \; dx \\[5pt]
+	y &= -\frac{16}{x} + C
+\end{align*}
+
+\noindent To find the particular solution, we have to use $f(-2) = 0$. Substitute this into the general equation to solve for $C$.
+\begin{align*}
+	f(-2) &= 0 \\
+	-\frac{16}{-2} + C &= 0 \\[5pt]
+	C &= -8
+\end{align*}
+
+\noindent Therefore, the particular solution to the differential equation is:
+\[ f(x) = -\frac{16}{x} - 8. \]
 
 \subsection{Homogeneous Differential Equations}
+A homogeneous differential equation is in the form $\frac{dy}{dx} = f \left( \frac{y}{x} \right)$. To solve these, we can make the substitution $v = \frac{y}{x}$. Through implicit differentiation with respect to $x$, we also get: $\frac{dy}{dx} = x \frac{dv}{dx} + v$.
+
+\noindent Here is an example of a differential equation that can be solved using this method:
+\[ 4x \frac{dy}{dx} = x + 2y. \]
+
+\noindent First, by dividing both sides of the equation by $4x$, we can rewrite the right-hand side as a function of $\frac{y}{x}$:
+\[ \frac{dy}{dx} = \frac{1}{4} = \frac{1}{2} \cdot \frac{y}{x}. \]
+
+\noindent Next, we make the respective substitutions for $\frac{y}{x}$ and $\frac{dy}{dx}$:
+\begin{align*}
+	x \frac{dv}{dx} + v &= \frac{1}{4} + \frac{v}{2} \\[5pt]
+	x \frac{dv}{dx} &= \frac{1}{4} - \frac{v}{2}.
+\end{align*}
+
+\noindent Now, we can solve the new differential equation with $v$ and $x$.
+\begin{align*}
+	x \frac{dv}{dx} &= \frac{1}{4} - \frac{v}{2} \\[5pt]
+	x \frac{dv}{dx} &= \frac{1 - 2v}{4} \\[5pt]
+	\frac{4}{1 - 2v} \; dv &= \frac{1}{x} \; dx \\[5pt]
+	\int \frac{4}{1 - 2v} \; dv &= \int \frac{1}{x} \; dx \\[5pt]
+	-2 \ln |1 - 2v| &= \ln |x| + C \\
+	\ln |1 - 2v| &= -\frac{1}{2} \ln |x| + C \\[5pt]
+	1 - 2v &= e^{-\frac{1}{2} \ln |x| + C} \\
+	1 - 2v &= e^{-\frac{1}{2} \ln |x|} \cdot e^C
+\end{align*}
+
+\noindent At this point, $e^C$ is just another constant. Let this new constant be $A$.
+\begin{align*}
+	1 - 2v &= A e^{-\frac{1}{2} \ln |x|} \cdot e^C \\
+	1 - 2v  &= A x^{-\frac{1}{2}} \\
+	v &= \frac{1 - A x^{-\frac{1}{2}}}{2}
+\end{align*}
+
+\noindent Finally, substitute $\frac{y}{x}$ back into $v$.
+\begin{align*}
+	\frac{y}{x} &= \frac{1 - A x^{-\frac{1}{2}}}{2} \\[5pt]
+	y &= x \left( \frac{1 - A x^{-\frac{1}{2}}}{2} \right)
+\end{align*}
 
 \subsection{Integrating Factor}
+The integrating factor technique can be used to solve any differential equation in the form:
+\[ \frac{dy}{dx} + P(x) y = Q(x). \]
+By multiplying the equation by another function, $I(x)$, we notice that the left-hand side of the equation resembles the product rule for implicitly differentiating $I(x) y$:
+\[ I(x) \frac{dy}{dx} + I(x) P(x)y = I(x) Q(x). \]
+Therefore, we need to find $I(x)$ so that $I'(x) = I(x) P(x)$. This can be done by solving the differential equation with the following steps. Notice that the constant factor is not considered in the integrating step to simplify the final product.
+\begin{align*}
+	I'(x) &= I(x) P(x) \\
+	P(x) &= \frac{I'(x)}{I(x)} \\[5pt]
+	\int P(x) \, dx &= \int \frac{I'(x)}{I(x)} \, dx \\[5pt]
+	\int P(x) \, dx &= \ln |I(x)| \\[5pt]
+	I(x) &= e^{\int P(x) \, dx}
+\end{align*}
+Altogether, the steps for using the integrating factor technique are as follows:
+\begin{enumerate}
+	\item Calculate the integrating factor using $I(x) = e^{\int P(x) \, dx}$.
+	\item Multiply both sides of the equation by $I(x)$.
+	\item Integrate to obtain a general solution.
+\end{enumerate}
+
+\noindent \textbf{Examples:}
+\begin{enumerate}
+	\item Solve the following differential equation using the integrating factor technique:
+	\[ \frac{dy}{dx} - 4y = e^x. \]
+
+	First, we notice that $P(x) = -4$. Therefore:
+	\begin{align*}
+		I(x) &= e^{\int -4 \, dx} \\
+		I(x) &= e^{-4x}
+	\end{align*}
+
+	Multiplying the differential equation by $I(x)$ gives:
+	\[ e^{-4x} \frac{dy}{dx} - e^{-4x} \cdot 4y = e^x \cdot e^{-4x}. \]
+
+	Finally, we can solve for the general solution.
+	\begin{align*}
+		e^{-4x} \frac{dy}{dx} - e^{-4x} \cdot 4y &= e^x \cdot e^{-4x} \\[5pt]
+		\frac{d}{dx} \left( e^{-4x}y \right) &= e^{-3x} \\[5pt]
+		\int \frac{d}{dx} \left( e^{-4x}y \right) \, dx &= \int e^{-3x} \, dx \\[5pt]
+		e^{-4x}y &= -\frac{e^{-3x}}{3} + C \\[5pt]
+		y &= -\frac{e^x}{3} + C e^{4x}
+	\end{align*}
+
+	\item Solve the following differential equation using the integrating factor technique:
+	\[ x^2 \frac{dy}{dx} + 2xy = 1. \]
+
+	Immediately, we observe that the equation is already in the form $I(x) \frac{dy}{dx} + I(x) P(x)y = I(x) Q(x)$, with $P(x) = 2x$:
+
+	Thus, we can solve this by integrating both sides:
+	\begin{align*}
+		\frac{d}{dx} \left( x^2 y \right) &= 1 \\[5pt]
+		\int \frac{d}{dx} \left( x^2 y \right) \, dx &= \int 1 \, dx \\[5pt]
+		x^2 y &= x + C \\
+		y &= \frac{x + C}{x^2}
+	\end{align*}
+\end{enumerate}
 
 \subsection{Exponential Model Equations}
 
