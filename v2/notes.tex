@@ -1421,30 +1421,171 @@ Differential equations involve variables and their derivatives. Unlike algebraic
 \subsection{Modelling Differential Equations}
 When interpreting words to model differential equations, there a few keywords that should be looked out for. They are listed below:
 \begin{itemize}
-	\item \textbf{Proportional:} means that the rate of change of one variable is equal to some constant $k$ multiplied by the another variable.
+	\item \textbf{Proportional:} means that the rate of change of a variable is equal to some constant $k$ multiplied by the another variable.
 
 	A habitat of prairie dogs can support at most $m$ dogs. The habitat's population, $p$, grows proportionally to the product of the current population and $m - p$.
 
 	The population's rate of change can be modelled using:
 	\[ \frac{dp}{dt} = kp(m - p). \]
 
-	\item \textbf{Shrinks, decays, melts, decreases, etc.:} any word that suggests something is getting smaller, the rate of change of one variable would be negative proportional to another variable.
+	\item \textbf{Shrinks, decays, melts, decreases, etc.:} any word that suggests something is getting smaller, the rate of change of a variable is negatively proportional to another variable.
 
 	A radioactive material decays at a rate proportional the current amount, $Q$, of the material.
 
 	The amount of material can be modelled using:
 	\[ \frac{dQ}{dt} = -kQ. \]
 
-	\item \textbf{Inversely Proportional:}
+	\item \textbf{Inversely Proportional:} the rate of change of a variable is equal to the inverse of another variable, multiplied by some constant $k$.
 
-	\item \textbf{Fraction of ... :}
+	A chemical is diluted out a tank by pumping pure water into the tank and pumping the existing solution out of it, so the volume at any time $t$ is $20 - 2t$. The amount $z$ of chemical in the tank decreases at a rate proportional to $z$ and inversely proportional to the volume of the solution in the tank.
+
+	The rate of change of the amount of chemical in the tank can be modelled using:
+	\[ \frac{dz}{dt} = -\frac{kz}{20 - 2t}. \]
+
+	\item \textbf{Fraction of ... :} means that the rate of change of a variable is equal to some constant $k$ multiplied by one minus what the rate of change is proportional to.
+
+	In one kind of chemical reaction, unconverted reactants change into converted reactants. The fraction $a$ of reactants that have been converted increases at a rate proportional to the product of the fraction of converted reactants and the fraction of unconverted reactants.
+
+	The rate of change of the converted reactants can be modelled using:
+	\[ \frac{da}{dt} = ka(1 - a). \]
 \end{itemize}
 
 \subsection{Slope Fields}
+A slope field is a graphical representation of the solutions to a differential equation. They show all the different slopes of an equation at each point on a plane. For example, the slope field for the differential equation $\frac{dy}{dx} = \frac{x - 2}{y}$ is shown below:
+\begin{figure}[H]
+	\centering
+	\includegraphics{images/fig13.JPG}
+	\caption{A slope field.}
+\end{figure}
 
-\subsection{Euler's Method Approximation}
+We can confirm that this slope field visualizes the above equation by testing out a few points. For example:
+\begin{itemize}
+	\item At $(0, 0)$, $\frac{dy}{dx} = \frac{-2}{0}$, or undefined. This is seen in the slope field as a vertical line, matching the undefined slope.
+	\item At $(2, 2)$, $\frac{dy}{dx} = \frac{0}{2}$. This is seen in the slope field by a horizontal line, matching the slope of $0$.
+	\item At $(-6, 5)$, $\frac{dy}{dx} = \frac{-8}{5}$. This is seen in the slope field by a line with downwards slope, somewhat matching the slope of $-\frac{8}{5}$.
+\end{itemize}
+
+\subsection{Approximation Using Euler's Method}
+Euler's method can use used to approximate solutions to differential equations. By solving for the slope, $\frac{dy}{dx}$, at one $x$ value, we can extend it to approximate the value of another $x$ on the function. At this next point, repeat the steps until we reach a specified $x$ value.
+
+The general formula for approximating the next value of $f(x)$ given a differential equation and a change in $x$ ($\Delta x$) is given as:
+\[ f(x_{n + 1}) = f(x_n) + \Delta x \cdot \frac{dy}{dx} \Big|_{x_n}. \]
+
+\noindent \textbf{Examples:}
+\begin{enumerate}
+	\item Given $\frac{dy}{dx} = 2x - 3y$ and $f(-1) = 1$, approximate $f(3)$ using the Euler's method with $4$ equal steps of $\Delta x = 1$.
+
+	The given point is at $(-1, 1)$. The slope at this point is:
+	\[ \frac{dy}{dx} = 2(-1) - 3(1) = -5. \]
+
+	Next, we can set up a table of what is given:
+	\begin{table}[H]
+		\centering
+		\begin{tabular}{|c|c|c|c|}
+			\hline
+			$n$ & $x$ & $f(x)$ & $\frac{dy}{dx}$ \\
+			\hline \hline
+			$0$ & $-1$ & $1$ & $-5$ \\
+			\hline
+			$1$ & $0$ & ? & \\
+			\hline
+			$2$ & $1$ & & \\
+			\hline
+			$3$ & $2$ & & \\
+			\hline
+			$4$ & $3$ & & \\
+			\hline
+		\end{tabular}
+	\end{table}
+
+	To solve for the box marked by a `?', apply the formula.
+	\begin{align*}
+		f(x_{n + 1}) &= f(x_n) + \Delta x \cdot \frac{dy}{dx} \Big|_{x_n} \\[5pt]
+		f(x_1) &= f(x_0) + \Delta x \cdot \frac{dy}{dx} \Big|_{x_0} \\[5pt]
+		&= 1 + 1 \cdot (-5) \\
+		f(x_1) &= -4.
+	\end{align*}
+
+	Repeat this process for the remaining missing squares. In the end the table should look like this:
+	\begin{table}[H]
+		\centering
+		\begin{tabular}{|c|c|c|c|}
+			\hline
+			$n$ & $x$ & $f(x)$ & $\frac{dy}{dx}$ \\
+			\hline \hline
+			$0$ & $-1$ & $1$ & $-5$ \\
+			\hline
+			$1$ & $0$ & $-4$ & $12$ \\
+			\hline
+			$2$ & $1$ & $8$ & $-22$ \\
+			\hline
+			$3$ & $2$ & $-14$ & $46$ \\
+			\hline
+			$4$ & $3$ & $32$ & \\
+			\hline
+		\end{tabular}
+	\end{table}
+
+	Therefore, using Euler's method, we have concluded that $f(3) \approx 32$.
+
+	\item Do the same problem as above but with $\Delta x = 2$.
+
+	As with before, we can set up a table. But this time, there will only be two steps instead of $4$. It should look like this:
+	\begin{table}[H]
+		\centering
+		\begin{tabular}{|c|c|c|c|}
+			\hline
+			$n$ & $x$ & $f(x)$ & $\frac{dy}{dx}$ \\
+			\hline \hline
+			$0$ & $-1$ & $1$ & $-5$ \\
+			\hline
+			$1$ & $1$ & ? & \\
+			\hline
+			$2$ & $3$ & & \\
+			\hline
+		\end{tabular}
+	\end{table}
+
+	To solve for the box marked by a `?', apply the formula:
+	\begin{align*}
+		f(x_{n + 1}) &= f(x_n) + \Delta x \cdot \frac{dy}{dx} \Big|_{x_n} \\[5pt]
+		f(x_1) &= f(x_0) + \Delta x \cdot \frac{dy}{dx} \Big|_{x_0} \\[5pt]
+		&= 1 + 2 \cdot (-5) \\
+		f(x_1) &= -9.
+	\end{align*}
+
+	Repeat this process for the remaining missing squares. In the end the table should look like this:
+	\begin{table}[H]
+		\centering
+		\begin{tabular}{|c|c|c|c|}
+			\hline
+			$n$ & $x$ & $f(x)$ & $\frac{dy}{dx}$ \\
+			\hline \hline
+			$0$ & $-1$ & $1$ & $-5$ \\
+			\hline
+			$1$ & $1$ & $-9$ & $28$ \\
+			\hline
+			$2$ & $3$ & $47$ & \\
+			\hline
+		\end{tabular}
+	\end{table}
+
+	Therefore, using Euler's method, we have concluded that $f(3) \approx 47$. Notice that by changing the value of $\Delta x$, the value and accuracy of the final approximation can change drastically.
+\end{enumerate}
 
 \subsection{Separable Differential Equations}
+In a separable differential equation, the variables can be rearranged so that all the $x$'s are on one side, while all the $y$'s are on the other. Doing so makes it possible to separately integrate both sides of the equation.
+
+Not all differential equations are separable. For an equation to be separable, it must be either the product or quotient of $f(x)$ and $g(y)$. For example, they may be in the form:
+\[ \frac{dy}{dx} = f(x) g(y) \quad \text{or} \quad \frac{dy}{dx} = \frac{g(y)}{f(x)}. \]
+Some more examples of both separable and non-separable differential equations are listed below:
+\begin{enumerate}
+	\item The equation: $\frac{dy}{dx} = 3x + 4y$ is not separable, as it is the sum of two functions.
+	\item The equation: $\frac{dy}{dx} = 2^{x - y}$ is separable. It can be rearranged to be the product of $f(x)$ and $g(y)$ as follows:
+	\[ 2^{x - y} = 2^x \cdot 2^{-y}. \]
+	\item The equation: $\frac{dy}{dx} = 5y - x^2 y$ is separable. It can be rearranged to be the product of $f(x)$ and $g(y)$ as follows:
+	\[ 5y - x^2 y = (5 - x^2) \cdot y. \]
+\end{enumerate}
 
 \subsubsection{General Solutions}
 
