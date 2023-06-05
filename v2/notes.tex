@@ -943,13 +943,19 @@ An \textit{absolute} extremum is a point where the function is at its largest or
 	\end{tabular}
 \end{table}
 
-\noindent Therefore, it can be concluded that the absolute maximum of $f(x)$ is at $x = 1$. The $y$ values for $x = -2$ and $x = 0$ are the same, so both are absolute minimums.
+\noindent Therefore, it can be concluded that the absolute maximum of $f(x)$ is at $x = 1$. The $y$ values for $x = -2$ and $x = 0$ are the same, so both are absolute minimums. The function $f(x)$ is shown in Figure \ref{fig:global_extrema}.
+\begin{figure}[H]
+	\centering
+	\frame{\includegraphics[width=0.4\textwidth]{images/fig7.JPG}}
+	\caption{$f(x) = x^3 + 2x^2 \{ -2 \leq x \leq 1 \}$}
+	\label{fig:global_extrema}
+\end{figure}
 
 \subsubsection{Concavity and Points of Inflection}
 \label{sec:concavity}
 Concavity is the sign of curvature of a function. Parts of a graph can either be \textit{concave up} or \textit{concave down}. When the concavity is concave up, the first derivative is increasing, thus the second derivative is positive. Inversely, when the concavity is concave down, the first derivative is decreasing, thus the second derivative is negative.
 
-Inflection points are where the concavity flips. At inflection points both the first and second derivatives are $0$. Furthermore, at points of inflection the sign of the second derivative changes.
+Inflection points are where the concavity flips. That is, at a point of inflection, the second derivative equals $0$. Furthermore, the sign of the second derivative changes.
 
 \begin{figure}[H]
 	\begin{center}
@@ -1794,9 +1800,55 @@ An exponential equation involves a function whose derivative is proportional to 
 	Putting everything together:
 	\[ B(t) = 5.4 e^{\frac{\ln 2}{6} t} = 5.4 \cdot 2^{\frac{t}{6}}. \]
 
-	Thus in $10$ years, the company will be making $B(10) \approx 17$ million barrels of oil.
+	Thus, in $10$ years, the company will be making $B(10) \approx 17$ million barrels of oil.
 \end{enumerate}
 
 \subsection{Logistic Growth Model Equations}
+A logistic growth model is an s-shaped curve that starts by growing rapidly before slowing down as it approaches its \textit{carrying capacity}.
+
+One application of the logistic growth model is in modelling population. The change in population is proportional to the product of the population at the time, $P$, and the difference between $1$ and the population over the carrying capacity, $C$. The differential equation for this is:
+\[ \frac{dP}{dt} = kp \left( 1 - \frac{P}{C} \right). \]
+
+\begin{figure}[H]
+	\centering
+	\frame{\includegraphics[width=0.6\textwidth]{images/fig14.JPG}}
+	\caption{Logisitic equation, $P(t)$.}
+\end{figure}
+
+\noindent \textbf{Examples:}
+\begin{enumerate}
+	\item Find the carrying capacity of the following logistic growth:
+	\[ \frac{dP}{dt} = \frac{1}{50} P (35000 - P). \]
+
+	For any logistic model $P$, the rate of change $\frac{dP}{dt}$ will be $0$ at the carrying capacity (the population stops growing).
+	\begin{gather*}
+		\frac{dP}{dt} = 0 \\[5pt]
+		\frac{1}{50} P (35000 - P) = 0 \\[5pt]
+		P = 0, \; 35000
+	\end{gather*}
+
+	$P = 0$ is at the start of the model, so $P = 35000$ is the carrying capacity.
+
+	\item At what value $N$ does the following logistic model grow the quickest?
+	\[ \frac{dN}{dt} = N \left( 1 - \frac{N}{180} \right) \]
+
+	The point at which the logistic model grows the quickest is when the derivative changes from increaseing to decreasing. This is at its point of inflection. Recall that the point of inflection occurs when the second derivative equals $0$, or when $\frac{d^2 N}{dt^2} = 0$.
+
+	First, find the second derivative:
+	\begin{align*}
+		\frac{dN}{dt} &= N \left( 1 - \frac{N}{180} \right) \\[5pt]
+		\frac{dN}{dt} &= N - \frac{N^2}{180} \\[5pt]
+		\frac{d^2 N}{dt} &= 1 - \frac{N}{90}.
+	\end{align*}
+
+	Next, find the point of inflection by setting $\frac{d^2 N}{dt} = 0$:
+	\begin{align*}
+		\frac{d^2 N}{dt} &= 0 \\[5pt]
+		1 - \frac{N}{90} &= 0 \\[5pt]
+		N &= 90
+	\end{align*}
+
+	Therefore, the model is growing the quickest at $N = 90$.
+\end{enumerate}
 
 \end{document}
