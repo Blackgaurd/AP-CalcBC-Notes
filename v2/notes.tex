@@ -19,7 +19,7 @@
 \usepackage{tabularx}
 \usepackage{multirow}
 
-\allowdisplaybreaks
+%\allowdisplaybreaks
 \graphicspath{{./images/}}
 \geometry{margin=1.2in}
 \renewcommand{\baselinestretch}{1.5}
@@ -1732,6 +1732,70 @@ Altogether, the steps for using the integrating factor technique are as follows:
 \end{enumerate}
 
 \subsection{Exponential Model Equations}
+An exponential equation involves a function whose derivative is proportional to itself. It is usually in the form $f(x) = C \cdot a^x$, where $C$ and $a$ are both constants.
+
+\noindent \textbf{Examples:}
+\begin{enumerate}
+	\item Solve for $g(x)$, given $g'(x) = -4 g(x)$ and $g(-2) = 12$.
+
+	The first step is to find a general solution for $g(x)$:
+	\begin{align*}
+		g'(x) &= -4 g(x) \\
+		\frac{dy}{dx} &= -4y \\[5pt]
+		\frac{1}{y} \; dy &= -4 \; dx \\[5pt]
+		\int \frac{1}{y} \; dy &= \int -4 \; dx \\[5pt]
+		\ln |y| &= -4x + C \\
+		y &= e^{-4x + C} \\
+		y &= A e^{-4x}.
+	\end{align*}
+
+	Next, we solve for the constant $A$ using $g(-2) = 12$, to find the particular solution for $g(x)$:
+	\begin{align*}
+		g(-2) &= 12 \\
+		A e^{-4 \cdot (-2)} &= 12 \\
+		A e^8 &= 12 \\
+		A &= 12 e^{-8}.
+	\end{align*}
+
+	Putting everything together:
+	\[ g(x) = 12 e^{-8} \cdot e^{-4x} = 12 e^{-4x - 8}. \]
+
+	\item The number of barrels of oil a certain company exports annually increases at a rate that is proportional at any time to the number of barrels they export at that time. The company exported $5.4$ million barrels annually initially, and it exported $10.8$ million barrels annually after $6$ years. \textbf{How many million barrels of oil did the company export after $10$ years?}
+
+	First, we can model the differential equation. Let $B$ be the number of millions of barrels of oil, and $t$ be the time in years. The rate of change of barrels is proportional to the number of barrels, so:
+	\[ \frac{dB}{dt} = kB \]
+	for some constant $k$.
+
+	Let $B(t)$ be the function that represents the number of barrels exported at time $t$. From the question, we are given:
+	\[ B(0) = 5.4 \quad \text{and} \quad B(6) = 10.8. \]
+
+	Thus, we can first solve for a general solution to $B(t)$:
+	\begin{align*}
+		\frac{dB}{dt} &= kB \\[5pt]
+		\frac{1}{B} \; dB &= k \; dt \\[5pt]
+		\int \frac{1}{B} \; dB &= \int k \; dt \\[5pt]
+		\ln |B| &= kt + C \\
+		B(t) &= e^{kt + C} \\
+		B(t) &= A e^{kt}.
+	\end{align*}
+
+	Using the two given points of data, we can solve for $A$ and $k$ to find the particular solution:
+	\begin{align*}
+		B(0) &= 5.4 \\
+		A e^{0k} &= 5.4 \\
+		A &= 5.4 \\[12pt]
+		B(6) &= 10.8 \\
+		5.4 e^{6k} &= 10.8 \\
+		e^{6k} &= 2 \\
+		6k &= \ln 2 \\
+		k &= \frac{\ln 2}{6}.
+	\end{align*}
+
+	Putting everything together:
+	\[ B(t) = 5.4 e^{\frac{\ln 2}{6} t} = 5.4 \cdot 2^{\frac{t}{6}}. \]
+
+	Thus in $10$ years, the company will be making $B(10) \approx 17$ million barrels of oil.
+\end{enumerate}
 
 \subsection{Logistic Growth Model Equations}
 
